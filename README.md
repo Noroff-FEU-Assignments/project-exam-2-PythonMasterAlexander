@@ -1,8 +1,11 @@
 # Project Exam 2
+
 ## Goal
+
 To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate's general development capabilities, in addition to visual and technical skills.
 
 ## Brief
+
 An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
 
 ## Requirements
@@ -20,7 +23,8 @@ The API you are using for this project can be found under Social EndPoints in th
 
 ### User Stories
 
-The client has specified the following requirements in the form of *User Stories*:
+The client has specified the following requirements in the form of _User Stories_:
+
 1. A user with a `stud.noroff.no` email may register
 2. A registered user may login
 3. A registered user may update their avatar and banner
@@ -39,6 +43,7 @@ The client has specified the following requirements in the form of *User Stories
 ### Technical Restrictions
 
 The company CTO has set the following technical restrictions:
+
 1. Must use an approved `JavaScript Framework`
 2. Must use an approved `CSS Framework`
 3. Must be hosted on an approved `Static Host`
@@ -48,6 +53,7 @@ The company CTO has set the following technical restrictions:
 ### Required Links
 
 The Product Owner has requested links to the following:
+
 1. A Gantt chart for project timing
 2. A design prototype
 3. A style guide
@@ -56,12 +62,15 @@ The Product Owner has requested links to the following:
 6. A hosted application demo link
 
 ## Approved Resources
+
 This list covers libraries and services that have been vetted by the company and approved for use.
 
 ### JavaScript Frameworks
+
 - React (>16)
 
 ### CSS Frameworks
+
 - Bootstrap (>5)
 - Tailwind (>3)
 - MUI (>5)
@@ -69,19 +78,23 @@ This list covers libraries and services that have been vetted by the company and
 - CSS Modules
 
 ### Hosting Services
+
 - GitHub Pages
 - Netlify
 
 ### Design Applications
+
 - Adobe XD
 - Figma
 - Sketch
 
 ### Planning Applications
+
 - Trello
 - GitHub Projects
 
 ## Delivery
+
 Include the required links in the Moodle delivery window using [this template format](delivery-template.html).
 
 All final changes must be merged into the default branch `main` or `master`. Other branches will not be checked.
