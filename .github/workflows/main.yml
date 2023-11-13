@@ -1,0 +1,13 @@
+#The main workflow Actions file where instructions on push and merge into the main branch are written
+name: exam-project-2
+run-name: ${{ github.actor }} are doing a push/pull request to the main branch
+on: 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+push-pull-request-job:
+  runs-on: ubuntu-latest
+  steps:
