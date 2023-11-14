@@ -1,5 +1,5 @@
-#The main workflow Actions file where instructions on push and merge into the main branch are written
-name: Format on pull request 
+#This workflow YML file are doing a job when a pull request is opend and ned a review from the owner to finish
+name: Format and Check on Pull Request 
 on: 
   pull_request:
     branches: [ "main" ]
@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with: 
           ref: ${{ github.head_ref }}
 
-      - name: Setu up NodeJS
-      - uses: actions/setup-node@v3
+      - name: Set up NodeJS
+        uses: actions/setup-node@v3
         with:
           node-version: "16.x" 
 
@@ -25,5 +25,5 @@ jobs:
         run: npm run check-format-on-pull-request
 
       - name: Print message
-        run: echo "{{ github.actor }} is doing a pull request into the main branch"
+        run: echo "${{ github.actor }} is doing a pull request into the main branch"
 
