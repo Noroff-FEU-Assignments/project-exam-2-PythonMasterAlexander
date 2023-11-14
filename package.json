@@ -26,8 +26,9 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "prettier": "prettier src/**/*.{ts,tsx} --write",
+    "lint": "eslint src/**/*.{ts,tsx}",
     "check-prettier": "prettier src/**/*.{ts,tsx} --check",
-    "lint": "eslint src/**/*.{ts,tsx}"
+    "check-format-on-pull-request": "npm run check-prettier && npm run lint"
   },
   "eslintConfig": {
     "extends": [
