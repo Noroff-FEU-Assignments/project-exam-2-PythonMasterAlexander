@@ -1,5 +1,5 @@
 #The main workflow Actions file where instructions on push and merge into the main branch are written
-name: exam-project-2
+name: Format on pull request 
 on: 
   pull_request:
     branches: [ "main" ]
@@ -8,10 +8,12 @@ jobs:
   check-format-on-pull-request:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 
       - uses: actions/checkout@v3
         with: 
           ref: ${{ github.head_ref }}
 
+      - name: Setu up NodeJS
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x" 
