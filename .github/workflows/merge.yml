@@ -30,6 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push tag and changes 
-        run: git push origin HEAD:${{ github.ref }} --tags 
+        run: | 
+          git push origin HEAD:${{ github.ref }} --tags 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
