@@ -1,10 +1,12 @@
+import PageHeader from "../PageHeader";
+import PageFooter from "../PageFooter";
 import { Outlet } from "react-router-dom";
 export default function PageLayout() {
   return (
     <>
-      {/*Here commes the Header*/}
+      <PageHeader />
       <Outlet />
-      {/*Here commes the Footer*/}
+      <PageFooter />
     </>
   );
 }
