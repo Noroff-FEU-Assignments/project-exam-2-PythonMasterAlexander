@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-export default function PageLayouts() {
+export default function PageLayout() {
   return (
     <>
       {/*Here commes the Header*/}

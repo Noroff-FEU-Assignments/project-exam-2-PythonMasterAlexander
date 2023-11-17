@@ -1,10 +1,10 @@
 import LandingPage from "./pages/LandingPage";
-import PageLayouts from "./components/PageLayouts";
+import PageLayout from "./components/PageLayout";
 import { Routes, Route } from "react-router-dom";
 export default function PageApplication() {
   return (
     <Routes>
-      <Route path="/" element={<PageLayouts />}>
+      <Route path="/" element={<PageLayout />}>
         <Route index element={<LandingPage />} />
       </Route>
     </Routes>
