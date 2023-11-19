@@ -1,5 +1,6 @@
 import LandingPage from "./pages/LandingPage";
 import PageLayout from "./components/PageLayout";
+import "./tailwind.css";
 import { Routes, Route } from "react-router-dom";
 export default function PageApplication() {
   return (
