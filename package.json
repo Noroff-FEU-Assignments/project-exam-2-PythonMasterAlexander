@@ -23,7 +23,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "BROWSER=firefox react-scripts start",
+    "build:tailwind": "npx tailwindcss build -o ./src/tailwind.css",
+    "watch:tailwind": "npx tailwindcss build -o ./src/tailwind.css --watch",
+    "start": "BROWSER=firefox react-scripts start && watch:tailwind",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
