@@ -8,8 +8,8 @@ export default {
         sans: ['"Poppins"'],
       },
       colors: {
-        white: "#f8fafc",
-        black: "#1e293b",
+        white: "#f8fafc", //Light mode background color
+        black: "#1e293b", //Dark mode background color
       },
     },
   },
