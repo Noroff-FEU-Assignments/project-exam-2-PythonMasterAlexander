@@ -3,7 +3,11 @@ export default {
   content: ["./src/**/*.{js,ts,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['"Poppins"'],
+      },
+    },
   },
   plugins: [],
 } satisfies Config;
