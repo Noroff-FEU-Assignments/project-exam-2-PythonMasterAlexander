@@ -24,7 +24,7 @@
   "scripts": {
     "build:tailwind": "npx tailwindcss build -o ./src/tailwind.css",
     "watch:tailwind": "npx tailwindcss build -o ./src/tailwind.css --watch",
-    "start": "BROWSER=firefox react-scripts start && watch:tailwind",
+    "start": "concurrently \"BROWSER=firefox react-scripts start\" \"npm run watch:tailwind\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "eslint": "^8.53.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",

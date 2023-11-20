@@ -17,13 +17,13 @@ export default function LandingPage() {
             <input />
           </div>
           <div>
-            <Link to={"/"} className="font-bold">
+            <Link to={"/"} className="uppercase font-bold">
               Login
             </Link>
           </div>
           <div>
             <Link to={"/"}>
-              <strong className="font-bold">OR</strong> create user
+              <strong className="uppercase">Or</strong> create user
             </Link>
           </div>
         </section>
