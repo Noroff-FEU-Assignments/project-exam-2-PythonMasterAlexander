@@ -9,6 +9,7 @@ export default {
       },
       colors: {
         white: "#f8fafc",
+        black: "#1e293b",
       },
     },
   },
