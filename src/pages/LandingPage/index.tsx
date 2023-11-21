@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 export default function LandingPage() {
   return (
     <>
-      <main className="flex flex-col items-center justify-center h-screen text-sm">
+      <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
+        <section></section>
         <section>
-          <h2 className="my-8 text-base font-medium">Sign in</h2>
-        </section>
-        <section>
+          <h2 className="text-center my-8 text-base font-medium">Sign in</h2>
           <div className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg">
             <div>
               <label className="block">User name</label>
@@ -27,6 +26,9 @@ export default function LandingPage() {
               </Link>
             </div>
           </div>
+        </section>
+        <section>
+          <img />
         </section>
         <div className="m-8">
           <span>Dark mode</span>
