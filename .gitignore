@@ -6,6 +6,8 @@
 /coverage
 # production
 /build
+# dist directory
+/dist
 # misc
 .DS_Store
 .env.local
