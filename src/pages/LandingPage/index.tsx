@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export default function LandingPage() {
   return (
     <>
-      <main className="flex items-center justify-center h-screen">
+      <main className="flex flex-col items-center justify-center h-screen">
         {/*
         <section>
         </section>
@@ -27,16 +27,14 @@ export default function LandingPage() {
             </Link>
           </div>
         </section>
-        {/*
         <section>
           <div>
             <span>Dark mode</span>
             <span>
-              Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol
+              {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
             </span>
           </div>
         </section>
-        */}
       </main>
     </>
   );
