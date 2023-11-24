@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "check-prettier": "prettier ./src/**/*.* --check",
-    "prettier": "prettier ./src/**/*.*"
+    "prettier": "prettier ./src/**/*.*",
+    "check-format-on-pull-request": "npm run check-prettier && npm run lint"
   },
   "dependencies": {
     "react": "^18.2.0",
