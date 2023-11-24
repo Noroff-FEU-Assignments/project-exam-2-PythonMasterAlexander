@@ -90,6 +90,7 @@ export default function LandingPage() {
           <div className="m-8 text-center">
             <span>Dark mode</span>
             <span>
+              pull-request-test
               {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
             </span>
           </div>
