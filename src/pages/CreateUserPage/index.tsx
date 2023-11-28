@@ -1,4 +1,4 @@
-export default function UserHomePage() {
+export default function CreateUserPage() {
   return (
     <>
       <main></main>
