@@ -82,7 +82,7 @@ export default function LandingPage() {
               </Link>
             </div>
             <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
-              <Link to={"/"}>
+              <Link to={"create-user-page"}>
                 <strong className="uppercase font-bold">Or</strong> create user
               </Link>
             </div>
