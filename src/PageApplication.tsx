@@ -8,7 +8,7 @@ export default function PageApplication() {
   return (
     <Routes>
       <Route path="/" element={<PageLayout />}>
-        <Route path="landing-page" index element={<LandingPage />} />
+        <Route index element={<LandingPage />} />
         <Route path="user-landing-page" element={<UserLandingPage />} />
         <Route path="create-user-page" element={<CreateUserPage />} />
       </Route>
