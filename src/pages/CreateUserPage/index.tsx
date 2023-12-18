@@ -1,37 +1,53 @@
+import { userSchema } from "../../utils/userSchema";
+import {
+  CreateUser,
+  WelcomeToNetSocial,
+} from "./../../components/CreateUserHeading";
+import { FormData } from "./types";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
+
 export default function CreateUserPage() {
+  const { handleSubmit } = useForm({ resolver: yupResolver(userSchema) });
+  const isRegisterUserSuccessful: boolean = false;
+
+  function submitUserForm(data: FormData) {
+    console.log(data);
+  }
   return (
     <>
-      <main>
-        <form>
-          <h1>
-            Create User{" "}
-            {/*Use conditional rendering
-          if create user are successful show Welcome to -logo goes after- 
-          create this as component that get called*/}
-          </h1>
+      <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
+        {isRegisterUserSuccessful ? <WelcomeToNetSocial /> : <CreateUser />}
+        <form
+          onSubmit={handleSubmit(submitUserForm)}
+          className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
+        >
           <fieldset>
             <div>
-              <label>Choose a username</label>
-              <span>*</span>
-              <input />
+              <label className="block">Choose a username</label>
+              <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
             </div>
             <div>
-              <label>Choose a password</label>
-              <span>*</span>
-              <input />
+              <label className="block">Choose a password</label>
+              <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
             </div>
-            <div>
+            <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
               <button>Create User</button>
             </div>
-            <div>
+            <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
               <Link to={"/"}>
                 <strong>OR</strong> go back
               </Link>
             </div>
           </fieldset>
         </form>
-        <div></div>
+        <div className="m-8 text-center">
+          <span>Dark mode</span>
+          <span>
+            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
+          </span>
+        </div>
       </main>
     </>
   );
