@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { API_LOGIN } from "./../../api/constants";
 export default function LandingPage() {
+  console.log(API_LOGIN);
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
@@ -67,7 +69,10 @@ export default function LandingPage() {
             </Link>
           </h1>
           <h2 className="text-center my-8 text-base font-medium">Sign in</h2>
-          <div className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg">
+          <form
+            id="login-user"
+            className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
+          >
             <div>
               <label className="block">User name</label>
               <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
@@ -84,7 +89,7 @@ export default function LandingPage() {
                 <strong className="uppercase font-bold">Or</strong> create user
               </Link>
             </div>
-          </div>
+          </form>
           <div className="m-8 text-center">
             <span>Dark mode</span>
             <span>

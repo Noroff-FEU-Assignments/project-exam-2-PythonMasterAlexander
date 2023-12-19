@@ -3,6 +3,7 @@ import { FormData } from "./types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
+import { API_REGISTER } from "./../../api/constants";
 
 export default function CreateUserPage() {
   const { handleSubmit } = useForm({ resolver: yupResolver(userSchema) });
@@ -10,11 +11,13 @@ export default function CreateUserPage() {
   function submitUserForm(data: FormData) {
     console.log(data);
   }
+  console.log(API_REGISTER);
   return (
     <>
       <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
         <h1 className="m-8 text-4xl">Create user</h1>
         <form
+          id="register-user"
           onSubmit={handleSubmit(submitUserForm)}
           className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
