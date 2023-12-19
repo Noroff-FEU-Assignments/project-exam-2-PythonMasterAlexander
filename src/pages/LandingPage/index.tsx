@@ -77,9 +77,7 @@ export default function LandingPage() {
               <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
             </div>
             <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
-              <Link to={"/"} className="uppercase font-bold">
-                Login
-              </Link>
+              <button className="uppercase font-bold">Login</button>
             </div>
             <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
               <Link to={"create-user-page"}>

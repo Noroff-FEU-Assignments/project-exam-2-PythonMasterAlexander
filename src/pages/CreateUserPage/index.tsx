@@ -36,6 +36,15 @@ export default function CreateUserPage() {
               </Link>
             </div>
           </fieldset>
+          {/*
+          {
+            "name": "2FIClUOEx7vkeou43Tbd",
+            "email": "user@example.com",
+            "banner": "string",
+            "avatar": "string",
+            "password": "stringst"
+            }
+          */}
         </form>
         <div className="m-8 text-center">
           <span>Dark mode</span>
