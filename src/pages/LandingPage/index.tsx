@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { API_LOGIN } from "./../../api/constants";
+//import { API_LOGIN } from "./../../api/constants";
 export default function LandingPage() {
-  console.log(API_LOGIN);
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
