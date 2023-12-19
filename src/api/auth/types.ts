@@ -1,5 +1,5 @@
 export interface FormData {
-  name: string;
+  fullName: string;
   email: string;
   password: string;
 }
