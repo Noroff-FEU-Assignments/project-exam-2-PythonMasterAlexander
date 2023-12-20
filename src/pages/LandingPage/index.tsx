@@ -36,7 +36,7 @@ export default function LandingPage() {
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
             onSubmit={handleSubmit(loginUser)}
           >
-            <p>{isError && errorMessage}</p>
+            <p className="text-red-500">{isError && errorMessage}</p>
             <div>
               <label className="block">Email</label>
               <input

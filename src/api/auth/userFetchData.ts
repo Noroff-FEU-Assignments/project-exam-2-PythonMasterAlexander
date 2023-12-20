@@ -28,6 +28,8 @@ export const registerUserFetchData = async (
         });
       }
     } else {
+      //Remove this alert when finished
+      window.alert("user was created");
       setSuccessMessage("User registered successfully");
     }
   } catch (error) {
@@ -52,7 +54,6 @@ export const loginUserFetchData = async (
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log("Error: ", errorData);
       if (errorData.errors && Array.isArray(errorData.errors)) {
         errorData.errors.forEach((error: ApiErrorMessage) => {
           setIsError(true);
@@ -60,7 +61,8 @@ export const loginUserFetchData = async (
         });
       }
     } else {
-      console.log("Success");
+      //Remove this alert when finished
+      window.alert("Loged in");
     }
   } catch (error) {
     console.log("Error during API request: ", error);

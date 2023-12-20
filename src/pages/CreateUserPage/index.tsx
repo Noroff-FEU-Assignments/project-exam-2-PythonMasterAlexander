@@ -38,7 +38,9 @@ export default function CreateUserPage() {
           className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
-            <p>{isError ? errorMessage : successMessage}</p>
+            <p className="text-red-500">
+              {isError ? errorMessage : successMessage}
+            </p>
             <div>
               <label className="block">Choose a username</label>
               <input
