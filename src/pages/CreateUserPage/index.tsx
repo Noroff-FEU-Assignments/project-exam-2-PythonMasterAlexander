@@ -1,5 +1,5 @@
-import { userSchema } from "../../utils/userSchema";
-import { FormData, ApiErrorMessage } from "./types";
+import { userRegisterSchema } from "../../utils/userSchema";
+import { RegisterApiFormData, ApiErrorMessage } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
@@ -14,11 +14,11 @@ export default function CreateUserPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
-    resolver: yupResolver(userSchema),
+  } = useForm<RegisterApiFormData>({
+    resolver: yupResolver(userRegisterSchema),
   });
 
-  const registerUser = async (data: FormData) => {
+  const registerUser = async (data: RegisterApiFormData) => {
     try {
       const response = await fetch(API_REGISTER, {
         method: "POST",

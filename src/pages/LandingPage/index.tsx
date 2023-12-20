@@ -1,6 +1,48 @@
+import { userLoginSchema } from "../../utils/userSchema";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-//import { API_LOGIN } from "./../../api/constants";
+import { LoginApiFormData, ApiErrorMessage } from "../../api/types";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { API_LOGIN } from "./../../api/constants";
 export default function LandingPage() {
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginApiFormData>({
+    resolver: yupResolver(userLoginSchema),
+  });
+
+  const loginUser = async (data: LoginApiFormData) => {
+    try {
+      const response = await fetch(API_LOGIN, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log("Error: ", errorData);
+        if (errorData.errors && Array.isArray(errorData.errors)) {
+          errorData.errors.forEach((error: ApiErrorMessage) => {
+            setIsError(true);
+            setErrorMessage(error.message);
+          });
+        }
+      } else {
+        console.log("Success");
+      }
+    } catch (error) {
+      console.log("Error during API request: ", error);
+    }
+  };
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
@@ -71,14 +113,24 @@ export default function LandingPage() {
           <form
             id="login-user"
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
+            onSubmit={handleSubmit(loginUser)}
           >
+            <p>{isError && errorMessage}</p>
             <div>
-              <label className="block">User name</label>
-              <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
+              <label className="block">Email</label>
+              <input
+                {...register("email")}
+                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+              />
+              <p className="text-red-500">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block">Password</label>
-              <input className="rounded h-10 border-[#cbd5e1] border-2 mt-1" />
+              <input
+                {...register("password")}
+                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+              />
+              <p className="text-red-500">{errors.password?.message}</p>
             </div>
             <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
               <button className="uppercase font-bold">Login</button>
