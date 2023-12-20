@@ -1,11 +1,15 @@
 import { userSchema } from "../../utils/userSchema";
-import { FormData } from "./types";
+import { FormData, ApiErrorMessage } from "./types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 import { API_REGISTER } from "./../../api/constants";
-
+import { useState } from "react";
 export default function CreateUserPage() {
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
+  const [successMessage, setSuccessMessage] = useState<string | undefined>();
+
   const {
     register,
     handleSubmit,
@@ -26,34 +30,19 @@ export default function CreateUserPage() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error("API Error: ", errorData);
-        // Check if the errors array is present in the API response
         if (errorData.errors && Array.isArray(errorData.errors)) {
-          // Handle specific errors from the errors array
-          interface ApiError {
-            field: string;
-            message: string;
-            // Add other properties if needed
-          }
-          errorData.errors.forEach((error: ApiError) => {
-            // Log or handle each error
-            console.error("API Validation Error:", error);
-            // Example: Update form errors based on the API response
-            // setError(error.fieldName, { type: 'manual', message: error.errorMessage });
+          errorData.errors.forEach((error: ApiErrorMessage) => {
+            setIsError(true);
+            setErrorMessage(error.message);
           });
         }
-
-        throw new Error("Registration failed");
       } else {
-        console.log("User registered successfully");
+        setSuccessMessage("User registered successfully");
       }
     } catch (error) {
-      console.error("Error during API request: ", error);
+      console.log("Error during API request: ", error);
     }
-    console.log(errors);
-    console.log(data);
   };
-  console.log(API_REGISTER, errors);
   return (
     <>
       <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
@@ -64,12 +53,14 @@ export default function CreateUserPage() {
           className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
+            <p>{isError ? errorMessage : successMessage}</p>
             <div>
               <label className="block">Choose a username</label>
               <input
                 {...register("name")}
                 className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
+              <p className="text-red-500">{errors.name?.message}</p>
             </div>
             <div>
               <label className="block mt-6">Write you email</label>
@@ -77,6 +68,7 @@ export default function CreateUserPage() {
                 {...register("email")}
                 className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
+              <p className="text-red-500">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block">Choose a password</label>
@@ -84,6 +76,7 @@ export default function CreateUserPage() {
                 {...register("password")}
                 className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
+              <p className="text-red-500">{errors.password?.message}</p>
             </div>
             <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
               <button className="uppercase font-bold">Create User</button>

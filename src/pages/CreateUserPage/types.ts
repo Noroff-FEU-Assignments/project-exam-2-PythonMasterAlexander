@@ -3,3 +3,7 @@ export interface FormData {
   email: string;
   password: string;
 }
+export interface ApiErrorMessage {
+  field: string;
+  message: string;
+}
