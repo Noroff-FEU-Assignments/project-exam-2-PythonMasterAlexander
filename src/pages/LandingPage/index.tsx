@@ -1,8 +1,9 @@
 import LogoLink from "../../components/LogoLink";
+import { loginUserFetchData } from "../../api/auth/userFetchData";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { LoginApiFormData, ApiErrorMessage } from "../../api/types";
+import { LoginApiFormData } from "../../api/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
@@ -19,31 +20,9 @@ export default function LandingPage() {
   });
 
   const loginUser = async (data: LoginApiFormData) => {
-    try {
-      const response = await fetch(API_LOGIN, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.log("Error: ", errorData);
-        if (errorData.errors && Array.isArray(errorData.errors)) {
-          errorData.errors.forEach((error: ApiErrorMessage) => {
-            setIsError(true);
-            setErrorMessage(error.message);
-          });
-        }
-      } else {
-        console.log("Success");
-      }
-    } catch (error) {
-      console.log("Error during API request: ", error);
-    }
+    await loginUserFetchData(API_LOGIN, data, setIsError, setErrorMessage);
   };
+
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">

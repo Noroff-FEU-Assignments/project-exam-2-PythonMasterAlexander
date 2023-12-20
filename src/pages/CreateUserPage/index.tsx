@@ -1,10 +1,11 @@
 import { userRegisterSchema } from "../../utils/userSchema";
-import { RegisterApiFormData, ApiErrorMessage } from "../../api/types";
+import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 import { API_REGISTER } from "./../../api/constants";
 import { useState } from "react";
+import { registerUserFetchData } from "../../api/auth/userFetchData";
 export default function CreateUserPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -19,29 +20,13 @@ export default function CreateUserPage() {
   });
 
   const registerUser = async (data: RegisterApiFormData) => {
-    try {
-      const response = await fetch(API_REGISTER, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        if (errorData.errors && Array.isArray(errorData.errors)) {
-          errorData.errors.forEach((error: ApiErrorMessage) => {
-            setIsError(true);
-            setErrorMessage(error.message);
-          });
-        }
-      } else {
-        setSuccessMessage("User registered successfully");
-      }
-    } catch (error) {
-      console.log("Error during API request: ", error);
-    }
+    await registerUserFetchData(
+      API_REGISTER,
+      data,
+      setIsError,
+      setErrorMessage,
+      setSuccessMessage,
+    );
   };
   return (
     <>
