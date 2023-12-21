@@ -36,7 +36,6 @@ export const registerUserFetchData = async (
     console.log("Error during API request: ", error);
   }
 };
-
 export const loginUserFetchData = async (
   url: string,
   data: LoginApiFormData,

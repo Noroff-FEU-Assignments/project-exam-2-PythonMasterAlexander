@@ -26,7 +26,7 @@ export default function LandingPage() {
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
-        <section>
+        <section className="mx-8">
           <h1 className="flex justify-center">
             <LogoLink />
           </h1>
@@ -41,17 +41,17 @@ export default function LandingPage() {
               <label className="block">Email</label>
               <input
                 {...register("email")}
-                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
-              <p className="text-red-500">{errors.email?.message}</p>
+              <p className="text-red-500 mt-1">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block">Password</label>
               <input
                 {...register("password")}
-                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
-              <p className="text-red-500">{errors.password?.message}</p>
+              <p className="text-red-500 mt-1">{errors.password?.message}</p>
             </div>
             <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
               <button className="uppercase font-bold">Login</button>

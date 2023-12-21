@@ -35,7 +35,7 @@ export default function CreateUserPage() {
         <form
           id="register-user"
           onSubmit={handleSubmit(registerUser)}
-          className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
+          className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
             <p className="text-red-500">
@@ -45,7 +45,7 @@ export default function CreateUserPage() {
               <label className="block">Choose a username</label>
               <input
                 {...register("name")}
-                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
               <p className="text-red-500">{errors.name?.message}</p>
             </div>
@@ -53,7 +53,7 @@ export default function CreateUserPage() {
               <label className="block mt-6">Write you email</label>
               <input
                 {...register("email")}
-                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
               <p className="text-red-500">{errors.email?.message}</p>
             </div>
@@ -61,7 +61,7 @@ export default function CreateUserPage() {
               <label className="block">Choose a password</label>
               <input
                 {...register("password")}
-                className="rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
               />
               <p className="text-red-500">{errors.password?.message}</p>
             </div>
