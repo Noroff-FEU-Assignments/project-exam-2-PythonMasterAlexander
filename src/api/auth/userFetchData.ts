@@ -28,8 +28,6 @@ export const registerUserFetchData = async (
         });
       }
     } else {
-      //Remove this alert when finished
-      window.alert("user was created");
       setSuccessMessage("User registered successfully");
     }
   } catch (error) {

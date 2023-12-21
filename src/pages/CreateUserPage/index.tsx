@@ -2,7 +2,7 @@ import { userRegisterSchema } from "../../utils/userSchema";
 import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_REGISTER } from "./../../api/constants";
 import { useState } from "react";
 import { registerUserFetchData } from "../../api/auth/userFetchData";
@@ -10,6 +10,7 @@ export default function CreateUserPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,13 +21,23 @@ export default function CreateUserPage() {
   });
 
   const registerUser = async (data: RegisterApiFormData) => {
-    await registerUserFetchData(
-      API_REGISTER,
-      data,
-      setIsError,
-      setErrorMessage,
-      setSuccessMessage,
-    );
+    try {
+      await registerUserFetchData(
+        API_REGISTER,
+        data,
+        setIsError,
+        setErrorMessage,
+        setSuccessMessage,
+      ).then(() => {
+        //Try and redirect to welcome-to-net-social-page
+        if (!isError && successMessage) {
+          navigate("/welcome-to-net-social-page");
+          console.log("Navigating to /success-route");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
