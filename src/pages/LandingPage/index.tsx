@@ -1,58 +1,52 @@
 import LogoLink from "../../components/LogoLink";
 import { userLoginSchema } from "../../utils/userSchema";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginApiFormData, ApiErrorMessage } from "../../api/types";
+import { LoginApiFormData } from "../../api/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
 export default function LandingPage() {
-  const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [formData, setFormData] = useState<LoginApiFormData>();
+  const [successMessage, setSuccessMessage] = useState<string | undefined>();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LoginApiFormData>({
     resolver: yupResolver(userLoginSchema),
   });
-  useEffect(() => {
-    const loginUserFetchData = async (data: LoginApiFormData) => {
-      try {
-        const response = await fetch(API_LOGIN, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          if (errorData.errors && Array.isArray(errorData.errors)) {
-            errorData.errors.forEach((error: ApiErrorMessage) => {
-              setIsError(true);
-              setErrorMessage(error.message);
-            });
-          }
-        } else {
-          //Remove this alert when finished
-          console.log("logged in");
-          navigate("/user-profile-page");
-        }
-      } catch (error) {
-        console.log("Error during API request: ", error);
+  const onSubmit = async function (data: LoginApiFormData) {
+    try {
+      setErrorMessage(undefined);
+      setSuccessMessage(undefined);
+
+      const response = await fetch(API_LOGIN, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setErrorMessage(
+          errorData.errors?.[0].message ?? "There was an error doing a login",
+        );
+      } else {
+        setSuccessMessage("User login successfully");
+        reset();
+        navigate("/user-profile-page");
       }
-    };
-    if (formData) {
-      loginUserFetchData(formData);
+    } catch (error) {
+      console.log("Error during API request: ", error);
+      setErrorMessage("There was an error registering the user");
     }
-  }, [formData, navigate]);
-
-  const onSubmit = function (data: LoginApiFormData) {
-    setFormData(data);
   };
   return (
     <>
@@ -67,7 +61,10 @@ export default function LandingPage() {
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <p className="text-red-500">{isError && errorMessage}</p>
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {successMessage && (
+              <p className="text-green-500">{successMessage}</p>
+            )}
             <div>
               <label className="block">Email</label>
               <input

@@ -4,62 +4,51 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { API_REGISTER } from "./../../api/constants";
-import { useState, useEffect } from "react";
-import { ApiErrorMessage } from "../../api/types";
+import { useState } from "react";
 export default function CreateUserPage() {
-  const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
-  const [formData, setFormData] = useState<RegisterApiFormData>();
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<RegisterApiFormData>({
     resolver: yupResolver(userRegisterSchema),
   });
-  useEffect(() => {
-    async function registerUserFetchData(data: RegisterApiFormData) {
-      try {
-        const response = await fetch(API_REGISTER, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          if (errorData.errors && Array.isArray(errorData.errors)) {
-            errorData.errors.forEach((error: ApiErrorMessage) => {
-              console.log("Error", error);
-              setIsError(true);
-              setErrorMessage(error.message);
-            });
-          }
-        } else {
-          setSuccessMessage("User registered successfully");
-          alert("created");
-          if (!isError && successMessage) {
-            navigate("/welcome-to-net-social-page");
-          }
-          console.log("Successfuly navigated to welcome page");
-        }
-      } catch (error) {
-        console.log("Error during API request: ", error);
+  const onSubmit = async function (data: RegisterApiFormData) {
+    try {
+      setErrorMessage(undefined);
+      setSuccessMessage(undefined);
+
+      const response = await fetch(API_REGISTER, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setErrorMessage(
+          errorData.errors?.[0].message ??
+            "There was an error registering the user",
+        );
+      } else {
+        setSuccessMessage("User registered successfully");
+        reset();
+        navigate("/welcome-to-net-social-page");
       }
+    } catch (error) {
+      console.log("Error during API request: ", error);
+      setErrorMessage("There was an error registering the user");
     }
-    if (formData) {
-      registerUserFetchData(formData);
-    }
-  }, [formData, navigate, isError, successMessage]);
-
-  const onSubmit = function (data: RegisterApiFormData) {
-    setFormData(data);
   };
+
   return (
     <>
       <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
@@ -70,9 +59,10 @@ export default function CreateUserPage() {
           className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
-            <p className="text-red-500">
-              {isError ? errorMessage : successMessage}
-            </p>
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {successMessage && (
+              <p className="text-green-500">{successMessage}</p>
+            )}
             <div>
               <label className="block">Choose a username</label>
               <input
