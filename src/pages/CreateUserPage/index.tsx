@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { API_REGISTER } from "./../../api/constants";
-import { useState } from "react";
-import { registerUserFetchData } from "../../api/auth/userFetchData";
+import { useState, useEffect } from "react";
+import { ApiErrorMessage } from "../../api/types";
 export default function CreateUserPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -19,33 +19,42 @@ export default function CreateUserPage() {
   } = useForm<RegisterApiFormData>({
     resolver: yupResolver(userRegisterSchema),
   });
-
-  const registerUser = async (data: RegisterApiFormData) => {
+  async function registerUserFetchData(data: RegisterApiFormData) {
     try {
-      await registerUserFetchData(
-        API_REGISTER,
-        data,
-        setIsError,
-        setErrorMessage,
-        setSuccessMessage,
-      ).then(() => {
-        //Try and redirect to welcome-to-net-social-page
-        if (!isError && successMessage) {
-          navigate("/welcome-to-net-social-page");
-          console.log("Navigating to /success-route");
-        }
+      const response = await fetch(API_REGISTER, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.errors && Array.isArray(errorData.errors)) {
+          errorData.errors.forEach((error: ApiErrorMessage) => {
+            console.log("Error", error);
+            setIsError(true);
+            setErrorMessage(error.message);
+          });
+        }
+      } else {
+        setSuccessMessage("User registered successfully");
+        navigate("/welcome-to-net-social-page");
+        console.log("Successfuly navigated to welcome page");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Error during API request: ", error);
     }
-  };
+  }
+  useEffect(() => {}, []);
   return (
     <>
       <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
         <h1 className="m-8 text-4xl">Create user</h1>
         <form
           id="register-user"
-          onSubmit={handleSubmit(registerUser)}
+          onSubmit={handleSubmit(registerUserFetchData)}
           className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
