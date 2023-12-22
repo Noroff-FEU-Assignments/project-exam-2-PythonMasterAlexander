@@ -1,7 +1,7 @@
 import LogoLink from "../../components/LogoLink";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LoginApiFormData, ApiErrorMessage } from "../../api/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -10,6 +10,7 @@ export default function LandingPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [formData, setFormData] = useState<LoginApiFormData>();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -38,7 +39,8 @@ export default function LandingPage() {
           }
         } else {
           //Remove this alert when finished
-          window.alert("Loged in");
+          console.log("logged in");
+          navigate("/user-profile-page");
         }
       } catch (error) {
         console.log("Error during API request: ", error);
@@ -47,7 +49,8 @@ export default function LandingPage() {
     if (formData) {
       loginUserFetchData(formData);
     }
-  });
+  }, [formData, navigate]);
+
   const onSubmit = function (data: LoginApiFormData) {
     setFormData(data);
   };

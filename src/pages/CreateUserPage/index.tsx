@@ -42,6 +42,7 @@ export default function CreateUserPage() {
           }
         } else {
           setSuccessMessage("User registered successfully");
+          alert("created");
           if (!isError && successMessage) {
             navigate("/welcome-to-net-social-page");
           }
@@ -54,7 +55,8 @@ export default function CreateUserPage() {
     if (formData) {
       registerUserFetchData(formData);
     }
-  });
+  }, [formData, navigate, isError, successMessage]);
+
   const onSubmit = function (data: RegisterApiFormData) {
     setFormData(data);
   };

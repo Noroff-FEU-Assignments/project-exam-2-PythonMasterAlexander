@@ -1,7 +1,7 @@
 export default function UserLandingPage() {
   return (
     <>
-      <main></main>
+      <main>Hello User profile page</main>
     </>
   );
 }
