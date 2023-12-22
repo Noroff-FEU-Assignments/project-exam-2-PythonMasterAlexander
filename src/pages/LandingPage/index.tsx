@@ -1,16 +1,15 @@
 import LogoLink from "../../components/LogoLink";
-import { loginUserFetchData } from "../../api/auth/userFetchData";
 import { userLoginSchema } from "../../utils/userSchema";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { LoginApiFormData } from "../../api/types";
+import { LoginApiFormData, ApiErrorMessage } from "../../api/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
 export default function LandingPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-
+  const [formData, setFormData] = useState<LoginApiFormData>();
   const {
     register,
     handleSubmit,
@@ -18,11 +17,40 @@ export default function LandingPage() {
   } = useForm<LoginApiFormData>({
     resolver: yupResolver(userLoginSchema),
   });
+  useEffect(() => {
+    const loginUserFetchData = async (data: LoginApiFormData) => {
+      try {
+        const response = await fetch(API_LOGIN, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
 
-  const loginUser = async (data: LoginApiFormData) => {
-    await loginUserFetchData(API_LOGIN, data, setIsError, setErrorMessage);
+        if (!response.ok) {
+          const errorData = await response.json();
+          if (errorData.errors && Array.isArray(errorData.errors)) {
+            errorData.errors.forEach((error: ApiErrorMessage) => {
+              setIsError(true);
+              setErrorMessage(error.message);
+            });
+          }
+        } else {
+          //Remove this alert when finished
+          window.alert("Loged in");
+        }
+      } catch (error) {
+        console.log("Error during API request: ", error);
+      }
+    };
+    if (formData) {
+      loginUserFetchData(formData);
+    }
+  });
+  const onSubmit = function (data: LoginApiFormData) {
+    setFormData(data);
   };
-
   return (
     <>
       <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
@@ -34,7 +62,7 @@ export default function LandingPage() {
           <form
             id="login-user"
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
-            onSubmit={handleSubmit(loginUser)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <p className="text-red-500">{isError && errorMessage}</p>
             <div>
