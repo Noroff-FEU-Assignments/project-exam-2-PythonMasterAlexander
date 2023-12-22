@@ -10,6 +10,7 @@ export default function CreateUserPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
+  const [formData, setFormData] = useState<RegisterApiFormData>();
   const navigate = useNavigate();
 
   const {
@@ -19,42 +20,51 @@ export default function CreateUserPage() {
   } = useForm<RegisterApiFormData>({
     resolver: yupResolver(userRegisterSchema),
   });
-  async function registerUserFetchData(data: RegisterApiFormData) {
-    try {
-      const response = await fetch(API_REGISTER, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  useEffect(() => {
+    async function registerUserFetchData(data: RegisterApiFormData) {
+      try {
+        const response = await fetch(API_REGISTER, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        if (errorData.errors && Array.isArray(errorData.errors)) {
-          errorData.errors.forEach((error: ApiErrorMessage) => {
-            console.log("Error", error);
-            setIsError(true);
-            setErrorMessage(error.message);
-          });
+        if (!response.ok) {
+          const errorData = await response.json();
+          if (errorData.errors && Array.isArray(errorData.errors)) {
+            errorData.errors.forEach((error: ApiErrorMessage) => {
+              console.log("Error", error);
+              setIsError(true);
+              setErrorMessage(error.message);
+            });
+          }
+        } else {
+          setSuccessMessage("User registered successfully");
+          if (!isError && successMessage) {
+            navigate("/welcome-to-net-social-page");
+          }
+          console.log("Successfuly navigated to welcome page");
         }
-      } else {
-        setSuccessMessage("User registered successfully");
-        navigate("/welcome-to-net-social-page");
-        console.log("Successfuly navigated to welcome page");
+      } catch (error) {
+        console.log("Error during API request: ", error);
       }
-    } catch (error) {
-      console.log("Error during API request: ", error);
     }
-  }
-  useEffect(() => {}, []);
+    if (formData) {
+      registerUserFetchData(formData);
+    }
+  });
+  const onSubmit = function (data: RegisterApiFormData) {
+    setFormData(data);
+  };
   return (
     <>
       <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
         <h1 className="m-8 text-4xl">Create user</h1>
         <form
           id="register-user"
-          onSubmit={handleSubmit(registerUserFetchData)}
+          onSubmit={handleSubmit(onSubmit)}
           className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
