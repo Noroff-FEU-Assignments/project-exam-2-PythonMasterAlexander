@@ -50,7 +50,7 @@ export default function LandingPage() {
   };
   return (
     <>
-      <main className="flex flex-col xl:flex-row items-center justify-center h-screen text-sm">
+      <main className="main-container-style xl:flex-row">
         <section className="mx-8">
           <h1 className="flex justify-center">
             <LogoLink />

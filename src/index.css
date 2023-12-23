@@ -10,3 +10,6 @@
 .primary-input-style {
   @apply container rounded h-10 mt-1 border-2 border-[#cbd5e1];
 }
+.main-container-style {
+  @apply flex flex-col justify-center items-center h-screen text-sm;
+}

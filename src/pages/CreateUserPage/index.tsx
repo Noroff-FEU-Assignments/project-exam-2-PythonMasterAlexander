@@ -51,7 +51,7 @@ export default function CreateUserPage() {
 
   return (
     <>
-      <main className="flex flex-col xl:flex-column items-center justify-center h-screen text-sm">
+      <main className="main-container-style xl:flex-column">
         <h1 className="m-8 text-4xl">Create user</h1>
         <form
           id="register-user"
