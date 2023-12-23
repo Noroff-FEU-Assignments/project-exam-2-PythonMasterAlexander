@@ -5,13 +5,13 @@ export default function WelcomeToNetSocialPage() {
     <>
       <main className="flex flex-col items-center justify-center h-screen text-sm">
         <h1 className="text-center text-4xl">
-          Welcome to
+          Welcome <span className="block">to</span>
           <LogoLink />
         </h1>
-        <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
+        <div className="btn-container border-[#FA8072] w-48 mt-8">
           <Link to={"/"}>Continue</Link>
         </div>
-        <p>to sign in</p>
+        <p className="mt-6">to sign in</p>
         <div className="m-8 text-center">
           <span>Dark mode</span>
           <span>

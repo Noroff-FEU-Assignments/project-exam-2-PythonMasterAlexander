@@ -61,36 +61,31 @@ export default function CreateUserPage() {
           <fieldset>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             {successMessage && (
-              <p className="text-green-500">{successMessage}</p>
+              <p className="text-green-500 mt-2">{successMessage}</p>
             )}
             <div>
               <label className="block">Choose a username</label>
-              <input
-                {...register("name")}
-                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
-              />
-              <p className="text-red-500">{errors.name?.message}</p>
+              <input {...register("name")} className="primary-input-style" />
+              <p className="text-red-500 mt-2">{errors.name?.message}</p>
             </div>
             <div>
               <label className="block mt-6">Write you email</label>
-              <input
-                {...register("email")}
-                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
-              />
-              <p className="text-red-500">{errors.email?.message}</p>
+              <input {...register("email")} className="primary-input-style" />
+              <p className="text-red-500 mt-2">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block">Choose a password</label>
               <input
+                type="password"
                 {...register("password")}
-                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="primary-input-style"
               />
-              <p className="text-red-500">{errors.password?.message}</p>
+              <p className="text-red-500 mt-2">{errors.password?.message}</p>
             </div>
-            <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
+            <div className="btn-container my-6 border-[#fa8072]">
               <button className="uppercase font-bold">Create User</button>
             </div>
-            <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
+            <div className="btn-container border-[#cbd5e1]">
               <Link to={"/"}>
                 <strong>OR</strong> go back
               </Link>

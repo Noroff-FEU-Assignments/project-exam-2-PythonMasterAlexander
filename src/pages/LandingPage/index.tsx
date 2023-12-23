@@ -67,24 +67,22 @@ export default function LandingPage() {
             )}
             <div>
               <label className="block">Email</label>
-              <input
-                {...register("email")}
-                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
-              />
-              <p className="text-red-500 mt-1">{errors.email?.message}</p>
+              <input {...register("email")} className="primary-input-style" />
+              <p className="text-red-500 mt-2">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block">Password</label>
               <input
+                type="password"
                 {...register("password")}
-                className="container rounded h-10 border-[#cbd5e1] border-2 mt-1"
+                className="primary-input-style"
               />
-              <p className="text-red-500 mt-1">{errors.password?.message}</p>
+              <p className="text-red-500 mt-2">{errors.password?.message}</p>
             </div>
-            <div className="rounded-xl border-2 text-center border-[#cbd5e1] p-2 my-6">
+            <div className="btn-container my-6 border-[#FA8072]">
               <button className="uppercase font-bold">Login</button>
             </div>
-            <div className="rounded-xl border-2 text-center p-2 border-[#FA8072]">
+            <div className="btn-container border-[#cbd5e1]">
               <Link to={"create-user-page"}>
                 <strong className="uppercase font-bold">Or</strong> create user
               </Link>
