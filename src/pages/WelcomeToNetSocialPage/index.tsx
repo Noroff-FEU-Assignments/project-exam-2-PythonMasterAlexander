@@ -1,3 +1,4 @@
+import MoonIcon from "../../components/MoonIcon";
 import { Link } from "react-router-dom";
 import LogoLink from "../../components/LogoLink";
 export default function WelcomeToNetSocialPage() {
@@ -13,7 +14,8 @@ export default function WelcomeToNetSocialPage() {
         </div>
         <p className="mt-6">to sign in</p>
         <div className="mt-8 lg:mt-auto lg:mb-8 text-center">
-          <span>Dark mode</span>
+          <span className="pr-8">Dark mode</span>
+          <MoonIcon />
           <span>
             {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
           </span>

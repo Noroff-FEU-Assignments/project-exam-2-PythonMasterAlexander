@@ -1,3 +1,4 @@
+import MoonIcon from "../../components/MoonIcon";
 import { userRegisterSchema } from "../../utils/userSchema";
 import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
@@ -93,7 +94,8 @@ export default function CreateUserPage() {
           </fieldset>
         </form>
         <div className="m-8 text-center">
-          <span>Dark mode</span>
+          <span className="pr-8">Dark mode</span>
+          <MoonIcon />
           <span>
             {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
           </span>

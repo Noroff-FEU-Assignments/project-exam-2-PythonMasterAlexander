@@ -1,4 +1,5 @@
 import LogoLink from "../../components/LogoLink";
+import MoonIcon from "../../components/MoonIcon";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -50,7 +51,7 @@ export default function LandingPage() {
   };
   return (
     <>
-      <main className="main-container-style xl:flex-row">
+      <main className="main-container-style gap-32 xl:flex-row">
         <section className="mx-8">
           <h1 className="flex justify-center">
             <LogoLink />
@@ -88,15 +89,18 @@ export default function LandingPage() {
               </Link>
             </div>
           </form>
-          <div className="m-8 text-center">
-            <span>Dark mode</span>
-            <span>
-              {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
-            </span>
+          <div className="mt-8 text-center">
+            <span className="pr-8">Dark mode</span>
+            <MoonIcon />
+            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
           </div>
         </section>
-        <section>
-          <img />
+        <section className="hidden xl:block">
+          <img
+            className="max-w-3xl"
+            src="../../../resources/landing-page-image.png"
+            alt="Group of people gather around a computer having fun and being social together"
+          />
         </section>
       </main>
     </>
