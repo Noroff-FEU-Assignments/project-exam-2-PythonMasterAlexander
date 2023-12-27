@@ -7,12 +7,13 @@ export default function UserProfilePage() {
   const token: string = "token";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const userToken = loadUserFromLocalStorage(token);
+  //Create a form with inputs where the user can create a post
   const post = {
     title: "hi",
     body: "my first post",
   };
-  console.log(userToken);
-  createPost(URL, userToken, post);
+  const postData = createPost(URL, userToken, post);
+  console.log(postData);
   return (
     <>
       <main>
