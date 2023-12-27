@@ -48,7 +48,7 @@ export default function LandingPage() {
 
         setSuccessMessage("User login successfully");
         reset();
-        navigate("/user-profile-page");
+        navigate("/user-home-page");
       }
     } catch (error) {
       setErrorMessage("There was an error registering the user");
