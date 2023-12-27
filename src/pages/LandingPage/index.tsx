@@ -48,7 +48,6 @@ export default function LandingPage() {
         navigate("/user-profile-page");
       }
     } catch (error) {
-      console.log("Error during API request: ", error);
       setErrorMessage("There was an error registering the user");
     }
   };
