@@ -40,9 +40,11 @@ export default function LandingPage() {
           errorData.errors?.[0].message ?? "There was an error doing a login",
         );
       } else {
+        const responseData = await response.json();
         setSuccessMessage("User login successfully");
         reset();
         navigate("/user-profile-page");
+        console.log(responseData);
       }
     } catch (error) {
       console.log("Error during API request: ", error);
