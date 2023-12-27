@@ -41,8 +41,11 @@ export default function LandingPage() {
           errorData.errors?.[0].message ?? "There was an error doing a login",
         );
       } else {
-        const responseData = await response.json();
-        saveUserToLocalStorage("user", responseData);
+        const { accessToken, ...profile } = await response.json();
+
+        saveUserToLocalStorage("user", profile);
+        saveUserToLocalStorage("token", accessToken);
+
         setSuccessMessage("User login successfully");
         reset();
         navigate("/user-profile-page");
