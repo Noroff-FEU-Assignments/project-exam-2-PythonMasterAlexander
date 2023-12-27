@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-export default function UserProfilePage() {
+export default function UserHomePage() {
   return (
     <>
       <main>
-        hello from the user profile page
+        Hello from User Home page
         <div className="btn-container border-[#cbd5e1]">
-          <Link to={"/user-home-page"}>To home page</Link>
+          <Link to={"/user-profile-page"}>profile page</Link>
         </div>
       </main>
     </>
