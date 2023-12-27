@@ -7,6 +7,7 @@ import { LoginApiFormData } from "../../api/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
+import { saveUserToLocalStorage } from "../../utils/storage";
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -41,10 +42,10 @@ export default function LandingPage() {
         );
       } else {
         const responseData = await response.json();
+        saveUserToLocalStorage("user", responseData);
         setSuccessMessage("User login successfully");
         reset();
         navigate("/user-profile-page");
-        console.log(responseData);
       }
     } catch (error) {
       console.log("Error during API request: ", error);

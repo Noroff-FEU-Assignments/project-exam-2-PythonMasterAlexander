@@ -1,5 +1,5 @@
-export interface Key {
+export interface Value {
   name: string;
   email: string;
-  password: string;
+  accessToken: string;
 }
