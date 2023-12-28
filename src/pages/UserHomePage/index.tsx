@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,9 +9,15 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 import { post } from "../../api/constants";
 import createPost from "../../api/posts/createPost";
 export default function UserProfilePage() {
+  interface PostInterface {
+    title: string;
+    body: string;
+    media: string;
+    id: string;
+  }
+  const [userPost, setUserPost] = useState<PostInterface[]>([]);
   const token: string = "token";
   const userToken = loadUserFromLocalStorage(token);
-
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
@@ -30,6 +37,27 @@ export default function UserProfilePage() {
       return null;
     }
   };
+  useEffect(() => {
+    async function getPosts() {
+      try {
+        const response = await fetch(URL, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const json = await response.json();
+        setUserPost(json);
+      } catch (error) {
+        console.log("Error fetching data:", error);
+        return null;
+      }
+    }
+    getPosts();
+  }, [URL, userToken]);
   return (
     <>
       <main>
@@ -49,6 +77,15 @@ export default function UserProfilePage() {
             <input {...register("media")} className="primary-input-style" />
             <button>submit</button>
           </form>
+        </section>
+        <section>
+          {userPost.map((post) => (
+            <div key={post.id}>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+              <img src={post.media} />
+            </div>
+          ))}
         </section>
         <div className="btn-container border-[#cbd5e1]">
           <Link to={"/user-profile-page"}>To Profile page</Link>
