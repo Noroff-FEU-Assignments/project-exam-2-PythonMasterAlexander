@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +9,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 import { post } from "../../api/constants";
 import createPost from "../../api/posts/createPost";
 export default function UserProfilePage() {
+  const [userPost, setUserPost] = useState();
   const token: string = "token";
   const userToken = loadUserFromLocalStorage(token);
 
@@ -30,6 +32,28 @@ export default function UserProfilePage() {
       return null;
     }
   };
+  useEffect(() => {
+    async function getPost() {
+      try {
+        const response = await fetch(URL, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const json = await response.json();
+        setUserPost(json);
+      } catch (error) {
+        console.log("Error fetching data:", error);
+        return null;
+      }
+    }
+    getPost();
+  }, [URL, userToken]);
+  console.log(userPost);
   return (
     <>
       <main>
