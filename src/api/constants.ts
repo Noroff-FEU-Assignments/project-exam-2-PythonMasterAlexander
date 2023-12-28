@@ -7,8 +7,9 @@ const API_SOCIAL_BASE_LOGIN: string = "/auth/login";
 export const userToken: string = "token";
 export const put: string = "PUT";
 export const post: string = "POST";
-
+export const remove: string = "DELETE";
 export const API_REGISTER = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_BASE_REGISTER}`;
 export const API_LOGIN = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_BASE_LOGIN}`;
 export const API_SOCIAL_CREATE_POST_WITH_ = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}`;
 export const API_SOCIAL_UPDATE_POST_WITH_ = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_POSTS}`;
+export const API_SOCIAL_DELETE_POST_WITH_ = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_POSTS}`;
