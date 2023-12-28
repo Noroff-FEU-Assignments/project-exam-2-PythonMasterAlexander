@@ -9,10 +9,15 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 import { post } from "../../api/constants";
 import createPost from "../../api/posts/createPost";
 export default function UserProfilePage() {
-  const [userPost, setUserPost] = useState();
+  interface PostInterface {
+    title: string;
+    body: string;
+    media: string;
+    id: string;
+  }
+  const [userPost, setUserPost] = useState<PostInterface[]>([]);
   const token: string = "token";
   const userToken = loadUserFromLocalStorage(token);
-
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
@@ -33,7 +38,7 @@ export default function UserProfilePage() {
     }
   };
   useEffect(() => {
-    async function getPost() {
+    async function getPosts() {
       try {
         const response = await fetch(URL, {
           headers: {
@@ -51,9 +56,8 @@ export default function UserProfilePage() {
         return null;
       }
     }
-    getPost();
+    getPosts();
   }, [URL, userToken]);
-  console.log(userPost);
   return (
     <>
       <main>
@@ -73,6 +77,15 @@ export default function UserProfilePage() {
             <input {...register("media")} className="primary-input-style" />
             <button>submit</button>
           </form>
+        </section>
+        <section>
+          {userPost.map((post) => (
+            <div key={post.id}>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+              <img src={post.media} />
+            </div>
+          ))}
         </section>
         <div className="btn-container border-[#cbd5e1]">
           <Link to={"/user-profile-page"}>To Profile page</Link>
