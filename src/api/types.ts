@@ -13,6 +13,6 @@ export interface LoginApiFormData {
 }
 export interface UserPostData {
   title: string;
-  body: string;
-  media: string;
+  body?: string;
+  media?: string;
 }
