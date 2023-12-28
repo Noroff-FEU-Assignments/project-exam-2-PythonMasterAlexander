@@ -1,8 +1,8 @@
-import { PostData } from "../types";
+import { UserPostData } from "../types";
 export default async function createUserPost(
   url: string,
   token: string,
-  postData: PostData,
+  postData: UserPostData,
 ) {
   const response = await fetch(url, {
     method: "POST",
@@ -12,5 +12,6 @@ export default async function createUserPost(
     },
     body: JSON.stringify(postData),
   });
+  console.log(response);
   return await response.json();
 }

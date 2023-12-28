@@ -11,7 +11,8 @@ export interface LoginApiFormData {
   email: string;
   password: string;
 }
-export interface PostData {
+export interface UserPostData {
   title: string;
   body: string;
+  media: string;
 }
