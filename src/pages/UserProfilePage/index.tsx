@@ -18,6 +18,7 @@ export default function UserProfilePage() {
     reset,
     formState: { errors },
   } = useForm<UserPostData>({
+    // Need to solve the type problem
     resolver: yupResolver(userPostSchema),
   });
   const userCreatePost = async function (data: UserPostData) {
