@@ -3,9 +3,10 @@ export default async function createUserPost(
   url: string,
   token: string,
   postData: UserPostData,
+  postMethode: string,
 ) {
   const response = await fetch(url, {
-    method: "POST",
+    method: `${postMethode}`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

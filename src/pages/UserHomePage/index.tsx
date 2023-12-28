@@ -5,6 +5,7 @@ import { UserPostData } from "../../api/types";
 import { userPostSchema } from "../../utils/userSchema";
 import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
 import { loadUserFromLocalStorage } from "../../utils/storage";
+import { post } from "../../api/constants";
 import createPost from "../../api/posts/createPost";
 export default function UserProfilePage() {
   const token: string = "token";
@@ -23,7 +24,7 @@ export default function UserProfilePage() {
   });
   const userCreatePost = async function (data: UserPostData) {
     try {
-      createPost(URL, userToken, data);
+      createPost(URL, userToken, data, post);
       reset();
     } catch (error) {
       return null;
@@ -50,7 +51,7 @@ export default function UserProfilePage() {
           </form>
         </section>
         <div className="btn-container border-[#cbd5e1]">
-          <Link to={"/user-home-page"}>To Profile page</Link>
+          <Link to={"/user-profile-page"}>To Profile page</Link>
         </div>
       </main>
     </>
