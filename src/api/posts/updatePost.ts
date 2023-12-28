@@ -1,5 +1,5 @@
 import { UserPostData } from "../types";
-export default async function createUserPost(
+export default async function updatePost(
   url: string,
   token: string,
   postData: UserPostData,
