@@ -1,5 +1,5 @@
 import { UserProfile } from "../types";
-export default async function viewPosts(
+export default async function viewProfiles(
   url: string,
   token: string,
 ): Promise<[UserProfile]> {
