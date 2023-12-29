@@ -15,7 +15,7 @@ export default function UserProfilePage() {
     media: string;
     id: string;
   }
-  const [userPost, setUserPost] = useState<PostInterface[]>([]);
+  const [userPosts, setUserPosts] = useState<PostInterface[]>([]);
   const token: string = "token";
   const userToken = loadUserFromLocalStorage(token);
   const ACTION = "/posts";
@@ -37,6 +37,7 @@ export default function UserProfilePage() {
       return null;
     }
   };
+  console.log(userPosts);
   useEffect(() => {
     async function getPosts() {
       try {
@@ -50,7 +51,7 @@ export default function UserProfilePage() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const json = await response.json();
-        setUserPost(json);
+        setUserPosts(json);
       } catch (error) {
         console.log("Error fetching data:", error);
         return null;
@@ -79,7 +80,7 @@ export default function UserProfilePage() {
           </form>
         </section>
         <section>
-          {userPost.map((post) => (
+          {userPosts.map((post) => (
             <div key={post.id}>
               <h2>{post.title}</h2>
               <p>{post.body}</p>
