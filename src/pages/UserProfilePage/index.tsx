@@ -32,6 +32,9 @@ export default function UserHomePage() {
         <div className="btn-container border-[#cbd5e1]">
           <Link to={"/user-home-page"}>To home page</Link>
         </div>
+        <div className="btn-container border-[#cbd5e1]">
+          <Link to={"/user-search-page"}>To search page</Link>
+        </div>
       </main>
     </>
   );
