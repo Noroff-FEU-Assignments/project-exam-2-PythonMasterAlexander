@@ -18,7 +18,7 @@ export default function PageApplication() {
         <Route path="user-home-page" element={<UserHomePage />} />
         <Route path="user-search-page" element={<UserSearchPage />} />
         <Route
-          path="other-users-profile-page"
+          path="other-users-profile-page/:id"
           element={<OtherUsersProfilePage />}
         />
         <Route

@@ -1,4 +1,5 @@
 import viewProfiles from "../../api/profiles/viewProfiles";
+import viewProfile from "../../api/profiles/viewProfile";
 import { useEffect } from "react";
 import { useState } from "react";
 import { API_SOCIAL_PROFILES, userToken } from "../../api/constants";
@@ -24,6 +25,25 @@ export default function ShowProfilesOnPage() {
 
   //Create a fetch for /social/profiles/name
   //The name can come from the profiles fetch, I think
+
+  //Create a variable that is the same as the name for each post
+  //Then add this variable to the api address
+  //Do a API call to this address
+  const visitProfile = async function (profileName: string) {
+    try {
+      const fetchProfile = await viewProfile(
+        URL + `/${profileName}`,
+        userToken,
+      );
+      console.log(fetchProfile);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage("Something went wrong");
+    }
+  };
+  visitProfile("zzz");
+  //Check if the names are the same
+  //Create a onClick function that takes the user to the right profile page
   return (
     <>
       {profiles.map((profile) => (
