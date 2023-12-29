@@ -1,14 +1,4 @@
-interface UserProfile {
-  _count: {
-    posts: number;
-    followers: number;
-    following: number;
-  };
-  avatar: string;
-  banner: string;
-  email: string;
-  name: string;
-}
+import { UserProfile } from "../types";
 export default async function viewPosts(
   url: string,
   token: string,
