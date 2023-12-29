@@ -6,13 +6,15 @@ import { UserProfile } from "../../api/types";
 export default function OtherUsersProfilePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [userProfileData, setUserProfileData] = useState<UserProfile[]>([]);
-  const { name } = useParams();
+  const param = useParams();
   const URL: string = API_SOCIAL_PROFILES;
-
   useEffect(() => {
     const getProfile = async function () {
       try {
-        const fetchProfile = await viewProfile(URL + `/${name}`, userToken);
+        const fetchProfile = await viewProfile(
+          URL + `/${param.name}`,
+          userToken,
+        );
         console.log(fetchProfile);
 
         setUserProfileData(fetchProfile);
@@ -22,7 +24,7 @@ export default function OtherUsersProfilePage() {
       }
     };
     getProfile();
-  });
+  }, [URL, param]);
   console.log(errorMessage);
   console.log(userProfileData);
   return (
