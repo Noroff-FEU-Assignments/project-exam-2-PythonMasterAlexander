@@ -24,7 +24,7 @@ export default function ShowOtherUsersProfileOnPage() {
     };
     getProfile();
   }, [URL, param]);
-  const { name, email, banner, avatar, _count }: UserProfiles = profile!;
+  const { name, email, banner, avatar, _count }: UserProfiles = profile || {};
   return (
     <>
       {!isError ? (
