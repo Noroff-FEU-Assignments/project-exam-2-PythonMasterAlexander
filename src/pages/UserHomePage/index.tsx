@@ -37,7 +37,6 @@ export default function UserProfilePage() {
       return null;
     }
   };
-  console.log(userPosts);
   useEffect(() => {
     async function getPosts() {
       try {
@@ -53,7 +52,6 @@ export default function UserProfilePage() {
         const json = await response.json();
         setUserPosts(json);
       } catch (error) {
-        console.log("Error fetching data:", error);
         return null;
       }
     }

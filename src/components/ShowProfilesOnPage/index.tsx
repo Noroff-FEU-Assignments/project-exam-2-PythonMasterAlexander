@@ -1,11 +1,13 @@
 import viewProfiles from "../../api/profiles/viewProfiles";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES, userToken } from "../../api/constants";
-import { UserProfile } from "../../api/types";
+import { UserProfiles } from "../../api/types";
 export default function ShowProfilesOnPage() {
+  const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [profiles, setProfiles] = useState<UserProfile[]>([]);
+  const [profiles, setProfiles] = useState<UserProfiles[]>([]);
+
   const URL: string = API_SOCIAL_PROFILES;
   useEffect(() => {
     const fetchProfiles = async function () {
@@ -13,18 +15,32 @@ export default function ShowProfilesOnPage() {
         const fetchResult = await viewProfiles(URL, userToken);
         setProfiles(fetchResult);
       } catch (error) {
+        setIsError(true);
         setErrorMessage("Something went wrong");
       }
     };
     fetchProfiles();
   }, [URL]);
-  console.log(profiles);
-  console.log(errorMessage);
   return (
     <>
-      {profiles.map((profile) => (
-        <div key={profile.email}>{profile.name}</div>
-      ))}
+      {!isError ? (
+        <>
+          {profiles && (
+            <>
+              {profiles.map((profileValue) => (
+                <div key={profileValue.email}>
+                  {profileValue.name}
+                  <Link to={`/other-users-profile-page/${profileValue.name}`}>
+                    To other user page
+                  </Link>
+                </div>
+              ))}
+            </>
+          )}
+        </>
+      ) : (
+        <div>{errorMessage}</div>
+      )}
     </>
   );
 }

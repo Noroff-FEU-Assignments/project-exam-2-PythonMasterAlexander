@@ -16,7 +16,7 @@ export interface UserPostData {
   body?: string;
   media?: string;
 }
-export interface UserProfile {
+export interface UserProfiles {
   _count: {
     posts: number;
     followers: number;

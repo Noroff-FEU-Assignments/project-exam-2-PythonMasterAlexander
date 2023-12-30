@@ -1,18 +1,8 @@
-interface UserProfile {
-  _count: {
-    posts: number;
-    followers: number;
-    following: number;
-  };
-  avatar: string;
-  banner: string;
-  email: string;
-  name: string;
-}
-export default async function viewPosts(
+import { UserProfiles } from "../types";
+export default async function viewProfiles(
   url: string,
   token: string,
-): Promise<[UserProfile]> {
+): Promise<[UserProfiles]> {
   try {
     const response = await fetch(url, {
       headers: {
