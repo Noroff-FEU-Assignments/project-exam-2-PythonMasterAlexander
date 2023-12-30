@@ -1,8 +1,8 @@
-import { UserProfile } from "../types";
+import { UserProfiles } from "../types";
 export default async function viewProfile(
   url: string,
   token: string,
-): Promise<[UserProfile]> {
+): Promise<UserProfiles> {
   try {
     const response = await fetch(url, {
       headers: {
