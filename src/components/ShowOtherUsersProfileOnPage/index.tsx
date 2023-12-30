@@ -23,6 +23,6 @@ export default function ShowOtherUsersProfileOnPage() {
     getProfile();
   }, [URL, param]);
   console.log(errorMessage);
-  console.log(profile);
+  console.log(profile?.name);
   return <></>;
 }
