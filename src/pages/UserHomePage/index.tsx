@@ -1,3 +1,5 @@
+import LogOutUser from "../../components/LogOutUser";
+import createPost from "../../api/posts/createPost";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -7,7 +9,6 @@ import { userPostSchema } from "../../utils/userSchema";
 import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 import { post } from "../../api/constants";
-import createPost from "../../api/posts/createPost";
 export default function UserProfilePage() {
   interface PostInterface {
     title: string;
@@ -77,6 +78,7 @@ export default function UserProfilePage() {
             <button>submit</button>
           </form>
         </section>
+        <LogOutUser />
         <section>
           {userPosts.map((post) => (
             <div key={post.id}>
