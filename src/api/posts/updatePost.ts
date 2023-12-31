@@ -3,10 +3,10 @@ export default async function updatePost(
   url: string,
   token: string,
   postData: UserPostData,
-  putMethode: string,
+  putMethod: string,
 ) {
   const response = await fetch(url, {
-    method: `${putMethode}`,
+    method: `${putMethod}`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

@@ -3,16 +3,15 @@ export default async function createUserPost(
   url: string,
   token: string,
   postData: UserPostData,
-  postMethode: string,
+  postMethod: string,
 ) {
   const response = await fetch(url, {
-    method: `${postMethode}`,
+    method: `${postMethod}`,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(postData),
   });
-  console.log(response);
   return await response.json();
 }

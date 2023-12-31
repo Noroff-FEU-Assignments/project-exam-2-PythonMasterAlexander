@@ -1,11 +1,11 @@
 export default async function removePost(
   url: string,
   token: string,
-  deleteMethode: string,
+  deleteMethod: string,
 ): Promise<Response> {
   try {
     const response = await fetch(url, {
-      method: `${deleteMethode}`,
+      method: `${deleteMethod}`,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
