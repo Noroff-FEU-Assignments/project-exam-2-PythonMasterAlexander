@@ -27,3 +27,13 @@ export interface UserProfiles {
   email: string;
   name: string;
 }
+export interface UserProfile {
+  name: string;
+  email: string;
+  banner: string | null;
+  avatar: string | null;
+}
+export interface MediaEntry {
+  banner: string;
+  avatar: string;
+}

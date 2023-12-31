@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_SOCIAL_DELETE_POST_WITH_, userToken } from "../../api/constants";
 import { remove } from "../../api/constants";
+import ShowPostMedia from "../../components/ShowPostMedia";
 import LogOutUser from "../../components/LogOutUser";
 import removePost from "../../api/posts/removePost";
 export default function UserHomePage() {
@@ -26,6 +27,9 @@ export default function UserHomePage() {
             <button onClick={clickToRemoveOnePost}>Delete post</button>
           </div>
           <div>{errorMessage && <p>{errorMessage}</p>}</div>
+        </section>
+        <section>
+          <ShowPostMedia />
         </section>
         <LogOutUser />
         <div className="btn-container border-[#cbd5e1]">
