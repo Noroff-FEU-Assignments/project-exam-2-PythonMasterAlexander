@@ -6,6 +6,6 @@ export function loadUserFromLocalStorage(key: string) {
   const value = localStorage.getItem(key);
   return value ? JSON.parse(value) : null;
 }
-export function removeUserFromLocalStorage(key: string) {
-  localStorage.removeItem(key);
+export function removeUserFromLocalStorage() {
+  localStorage.clear();
 }

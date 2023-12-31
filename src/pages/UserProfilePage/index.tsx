@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { API_SOCIAL_DELETE_POST_WITH_, userToken } from "../../api/constants";
 import { remove } from "../../api/constants";
+import LogOutUser from "../../components/LogOutUser";
 import removePost from "../../api/posts/removePost";
 export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -26,6 +27,7 @@ export default function UserHomePage() {
           </div>
           <div>{errorMessage && <p>{errorMessage}</p>}</div>
         </section>
+        <LogOutUser />
         <div className="btn-container border-[#cbd5e1]">
           <Link to={"/user-home-page"}>To home page</Link>
         </div>
