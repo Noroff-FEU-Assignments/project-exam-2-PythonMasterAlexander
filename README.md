@@ -18,8 +18,8 @@ git clone https://github.com/Noroff-FEU-Assignments/project-exam-2-PythonMasterA
 npm install
 npm run dev
 ```
-Navigate to your requierd localhost port 
-http://localhost:
+Open http://localhost:5173 with your browser to see the result.
+Or navigate to the right port where the server on your local machine opens the port
 
 ## Special Instructions for Testers
 
