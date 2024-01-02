@@ -8,6 +8,30 @@ To take the skills learned over the last two years and take on an extensive proj
 
 An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
 
+## Installation
+
+### Setup and Run Locally
+
+To set up and run the project locally, follow these steps:
+```bash
+git clone https://github.com/Noroff-FEU-Assignments/project-exam-2-PythonMasterAlexander.git
+npm install
+npm run dev
+```
+Navigate to your requierd localhost port 
+http://localhost:
+
+## Special Instructions for Testers
+
+Please ensure the following steps are taken during testing:
+
+1) Test all user stories mentioned in the requirements.
+2) Pay attention to the responsiveness and user interface.
+3) Report any bugs or issues using the project's GitHub Issues.
+
+All links for the different requirements are provided in:
+[delivery-template.html]
+
 ## Requirements
 
 > All admin functionality is managed by an existing application. This project only covers the front-end application for the API.
