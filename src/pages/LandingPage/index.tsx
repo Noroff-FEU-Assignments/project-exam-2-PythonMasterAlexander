@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
 import { saveUserToLocalStorage } from "../../utils/storage";
+import { Helmet } from "react-helmet";
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -56,6 +57,15 @@ export default function LandingPage() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="The landing page for Net Social, this is the page the user lands on. On this page the user can login with there login information."
+        />
+        <title>Welcome to Net-Social</title>
+      </Helmet>
       <main className="main-container-style gap-32 xl:flex-row">
         <section className="mx-8">
           <h1 className="flex justify-center">
