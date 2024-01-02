@@ -30,9 +30,9 @@ Please ensure the following steps are taken during testing:
 3) Report any bugs or issues using the project's GitHub Issues.
 
 All links for the different requirements are provided in:
-[delivery-template.html]
+[Link](delivery-template.html)
 
-## Requirements
+## These are the requirements the developer must deliver upon delivery
 
 > All admin functionality is managed by an existing application. This project only covers the front-end application for the API.
 
