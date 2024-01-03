@@ -8,7 +8,49 @@ To take the skills learned over the last two years and take on an extensive proj
 
 An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
 
-## Requirements
+## Installation
+
+## Setup and Run Locally
+
+To set up and run the project locally, follow these steps:
+```bash
+git clone https://github.com/Noroff-FEU-Assignments/project-exam-2-PythonMasterAlexander.git
+cd ./project-exam-2-PythonMasterAlexander
+npm install
+npm run dev
+```
+Open http://localhost:5173 with your browser to see the result.
+Or navigate to the right port where the server on your local machine opens the port
+
+### Linting and Formating tools
+
+```bash
+npm run lint
+npm run check-prettier
+```
+
+### Deploy
+
+```bash
+npm run build
+```
+### Special Instructions for Testers
+
+Please ensure the following steps are taken during testing:
+
+1) Test all user stories mentioned in the requirements.
+2) Pay attention to the responsiveness and user interface.
+3) Report any bugs or issues using the project's GitHub Issues.
+
+NB!
+Tests for this project has not been included on the delivery, but will be included on the Portfolio2 delivery.
+
+### Check out provided links 
+
+All links for the different requirements are provided in:
+[Link](delivery-template.html)
+
+## These are the requirements the developer must deliver upon delivery
 
 > All admin functionality is managed by an existing application. This project only covers the front-end application for the API.
 
@@ -92,11 +134,3 @@ This list covers libraries and services that have been vetted by the company and
 
 - Trello
 - GitHub Projects
-
-## Delivery
-
-Include the required links in the Moodle delivery window using [this template format](delivery-template.html).
-
-All final changes must be merged into the default branch `main` or `master`. Other branches will not be checked.
-
-Ensure that the `readme.md` file describes your project thoroughly, including how to setup and run the project locally and any special instructions for testers.
