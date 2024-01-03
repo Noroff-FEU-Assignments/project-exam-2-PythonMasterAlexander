@@ -10,24 +10,40 @@ An existing Social Media company has approached you to create a brand new front 
 
 ## Installation
 
-### Setup and Run Locally
+## Setup and Run Locally
 
 To set up and run the project locally, follow these steps:
 ```bash
 git clone https://github.com/Noroff-FEU-Assignments/project-exam-2-PythonMasterAlexander.git
+cd ./project-exam-2-PythonMasterAlexander
 npm install
 npm run dev
 ```
 Open http://localhost:5173 with your browser to see the result.
 Or navigate to the right port where the server on your local machine opens the port
 
-## Special Instructions for Testers
+### Linting and Formating tools
+
+```bash
+npm run lint
+npm run check-prettier
+```
+
+### Deploy
+
+```bash
+npm run build
+```
+### Special Instructions for Testers
 
 Please ensure the following steps are taken during testing:
 
 1) Test all user stories mentioned in the requirements.
 2) Pay attention to the responsiveness and user interface.
 3) Report any bugs or issues using the project's GitHub Issues.
+
+NB!
+Tests for this project has not been included on the delivery, but will be included on the Portfolio2 delivery.
 
 ### Check out provided links 
 
