@@ -29,6 +29,8 @@ Please ensure the following steps are taken during testing:
 2) Pay attention to the responsiveness and user interface.
 3) Report any bugs or issues using the project's GitHub Issues.
 
+### Check out provided links 
+
 All links for the different requirements are provided in:
 [Link](delivery-template.html)
 
@@ -116,11 +118,3 @@ This list covers libraries and services that have been vetted by the company and
 
 - Trello
 - GitHub Projects
-
-## Delivery
-
-Include the required links in the Moodle delivery window using [this template format](delivery-template.html).
-
-All final changes must be merged into the default branch `main` or `master`. Other branches will not be checked.
-
-Ensure that the `readme.md` file describes your project thoroughly, including how to setup and run the project locally and any special instructions for testers.
