@@ -1,5 +1,6 @@
 import LogOutUser from "../../components/LogOutUser";
 import createPost from "../../api/posts/createPost";
+import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -60,6 +61,15 @@ export default function UserProfilePage() {
   }, [URL, userToken]);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="The user home page where they are taken to after doing the log in. This page shows what other users they are following are doing. From here the user can navigate to the profile page."
+        />
+        <title>Home Page</title>
+      </Helmet>
       <main>
         hello from the user Home page
         <section>

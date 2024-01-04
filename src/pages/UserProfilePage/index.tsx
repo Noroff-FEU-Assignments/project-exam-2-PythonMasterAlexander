@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { API_SOCIAL_DELETE_POST_WITH_, userToken } from "../../api/constants";
 import { remove } from "../../api/constants";
@@ -20,6 +21,15 @@ export default function UserHomePage() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="The user profile page, this page show the information about the user."
+        />
+        <title>Profile Page</title>
+      </Helmet>
       <main>
         Hello from User profile page
         <section>

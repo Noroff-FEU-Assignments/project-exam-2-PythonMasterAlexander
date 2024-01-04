@@ -1,4 +1,5 @@
 import MoonIcon from "../../components/MoonIcon";
+import { Helmet } from "react-helmet";
 import { userRegisterSchema } from "../../utils/userSchema";
 import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
@@ -52,6 +53,15 @@ export default function CreateUserPage() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="The create user page for Net Social, on this page the user can create a new user for Net Social."
+        />
+        <title>Create User</title>
+      </Helmet>
       <main className="main-container-style xl:flex-column">
         <h1 className="m-8 text-4xl">Create user</h1>
         <form
