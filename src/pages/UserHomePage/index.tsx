@@ -23,7 +23,6 @@ export default function UserProfilePage() {
   const userToken = loadUserFromLocalStorage(token);
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
-  console.log(URL);
   const {
     register,
     handleSubmit,

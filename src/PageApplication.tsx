@@ -27,7 +27,7 @@ export default function PageApplication() {
           element={<WelcomeToNetSocialPage />}
         />
         <Route
-          path="other-users-post-page:id"
+          path="other-users-post-page/:id"
           element={<OtherUsersPostPage />}
         />
       </Route>
