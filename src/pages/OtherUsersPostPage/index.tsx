@@ -3,9 +3,12 @@ import createComments from "../../api/posts/createComments";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userToken, API_SOCIAL_POST_, post } from "../../api/constants";
-import { UserPost } from "../../api/types";
+import { UserPost, CommentData, UserCommentOnPost } from "../../api/types";
 export default function OtherUsersPostPage() {
   const [userPost, setUserPost] = useState<UserPost>();
+  const [userCommentOnPost, setUserCommentOnPost] = useState<
+    UserCommentOnPost | undefined
+  >();
   const { id } = useParams();
   const URL: string = `${API_SOCIAL_POST_}/${id}`;
   useEffect(() => {
@@ -21,18 +24,20 @@ export default function OtherUsersPostPage() {
   const URL_COMMENT_ON_POST: string = `${URL}/comment`;
   console.log(URL_COMMENT_ON_POST);
   console.log(userPost);
-  //Create a input for writing a comment on a post
-  //Create a button
-  //When the user writes and click the button a post event happends
-  //The post request must have a body in the request
-  //Need to create a submit event
+  const data: CommentData = {
+    body: "Another test",
+  };
   const commentOnPost = async function () {
     try {
-      await createComments(URL, userToken, post);
+      setUserCommentOnPost(
+        await createComments(URL_COMMENT_ON_POST, userToken, post, data),
+      );
     } catch (error) {
       console.log(error);
     }
   };
+  console.log(userCommentOnPost);
+  //Code works, need change the code so what is written in the input field is sent to the api
   return (
     <>
       <section>
@@ -44,7 +49,7 @@ export default function OtherUsersPostPage() {
               {/*Insert other parts of the post here*/}
               <div>
                 <input className="primary-input-style" />
-                <button onClick={commentOnPost}></button>
+                <button onClick={commentOnPost}>Comment</button>
               </div>
             </>
           ) : (
