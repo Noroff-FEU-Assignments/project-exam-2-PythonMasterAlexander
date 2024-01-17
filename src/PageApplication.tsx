@@ -6,7 +6,7 @@ import WelcomeToNetSocialPage from "./pages/WelcomeToNetSocialPage";
 import UserHomePage from "./pages/UserHomePage";
 import UserSearchPage from "./pages/UserSearchPage";
 import OtherUsersProfilePage from "./pages/OtherUsersProfilePage";
-import OtherUsersPostPage from "./pages/OtherUsersProfilePage";
+import OtherUsersPostPage from "./pages/OtherUsersPostPage";
 import "./tailwind.css";
 import { Routes, Route } from "react-router-dom";
 export default function PageApplication() {

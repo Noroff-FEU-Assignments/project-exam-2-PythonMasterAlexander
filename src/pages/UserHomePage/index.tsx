@@ -1,6 +1,5 @@
 import LogOutUser from "../../components/LogOutUser";
 import createPost from "../../api/posts/createPost";
-import viewPost from "../../api/posts/viewPost";
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -60,15 +59,6 @@ export default function UserProfilePage() {
     }
     getPosts();
   }, [URL, userToken]);
-
-  const viewSinglePost = async function (id: string) {
-    try {
-      const SINGLE_POST_URL = `/${id}`;
-      await viewPost(SINGLE_POST_URL, userToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <>
       <Helmet>
@@ -105,7 +95,7 @@ export default function UserProfilePage() {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
               <img src={post.media} />
-              <button onClick={() => viewSinglePost(post.id)}>View post</button>
+              <Link to={`/other-users-post-page/${post.id}`}>To post</Link>
             </div>
           ))}
         </section>
