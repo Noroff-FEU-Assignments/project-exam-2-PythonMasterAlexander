@@ -50,3 +50,20 @@ export interface UserPost {
     reactions: number;
   };
 }
+export interface CommentData {
+  body: string;
+}
+export interface UserCommentOnPost {
+  body: string;
+  replyToId: null;
+  id: number;
+  postId: number;
+  owner: string;
+  created: string;
+  author: {
+    name: string;
+    email: string;
+    avatar: string;
+    banner: string;
+  };
+}
