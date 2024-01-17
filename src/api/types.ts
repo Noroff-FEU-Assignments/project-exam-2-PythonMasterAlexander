@@ -37,3 +37,16 @@ export interface MediaEntry {
   banner: string;
   avatar: string;
 }
+export interface UserPost {
+  id: number;
+  title: string;
+  body: string;
+  tags: [string];
+  media: string;
+  created: string;
+  updated: string;
+  _count: {
+    comments: number;
+    reactions: number;
+  };
+}
