@@ -95,6 +95,7 @@ export default function UserProfilePage() {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
               <img src={post.media} />
+              <Link to={`/other-users-post-page/${post.id}`}>To post</Link>
             </div>
           ))}
         </section>
