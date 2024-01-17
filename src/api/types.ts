@@ -50,3 +50,6 @@ export interface UserPost {
     reactions: number;
   };
 }
+export interface CommentData {
+  body: string;
+}
