@@ -14,6 +14,7 @@ export const remove: string = "DELETE";
 const token: string = "token";
 export const user: string = "user";
 export const userToken = loadUserFromLocalStorage(token);
+export const userLoginInformation = loadUserFromLocalStorage(user);
 export const API_REGISTER = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_BASE_REGISTER}`;
 export const API_LOGIN = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}${API_SOCIAL_BASE_LOGIN}`;
 export const API_SOCIAL_CREATE_POST_WITH_ = `${API_HOST_URL}${API_BASE}${API_SOCIAL_BASE}`;

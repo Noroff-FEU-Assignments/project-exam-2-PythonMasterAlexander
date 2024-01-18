@@ -1,13 +1,36 @@
-import { useState } from "react";
+import viewPost from "../../api/posts/viewPost";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { API_SOCIAL_DELETE_POST_WITH_, userToken } from "../../api/constants";
+import {
+  API_SOCIAL_DELETE_POST_WITH_,
+  userToken,
+  API_SOCIAL_PROFILES,
+  userLoginInformation,
+} from "../../api/constants";
+import { UserPost } from "../../api/types";
 import { remove } from "../../api/constants";
 import ShowPostMedia from "../../components/ShowPostMedia";
 import LogOutUser from "../../components/LogOutUser";
 import removePost from "../../api/posts/removePost";
 export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
+  const [userPostData, setUserPostData] = useState<[UserPost]>();
+  const { name } = userLoginInformation;
+  const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}/posts`;
+  useEffect(() => {
+    const showEachUserPosts = async function () {
+      try {
+        const userPosts = await viewPost(SHOW_USER_POSTS, userToken);
+        setUserPostData(userPosts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    showEachUserPosts();
+  }, [SHOW_USER_POSTS]);
+  //A put request to update each post
+  //Buttons for updating
   //Need to change this value to be any id the user wants to delete
   const ACTION: string = "/9824";
   const URL: string = API_SOCIAL_DELETE_POST_WITH_ + ACTION;
@@ -42,6 +65,19 @@ export default function UserHomePage() {
           <ShowPostMedia />
         </section>
         <LogOutUser />
+        <section>
+          {userPostData ? (
+            <>
+              {userPostData.map((postData) => (
+                <div key={postData.id}>
+                  <h1>{postData.title}</h1>
+                </div>
+              ))}
+            </>
+          ) : (
+            <p>Loading</p>
+          )}
+        </section>
         <div className="btn-container border-[#cbd5e1]">
           <Link to={"/user-home-page"}>To home page</Link>
         </div>
