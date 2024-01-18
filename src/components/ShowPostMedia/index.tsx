@@ -22,6 +22,7 @@ export default function ShowPostMedia() {
       }
     };
     //Code works her, now need to use the values passed in the input fields
+    //Add a click event on the buttons to change the media
     changeMedia();
   }, [URL]);
   console.log(isError, errorMessage);
@@ -36,11 +37,13 @@ export default function ShowPostMedia() {
           <p>Avatar</p>
           <input className="primary-input-style" />
           <img />
+          <button>Change avatar</button>
         </div>
         <div>
           <p>Banner</p>
           <input className="primary-input-style" />
           <img />
+          <button>Change Banner</button>
         </div>
       </div>
     </>
