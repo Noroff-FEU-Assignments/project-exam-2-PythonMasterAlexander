@@ -15,7 +15,7 @@ import LogOutUser from "../../components/LogOutUser";
 import removePost from "../../api/posts/removePost";
 export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [userPostData, setUserPostData] = useState<[UserPost]>();
+  const [userPostData, setUserPostData] = useState<[UserPost] | undefined>();
   const { name } = userLoginInformation;
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}/posts`;
   useEffect(() => {
