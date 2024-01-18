@@ -67,3 +67,9 @@ export interface UserCommentOnPost {
     banner: string;
   };
 }
+export interface UpdateUserPost {
+  title: string;
+  body: string;
+  tags: [string];
+  media: string;
+}

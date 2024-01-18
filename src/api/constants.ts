@@ -2,7 +2,7 @@ import { loadUserFromLocalStorage } from "../utils/storage";
 const API_HOST_URL: string = "https://api.noroff.dev";
 const API_BASE: string = "/api/v1";
 const API_SOCIAL_BASE: string = "/social";
-const API_SOCIAL_POSTS: string = "/posts";
+export const API_SOCIAL_POSTS: string = "/posts";
 const PROFILES: string = "/profiles";
 const API_SOCIAL_BASE_REGISTER: string = "/auth/register";
 const API_SOCIAL_BASE_LOGIN: string = "/auth/login";
