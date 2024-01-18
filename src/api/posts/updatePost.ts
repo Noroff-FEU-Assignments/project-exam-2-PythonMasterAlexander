@@ -1,8 +1,8 @@
-import { UserPostData } from "../types";
+import { UpdateUserPost } from "../types";
 export default async function updatePost(
   url: string,
   token: string,
-  postData: UserPostData,
+  postData: UpdateUserPost,
   putMethod: string,
 ) {
   const response = await fetch(url, {

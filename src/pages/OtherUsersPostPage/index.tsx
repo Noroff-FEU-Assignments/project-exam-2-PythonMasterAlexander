@@ -22,7 +22,7 @@ export default function OtherUsersPostPage() {
       }
     };
     viewSinglePost();
-  }, []);
+  }, [URL]);
   const URL_COMMENT_ON_POST: string = `${URL}/comment`;
   const data: CommentData = {
     body: userInputComment,
