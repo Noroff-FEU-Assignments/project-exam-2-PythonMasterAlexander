@@ -1,4 +1,3 @@
-import LogoLink from "../../components/LogoLink";
 import MoonIcon from "../../components/MoonIcon";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
@@ -68,10 +67,7 @@ export default function LandingPage() {
       </Helmet>
       <main className="main-container-style gap-32 xl:flex-row">
         <section className="mx-8">
-          <h1 className="flex justify-center">
-            <LogoLink />
-          </h1>
-          <h2 className="text-center my-8 text-base font-medium">Sign in</h2>
+          <h1 className="text-center my-8 text-base font-medium">Sign in</h1>
           <form
             id="login-user"
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
@@ -107,7 +103,6 @@ export default function LandingPage() {
           <div className="mt-8 text-center">
             <span className="pr-8">Dark mode</span>
             <MoonIcon />
-            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
           </div>
         </section>
         <section className="hidden xl:block">

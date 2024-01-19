@@ -26,9 +26,7 @@ export default function WelcomeToNetSocialPage() {
         <div className="mt-8 lg:mt-auto lg:mb-8 text-center">
           <span className="pr-8">Dark mode</span>
           <MoonIcon />
-          <span>
-            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
-          </span>
+          <span></span>
         </div>
       </main>
     </>
