@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
+import { userToken } from "../../api/constants";
 export default function LogoLink() {
+  const landingPage: string = "/";
+  const homePage: string = "/user-home-page";
+  let isLoggedIn: boolean = false;
+  if (userToken) {
+    isLoggedIn = true;
+  }
   return (
-    <Link to={"/"}>
+    <Link to={isLoggedIn ? homePage : landingPage}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="282"
