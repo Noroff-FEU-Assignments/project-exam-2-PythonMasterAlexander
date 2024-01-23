@@ -1,4 +1,6 @@
 import LogoLink from "../LogoLink";
+import MoonIcon from "../MoonIcon";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
@@ -22,12 +24,23 @@ export default function PageHeader() {
         </>
       ) : (
         <>
-          <header>
+          <header className="m-8 flex justify-between">
             <section>
               <LogoLink />
             </section>
-            <section></section>
-            <section></section>
+            <section className="self-center">
+              <Link className="uppercase" to="user-home-page">
+                home
+              </Link>
+              <Link className="uppercase" to="user-profile-page">
+                profile
+              </Link>
+            </section>
+            <section className="self-center">
+              <div>
+                <MoonIcon />
+              </div>
+            </section>
           </header>
         </>
       )}
