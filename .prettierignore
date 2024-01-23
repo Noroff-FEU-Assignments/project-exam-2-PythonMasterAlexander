@@ -1,6 +1,0 @@
-# Base this file on .gitignore and .eslintignore
-# Ignore artifacts:
-build
-coverage
-# Ignore all HTML files
-**/*.html
