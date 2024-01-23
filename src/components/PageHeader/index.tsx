@@ -15,13 +15,8 @@ export default function PageHeader() {
   return (
     <>
       {pageNameLocation === landingPage ||
-      pageNameLocation === createUserPage ? (
-        <>
-          <header>
-            <LogoLink />
-          </header>
-        </>
-      ) : pageNameLocation == welcomeNewUserPage ? (
+      pageNameLocation === createUserPage ||
+      pageNameLocation === welcomeNewUserPage ? (
         <>
           <header></header>
         </>

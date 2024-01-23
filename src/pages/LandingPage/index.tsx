@@ -1,4 +1,5 @@
 import MoonIcon from "../../components/MoonIcon";
+import NetSocialLogo from "../../components/NetSocialLogo";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -65,8 +66,11 @@ export default function LandingPage() {
         />
         <title>Welcome to Net-Social</title>
       </Helmet>
-      <main className="main-container-style gap-32 xl:flex-row">
-        <section className="mx-8">
+      <main className="main-container-style gap-32 xl:flex-row mx-8">
+        <section>
+          <NetSocialLogo />
+        </section>
+        <section>
           <h1 className="text-center my-8 text-base font-medium">Sign in</h1>
           <form
             id="login-user"
@@ -106,11 +110,13 @@ export default function LandingPage() {
           </div>
         </section>
         <section className="hidden xl:block">
-          <img
-            className="max-w-3xl"
-            src="../../../resources/landing-page-image.png"
-            alt="Group of people gather around a computer having fun and being social together"
-          />
+          <div className="max-w-3xl mx-auto">
+            <img
+              className="w-full h-auto"
+              src="../../../resources/landing-page-image.png"
+              alt="Group of people gather around a computer having fun and being social together"
+            />
+          </div>
         </section>
       </main>
     </>

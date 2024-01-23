@@ -1,9 +1,8 @@
+import NetSocialLogo from "../NetSocialLogo";
 import { Link } from "react-router-dom";
 import { userToken } from "../../api/constants";
-import NetSocialLogo from "../NetSocialLogo";
+import { landingPage, homePage } from "../../utils/constants";
 export default function LogoLink() {
-  const landingPage: string = "/";
-  const homePage: string = "/user-home-page";
   let isLoggedIn: boolean = false;
   if (userToken) {
     isLoggedIn = true;
