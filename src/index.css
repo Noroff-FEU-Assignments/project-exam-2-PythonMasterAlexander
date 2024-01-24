@@ -10,6 +10,9 @@
 .link-text-style-header {
   @apply uppercase font-poppins font-bold text-theme-color text-base hover:bg-[#CBD5E1] px-4 py-2 focus:underline;
 }
+.heading-one-font-style {
+  @apply text-2xl xl:text-4xl font-medium font-poppins text-theme-color;
+}
 .link-active-style-header {
   @apply lowercase;
 }

@@ -1,7 +1,7 @@
 import viewPost from "../../api/posts/viewPost";
 import createComments from "../../api/posts/createComments";
 import reactOnPosts from "../../api/posts/reactOnPosts";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userToken, API_SOCIAL_POST_, post, put } from "../../api/constants";
 import { UserPost, CommentData, UserCommentOnPost } from "../../api/types";
@@ -52,7 +52,8 @@ export default function OtherUsersPostPage() {
   };
   return (
     <>
-      <section>
+      <main>
+        <h1 className="heading-one-font-style">Post</h1>
         <div>
           {userPost ? (
             <>
@@ -74,8 +75,7 @@ export default function OtherUsersPostPage() {
             <p>Loading</p>
           )}
         </div>
-      </section>
-      <Link to={"/user-home-page"}>To home page</Link>
+      </main>
     </>
   );
 }

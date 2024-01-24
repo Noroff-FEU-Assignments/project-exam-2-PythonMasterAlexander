@@ -88,9 +88,7 @@ export default function UserProfilePage() {
         </section>
         <section>here goes the search section</section>
         <section>
-          <h1 className="sm:text-2xl xl:text-4xl font-medium font-poppins text-theme-color">
-            Users posts
-          </h1>
+          <h1 className="heading-one-font-style">Users posts</h1>
           {userPosts.map((post) => (
             <div key={post.id}>
               <h2>{post.title}</h2>
