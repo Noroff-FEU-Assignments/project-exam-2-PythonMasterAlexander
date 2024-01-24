@@ -70,7 +70,6 @@ export default function UserProfilePage() {
         <title>Home Page</title>
       </Helmet>
       <main>
-        hello from the user Home page
         <section>
           <form
             id="create-user-post"
@@ -87,7 +86,11 @@ export default function UserProfilePage() {
             <button>submit</button>
           </form>
         </section>
+        <section>here goes the search section</section>
         <section>
+          <h1 className="sm:text-2xl xl:text-4xl font-medium font-poppins text-theme-color">
+            Users posts
+          </h1>
           {userPosts.map((post) => (
             <div key={post.id}>
               <h2>{post.title}</h2>

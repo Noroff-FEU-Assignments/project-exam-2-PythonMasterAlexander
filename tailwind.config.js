@@ -17,6 +17,7 @@ export default {
       },
       fontSize: {
         base: ["21px"],
+        "2xl": "28px",
       },
     },
   },

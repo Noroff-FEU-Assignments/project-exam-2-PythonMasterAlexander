@@ -43,7 +43,7 @@ export default function PageHeader() {
                   profile
                 </Link>
               </section>
-              <section className="self-center">
+              <section className="self-center hidden xl:block">
                 <div>
                   <MoonIcon />
                 </div>

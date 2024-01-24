@@ -10,8 +10,10 @@ export default function PageFooter() {
           <section>
             <NetSocialLogo />
           </section>
-          <UserProfileNavigation />
-          <section className="xl:hidden">
+          <section>
+            <UserProfileNavigation />
+          </section>
+          <section className="xl:hidden flex items-center">
             <MoonIcon />
           </section>
           <section>
