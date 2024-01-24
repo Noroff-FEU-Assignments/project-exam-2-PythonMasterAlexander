@@ -68,7 +68,7 @@ export default function UserHomePage() {
         />
         <title>Profile Page</title>
       </Helmet>
-      <main>
+      <main className="main-border-styling">
         <h1 className="heading-one-font-style">Profile</h1>
         <section>
           <div className="btn-container">

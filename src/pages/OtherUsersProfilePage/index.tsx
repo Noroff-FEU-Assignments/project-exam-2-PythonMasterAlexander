@@ -2,9 +2,11 @@ import ShowOtherUsersProfileOnPage from "../../components/ShowOtherUsersProfileO
 export default function OtherUsersProfilePage() {
   return (
     <>
-      <main>
+      <main className="main-border-styling">
         <h1 className="heading-one-font-style">Profile</h1>
-        <ShowOtherUsersProfileOnPage />
+        <section>
+          <ShowOtherUsersProfileOnPage />
+        </section>
       </main>
     </>
   );

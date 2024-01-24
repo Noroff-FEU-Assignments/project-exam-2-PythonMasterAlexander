@@ -33,7 +33,7 @@ export default function PageFooter() {
               <section>
                 <UserProfileNavigation />
               </section>
-              <section className="xl:hidden flex items-center">
+              <section className="xl:hidden">
                 <MoonIcon />
               </section>
               <section>

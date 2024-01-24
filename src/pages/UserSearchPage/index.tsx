@@ -13,7 +13,7 @@ export default function UserSearchPage() {
         />
         <title>Search Page</title>
       </Helmet>
-      <main>
+      <main className="main-border-styling">
         <section>
           <ShowProfilesOnPage />
         </section>

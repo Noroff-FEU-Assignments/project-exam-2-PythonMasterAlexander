@@ -69,7 +69,7 @@ export default function UserProfilePage() {
         />
         <title>Home Page</title>
       </Helmet>
-      <main>
+      <main className="main-border-styling">
         <section>
           <form
             id="create-user-post"

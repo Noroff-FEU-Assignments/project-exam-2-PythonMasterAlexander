@@ -70,20 +70,18 @@ export default function ShowOtherUsersProfileOnPage() {
                 />
                 <title>{name}</title>
               </Helmet>
-              <main>
-                <section>
-                  <h1>Username {name}</h1>
-                  <h2>Contact {email}</h2>
-                  <img src={banner} />
-                  <img src={avatar} />
-                  <span>Followers: {_count.followers}</span>
-                  <span>Following: {_count.following}</span>
-                </section>
-                <section>
-                  <button onClick={followUser}>Follow</button>
-                  <button onClick={unFollowUser}>Unfollow</button>
-                </section>
-              </main>
+              <div>
+                <h2 className="heading-two-font-style">{name}</h2>
+                <h3 className="capitalize text-base">Contact {email}</h3>
+                <img src={banner} />
+                <img src={avatar} />
+                <span>Followers: {_count.followers}</span>
+                <span>Following: {_count.following}</span>
+              </div>
+              <div>
+                <button onClick={followUser}>Follow</button>
+                <button onClick={unFollowUser}>Unfollow</button>
+              </div>
             </>
           )}
         </div>

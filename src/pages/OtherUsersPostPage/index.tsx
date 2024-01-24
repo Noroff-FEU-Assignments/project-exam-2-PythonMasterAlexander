@@ -52,7 +52,7 @@ export default function OtherUsersPostPage() {
   };
   return (
     <>
-      <main>
+      <main className="main-border-styling">
         <h1 className="heading-one-font-style">Post</h1>
         <div>
           {userPost ? (
