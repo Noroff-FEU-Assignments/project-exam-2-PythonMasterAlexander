@@ -1,5 +1,5 @@
-import LogoLink from "../../components/LogoLink";
 import MoonIcon from "../../components/MoonIcon";
+import NetSocialLogo from "../../components/NetSocialLogo";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -66,12 +66,12 @@ export default function LandingPage() {
         />
         <title>Welcome to Net-Social</title>
       </Helmet>
-      <main className="main-container-style gap-32 xl:flex-row">
-        <section className="mx-8">
-          <h1 className="flex justify-center">
-            <LogoLink />
-          </h1>
-          <h2 className="text-center my-8 text-base font-medium">Sign in</h2>
+      <main className="main-container-style gap-32 xl:flex-row mx-8">
+        <section>
+          <NetSocialLogo />
+        </section>
+        <section>
+          <h1 className="text-center my-8 text-base font-medium">Sign in</h1>
           <form
             id="login-user"
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
@@ -96,7 +96,7 @@ export default function LandingPage() {
               <p className="text-red-500 mt-2">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#FA8072]">
-              <button className="uppercase font-bold">Login</button>
+              <button className="uppercase font-bold">login</button>
             </div>
             <div className="btn-container border-[#cbd5e1]">
               <Link to={"create-user-page"}>
@@ -107,15 +107,16 @@ export default function LandingPage() {
           <div className="mt-8 text-center">
             <span className="pr-8">Dark mode</span>
             <MoonIcon />
-            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
           </div>
         </section>
         <section className="hidden xl:block">
-          <img
-            className="max-w-3xl"
-            src="../../../resources/landing-page-image.png"
-            alt="Group of people gather around a computer having fun and being social together"
-          />
+          <div className="max-w-3xl mx-auto">
+            <img
+              className="w-full h-auto"
+              src="../../../resources/landing-page-image.png"
+              alt="Group of people gather around a computer having fun and being social together"
+            />
+          </div>
         </section>
       </main>
     </>
