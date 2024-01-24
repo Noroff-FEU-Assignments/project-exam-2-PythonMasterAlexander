@@ -1,4 +1,3 @@
-import LogOutUser from "../../components/LogOutUser";
 import createPost from "../../api/posts/createPost";
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
@@ -88,7 +87,6 @@ export default function UserProfilePage() {
             <button>submit</button>
           </form>
         </section>
-        <LogOutUser />
         <section>
           {userPosts.map((post) => (
             <div key={post.id}>
@@ -99,9 +97,6 @@ export default function UserProfilePage() {
             </div>
           ))}
         </section>
-        <div className="btn-container border-[#cbd5e1]">
-          <Link to={"/user-profile-page"}>To Profile page</Link>
-        </div>
       </main>
     </>
   );
