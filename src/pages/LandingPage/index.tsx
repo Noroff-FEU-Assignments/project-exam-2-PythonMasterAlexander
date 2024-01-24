@@ -96,7 +96,7 @@ export default function LandingPage() {
               <p className="text-red-500 mt-2">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#FA8072]">
-              <button className="uppercase font-bold">Login</button>
+              <button className="uppercase font-bold">login</button>
             </div>
             <div className="btn-container border-[#cbd5e1]">
               <Link to={"create-user-page"}>

@@ -24,23 +24,31 @@ export default function PageHeader() {
         </>
       ) : (
         <>
-          <header className="m-8 flex justify-between">
-            <section>
-              <LogoLink />
-            </section>
-            <section className="self-center">
-              <Link className="uppercase" to="user-home-page">
-                home
-              </Link>
-              <Link className="uppercase" to="user-profile-page">
-                profile
-              </Link>
-            </section>
-            <section className="self-center">
-              <div>
-                <MoonIcon />
-              </div>
-            </section>
+          <header className="border-b-2">
+            <div className="m-8 flex justify-between">
+              <section>
+                <LogoLink />
+              </section>
+              <section className="self-center">
+                <Link
+                  className="link-text-style-header mr-8"
+                  to="/user-home-page"
+                >
+                  home
+                </Link>
+                <Link
+                  className="link-text-style-header"
+                  to="/user-profile-page"
+                >
+                  profile
+                </Link>
+              </section>
+              <section className="self-center">
+                <div>
+                  <MoonIcon />
+                </div>
+              </section>
+            </div>
           </header>
         </>
       )}

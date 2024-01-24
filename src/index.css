@@ -7,6 +7,12 @@
 .btn-container {
   @apply rounded-xl border-2 text-center p-2;
 }
+.link-text-style-header {
+  @apply uppercase font-poppins font-bold text-theme-color text-base hover:bg-[#CBD5E1] px-4 py-2 focus:underline;
+}
+.link-active-style-header {
+  @apply lowercase;
+}
 .primary-input-style {
   @apply rounded h-10 mt-1 border-2 border-[#cbd5e1];
 }
