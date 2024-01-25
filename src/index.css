@@ -31,3 +31,6 @@
 .form-label-styling {
   @apply font-medium font-poppins text-theme-color text-sm block;
 }
+.dark-mode-text-style {
+  @apply font-poppins text-theme-color font-medium text-xs;
+}

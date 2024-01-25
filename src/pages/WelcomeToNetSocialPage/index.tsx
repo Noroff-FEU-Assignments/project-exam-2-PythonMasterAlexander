@@ -19,14 +19,15 @@ export default function WelcomeToNetSocialPage() {
           Welcome <span className="block">to</span>
           <LogoLink />
         </h1>
-        <div className="btn-container border-[#FA8072] w-48 mt-8">
+        <div className="btn-container border-[#FA8072] w-48 mt-8 uppercase font-poppins font-bold text-theme-color text-base">
           <Link to={"/"}>Continue</Link>
         </div>
-        <p className="mt-6">to sign in</p>
+        <p className="mt-6 font-poppins text-theme-color font-medium font-base">
+          to sign in
+        </p>
         <div className="mt-8 lg:mt-auto lg:mb-8 text-center">
-          <span className="pr-8">Dark mode</span>
+          <span className="pr-8 dark-mode-text-style">Dark mode</span>
           <MoonIcon />
-          <span></span>
         </div>
       </main>
     </>
