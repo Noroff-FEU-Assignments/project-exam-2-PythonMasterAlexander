@@ -30,7 +30,7 @@ export default function PageFooter() {
               <section>
                 <NetSocialLogo />
               </section>
-              <section>
+              <section className="flex justify-around border-2 w-60 rounded-full py-2 border-[#cbd5e1]">
                 <UserProfileNavigation />
               </section>
               <section className="xl:hidden">
