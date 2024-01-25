@@ -37,10 +37,13 @@ export default function PageHeader() {
                   home
                 </Link>
                 <Link
-                  className="link-text-style-header"
+                  className="link-text-style-header mr-8"
                   to="/user-profile-page"
                 >
                   profile
+                </Link>
+                <Link className="link-text-style-header" to="/user-search-page">
+                  users
                 </Link>
               </section>
               <section className="self-center hidden xl:block">

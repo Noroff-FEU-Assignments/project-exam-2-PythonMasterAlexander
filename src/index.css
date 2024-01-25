@@ -28,3 +28,6 @@
 .main-border-styling {
   @apply mx-8 border-x-2 p-8 xl:mx-64 md:mx-32;
 }
+.form-label-styling {
+  @apply font-medium font-poppins text-theme-color text-sm block;
+}

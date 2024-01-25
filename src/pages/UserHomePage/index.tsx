@@ -69,34 +69,50 @@ export default function UserProfilePage() {
         />
         <title>Home Page</title>
       </Helmet>
-      <main className="main-border-styling">
-        <section>
-          <form
-            id="create-user-post"
-            className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
-            onSubmit={handleSubmit(userCreatePost)}
-          >
-            <label>title</label>
-            <input {...register("title")} className="primary-input-style" />
-            <p>{errors.title?.message}</p>
-            <label>body</label>
-            <input {...register("body")} className="primary-input-style" />
-            <label>media</label>
-            <input {...register("media")} className="primary-input-style" />
-            <button>submit</button>
-          </form>
+      <main>
+        <section className="border-b-2">
+          <h1 className="text-center heading-one-font-style py-8 border-b-2">
+            Create post
+          </h1>
+          <div className="flex justify-center">
+            <form
+              id="create-user-post"
+              className="p-8"
+              onSubmit={handleSubmit(userCreatePost)}
+            >
+              <div>
+                <label className="form-label-styling">Post title</label>
+                <input {...register("title")} className="primary-input-style" />
+                <p>{errors.title?.message}</p>
+              </div>
+              <div>
+                <label className="form-label-styling">Post media url</label>
+                <input {...register("media")} className="primary-input-style" />
+              </div>
+              <div>
+                <label className="form-label-styling">Post text</label>
+                <input {...register("body")} className="primary-input-style" />
+              </div>
+              <div className="btn-container border-[#cbd5e1] w-48">
+                <button className="uppercase font-poppins font-bold text-theme-color text-base">
+                  post
+                </button>
+              </div>
+            </form>
+          </div>
         </section>
-        <section>here goes the search section</section>
-        <section>
-          <h1 className="heading-one-font-style">Users posts</h1>
-          {userPosts.map((post) => (
-            <div key={post.id}>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-              <img src={post.media} />
-              <Link to={`/other-users-post-page/${post.id}`}>To post</Link>
-            </div>
-          ))}
+        <section className="main-border-styling">
+          <div>
+            <h2 className="heading-two-font-style">Users posts</h2>
+            {userPosts.map((post) => (
+              <div key={post.id}>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+                <img src={post.media} />
+                <Link to={`/other-users-post-page/${post.id}`}>To post</Link>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
     </>
