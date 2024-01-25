@@ -57,6 +57,7 @@ export default function UserHomePage() {
       setErrorMessage("Something went wrong");
     }
   };
+  console.log(userPostData);
   return (
     <>
       <Helmet>
@@ -68,31 +69,44 @@ export default function UserHomePage() {
         />
         <title>Profile Page</title>
       </Helmet>
-      <main className="main-border-styling">
-        <h1 className="heading-one-font-style">Profile</h1>
-        <section>
-          <div className="btn-container">
-            <button onClick={clickToRemoveOnePost}>Delete post</button>
-          </div>
-          <div>{errorMessage && <p>{errorMessage}</p>}</div>
-        </section>
-        <section>
+      <main>
+        <section className="border-b-2">
+          <h1 className="text-center heading-one-font-style py-8 border-b-2">
+            Profile
+          </h1>
+          {/*Here goes the user profile*/}
           <ShowPostMedia />
         </section>
-        <section>
+        <section className="main-border-styling">
           {userPostData ? (
             <>
               {userPostData.map((postData) => (
                 <div key={postData.id}>
-                  <h2>{postData.title}</h2>
+                  <h3>{postData.title}</h3>
                 </div>
               ))}
             </>
           ) : (
             <p>Loading</p>
           )}
+          <div className="btn-container">
+            <button
+              className="text-sm capitalize font-medium font-poppins text-theme-color text-sm"
+              onClick={updateOnePost}
+            >
+              upgrade
+            </button>
+          </div>
+          <div className="btn-container">
+            <button
+              className="uppercase font-poppins font-bold text-theme-color text-base"
+              onClick={clickToRemoveOnePost}
+            >
+              Delete post
+            </button>
+            <div>{errorMessage && <p>{errorMessage}</p>}</div>
+          </div>
         </section>
-        <button onClick={updateOnePost}>Update post</button>
       </main>
     </>
   );
