@@ -20,7 +20,7 @@
   @apply lowercase;
 }
 .primary-input-style {
-  @apply rounded h-10 mt-1 border-2 border-[#cbd5e1];
+  @apply rounded h-10 mt-1 border-2 border-[#cbd5e1] pl-2;
 }
 .main-container-style {
   @apply flex flex-col justify-center items-center h-screen text-sm;
@@ -33,4 +33,10 @@
 }
 .dark-mode-text-style {
   @apply font-poppins text-theme-color font-medium text-xs;
+}
+.error-text-style {
+  @apply text-red-500 text-xs pt-2 font-medium font-poppins font-regular;
+}
+.success-text-style {
+  @apply text-green-500 text-xs pt-2 font-medium font-poppins font-regular;
 }

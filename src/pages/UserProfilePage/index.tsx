@@ -38,6 +38,7 @@ export default function UserHomePage() {
   const UPDATE_POST: string = `${API_SOCIAL_DELETE_POST_WITH_}/${TEST_POST}`;
   const data: UpdateUserPost = {
     title: "fuck off",
+    body: "test body",
   };
   const updateOnePost = async function () {
     try {
@@ -88,7 +89,7 @@ export default function UserHomePage() {
           </div>
           <p className="p-8">About the user</p>
         </section>
-        <section className="border-b-2">
+        <section className="border-b-2 flex flex-col items-center">
           <h2>Edit profile</h2>
           <ShowPostMedia />
         </section>
@@ -105,6 +106,7 @@ export default function UserHomePage() {
                   />
                   <h3>{postData.title}</h3>
                   <div>
+                    <input />
                     <input />
                     <div className="btn-container">
                       <button

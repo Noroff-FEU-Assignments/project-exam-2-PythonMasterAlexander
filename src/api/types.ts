@@ -69,4 +69,5 @@ export interface UserCommentOnPost {
 }
 export interface UpdateUserPost {
   title: string;
+  body: string;
 }

@@ -70,23 +70,23 @@ export default function CreateUserPage() {
           className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {errorMessage && <p className="error-text-style">{errorMessage}</p>}
             {successMessage && (
-              <p className="text-green-500 mt-2">{successMessage}</p>
+              <p className="success-text-style">{successMessage}</p>
             )}
             <div>
               <label className="block form-label-styling">
                 Choose a username
               </label>
               <input {...register("name")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.name?.message}</p>
+              <p className="error-text-style">{errors.name?.message}</p>
             </div>
             <div>
               <label className="block mt-6 form-label-styling">
                 Write you email
               </label>
               <input {...register("email")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.email?.message}</p>
+              <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block form-label-styling">
@@ -97,7 +97,7 @@ export default function CreateUserPage() {
                 {...register("password")}
                 className="primary-input-style"
               />
-              <p className="text-red-500 mt-2">{errors.password?.message}</p>
+              <p className="error-text-style">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#fa8072]">
               <button className="uppercase font-bold font-poppins text-theme-color">

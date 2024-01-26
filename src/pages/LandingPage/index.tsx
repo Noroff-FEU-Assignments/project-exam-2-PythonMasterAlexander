@@ -77,14 +77,14 @@ export default function LandingPage() {
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
             onSubmit={handleSubmit(onSubmit)}
           >
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {errorMessage && <p className="error-text-style">{errorMessage}</p>}
             {successMessage && (
-              <p className="text-green-500">{successMessage}</p>
+              <p className="success-text-style">{successMessage}</p>
             )}
             <div>
               <label className="form-label-styling block">Email</label>
               <input {...register("email")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.email?.message}</p>
+              <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block form-label-styling">Password</label>
@@ -93,7 +93,7 @@ export default function LandingPage() {
                 {...register("password")}
                 className="primary-input-style"
               />
-              <p className="text-red-500 mt-2">{errors.password?.message}</p>
+              <p className="error-text-style">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#FA8072]">
               <button className="uppercase font-bold font-poppins text-theme-color">

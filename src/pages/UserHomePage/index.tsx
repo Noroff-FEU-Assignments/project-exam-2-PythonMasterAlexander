@@ -7,8 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserPostData } from "../../api/types";
 import { userPostSchema } from "../../utils/userSchema";
 import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
-import { loadUserFromLocalStorage } from "../../utils/storage";
-import { post } from "../../api/constants";
+import { post, userToken } from "../../api/constants";
 export default function UserProfilePage() {
   interface PostInterface {
     title: string;
@@ -17,8 +16,6 @@ export default function UserProfilePage() {
     id: string;
   }
   const [userPosts, setUserPosts] = useState<PostInterface[]>([]);
-  const token: string = "token";
-  const userToken = loadUserFromLocalStorage(token);
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
@@ -57,7 +54,7 @@ export default function UserProfilePage() {
       }
     }
     getPosts();
-  }, [URL, userToken]);
+  }, [URL]);
   return (
     <>
       <Helmet>
@@ -74,26 +71,35 @@ export default function UserProfilePage() {
           <h1 className="text-center heading-one-font-style py-8 border-b-2">
             Create post
           </h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center p-8">
             <form
               id="create-user-post"
-              className="p-8"
+              className="flex flex-col md:flex-row flex-wrap gap-8 md:justify-between"
               onSubmit={handleSubmit(userCreatePost)}
             >
-              <div>
+              <div className="md:w-2/5">
                 <label className="form-label-styling">Post title</label>
-                <input {...register("title")} className="primary-input-style" />
-                <p>{errors.title?.message}</p>
+                <input
+                  {...register("title")}
+                  className="primary-input-style w-full"
+                />
+                <p className="error-text-style">{errors.title?.message}</p>
               </div>
-              <div>
+              <div className="md:w-2/5">
                 <label className="form-label-styling">Post media url</label>
-                <input {...register("media")} className="primary-input-style" />
+                <input
+                  {...register("media")}
+                  className="primary-input-style w-full"
+                />
               </div>
-              <div>
+              <div className="md:w-full xl:w-2/5">
                 <label className="form-label-styling">Post text</label>
-                <input {...register("body")} className="primary-input-style" />
+                <input
+                  {...register("body")}
+                  className="primary-input-style w-full"
+                />
               </div>
-              <div className="btn-container border-[#cbd5e1] w-48">
+              <div className="btn-container border-[#cbd5e1] md:w-1/2 xl:w-2/5 h-11 xl:self-end">
                 <button className="uppercase font-poppins font-bold text-theme-color text-base">
                   post
                 </button>
