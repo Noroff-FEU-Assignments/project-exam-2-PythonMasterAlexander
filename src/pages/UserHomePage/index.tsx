@@ -9,13 +9,13 @@ import { userPostSchema } from "../../utils/userSchema";
 import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
 import { post, userToken } from "../../api/constants";
 export default function UserProfilePage() {
-  interface PostInterface {
+  interface UsersPosts {
     title: string;
     body: string;
     media: string;
     id: string;
   }
-  const [userPosts, setUserPosts] = useState<PostInterface[]>([]);
+  const [userPosts, setUserPosts] = useState<UsersPosts[]>([]);
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
@@ -115,7 +115,7 @@ export default function UserProfilePage() {
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
                 <img src={post.media} />
-                <Link to={`/other-users-post-page/${post.id}`}>To post</Link>
+                <Link to={`/other-users-post-page/${post.id}`}>check out</Link>
               </div>
             ))}
           </div>
