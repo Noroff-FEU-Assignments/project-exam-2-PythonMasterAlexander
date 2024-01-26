@@ -32,23 +32,25 @@ export default function ShowOtherUsersPostsOnPage() {
     };
     getPosts();
   }, [URL, userToken]);
+
   return (
     <>
-      <div className="main-border-styling">
+      <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
         {loading ? (
           <p>Loading...</p>
         ) : postsError ? (
           <p className="error-text-style">{postsError}</p>
         ) : (
           userPosts.map((post) => (
-            <div key={post.id}>
+            <div className="border-b-2 p-8" key={post.id}>
               <h2>{post.title}</h2>
               <p>{post.body}</p>
-              <img src={post.media} alt={post.title} />
+              <img src={post.media} alt={post.media ? post.title : ""} />
               <Link to={`/other-users-post-page/${post.id}`}>check out</Link>
             </div>
           ))
         )}
+        <div className="min-h-8"></div>
       </div>
     </>
   );
