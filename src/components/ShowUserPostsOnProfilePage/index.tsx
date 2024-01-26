@@ -43,7 +43,7 @@ export default function ShowUserPostsOnProfilePage() {
   };
   return (
     <>
-      <div>
+      <div className="main-border-styling">
         {userPostData ? (
           <>
             {userPostData.map((postData: UserPost) => (
@@ -53,7 +53,7 @@ export default function ShowUserPostsOnProfilePage() {
                   src={avatar}
                   alt="any avatar the user have uploaded to display as user profile"
                 />
-                <h3>{postData.title}</h3>
+                <h4 className="">{postData.title}</h4>
                 <div>
                   <input />
                   <input />
@@ -70,7 +70,7 @@ export default function ShowUserPostsOnProfilePage() {
             ))}
           </>
         ) : (
-          <p>Loading</p>
+          <p className="error-text-style">Loading posts</p>
         )}
       </div>
     </>

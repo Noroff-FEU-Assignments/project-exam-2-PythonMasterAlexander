@@ -16,6 +16,12 @@
 .heading-two-font-style {
   @apply text-base xl:text-2xl capitalize font-poppins text-theme-color font-medium;
 }
+.heading-three-font-style {
+  @apply text-base xl:text-3xl font-medium font-poppins text-theme-color;
+}
+.heading-four-font-style {
+  @apply text-base;
+}
 .link-active-style-header {
   @apply lowercase;
 }
