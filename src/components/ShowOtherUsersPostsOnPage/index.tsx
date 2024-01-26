@@ -20,8 +20,7 @@ export default function ShowOtherUsersPostsOnPage() {
   }, [URL]);
   return (
     <>
-      <div>
-        <h2 className="heading-two-font-style">Users posts</h2>
+      <div className="main-border-styling">
         {postsError ? (
           <p className="error-text-style">{postsError}</p>
         ) : (

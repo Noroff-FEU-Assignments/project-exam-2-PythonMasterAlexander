@@ -5,7 +5,7 @@ import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
-import { API_REGISTER } from "./../../api/constants";
+import { API_REGISTER, post } from "./../../api/constants";
 import { useState } from "react";
 export default function CreateUserPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -27,7 +27,7 @@ export default function CreateUserPage() {
       setSuccessMessage(undefined);
 
       const response = await fetch(API_REGISTER, {
-        method: "POST",
+        method: post,
         headers: {
           "Content-Type": "application/json",
         },

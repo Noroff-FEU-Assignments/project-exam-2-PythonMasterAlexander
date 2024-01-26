@@ -18,9 +18,11 @@ export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [userPostData, setUserPostData] = useState<[UserPost] | undefined>();
   const { name, banner, avatar } = userLoginInformation;
+
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
   const ACTION: string = "/9841";
   const URL: string = API_SOCIAL_DELETE_POST_WITH_ + ACTION;
+
   useEffect(() => {
     const showEachUserPosts = async function () {
       try {
@@ -32,6 +34,7 @@ export default function UserHomePage() {
     };
     showEachUserPosts();
   }, [SHOW_USER_POSTS]);
+
   //Here use the id number from each post
   //Change the test post to the value the user sends in
   const TEST_POST: string = "9839";
@@ -40,6 +43,7 @@ export default function UserHomePage() {
     title: "fuck off",
     body: "test body",
   };
+
   const updateOnePost = async function () {
     try {
       await updatePost(UPDATE_POST, userToken, data, put);
@@ -47,6 +51,7 @@ export default function UserHomePage() {
       console.log(error);
     }
   };
+
   const clickToRemoveOnePost = async function () {
     try {
       const result = await removePost(URL, userToken, remove);
@@ -55,6 +60,7 @@ export default function UserHomePage() {
       setErrorMessage("Something went wrong");
     }
   };
+
   console.log(userPostData);
   return (
     <>
@@ -94,35 +100,37 @@ export default function UserHomePage() {
           <ShowPostMedia />
         </section>
         <section className="main-border-styling">
-          <h3>Users posts</h3>
-          {userPostData ? (
-            <>
-              {userPostData.map((postData) => (
-                <div key={postData.id}>
-                  <img
-                    className="inline rounded-full w-36"
-                    src={avatar}
-                    alt="any avatar the user have uploaded to display as user profile"
-                  />
-                  <h3>{postData.title}</h3>
-                  <div>
-                    <input />
-                    <input />
-                    <div className="btn-container">
-                      <button
-                        className="text-sm capitalize font-medium font-poppins text-theme-color text-sm"
-                        onClick={updateOnePost}
-                      >
-                        upgrade
-                      </button>
+          <h3>User posts</h3>
+          <div>
+            {userPostData ? (
+              <>
+                {userPostData.map((postData) => (
+                  <div key={postData.id}>
+                    <img
+                      className="inline rounded-full w-36"
+                      src={avatar}
+                      alt="any avatar the user have uploaded to display as user profile"
+                    />
+                    <h3>{postData.title}</h3>
+                    <div>
+                      <input />
+                      <input />
+                      <div className="btn-container">
+                        <button
+                          className="text-sm capitalize font-medium font-poppins text-theme-color text-sm"
+                          onClick={updateOnePost}
+                        >
+                          upgrade
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </>
-          ) : (
-            <p>Loading</p>
-          )}
+                ))}
+              </>
+            ) : (
+              <p>Loading</p>
+            )}
+          </div>
           <div className="btn-container">
             <button
               className="uppercase font-poppins font-bold text-theme-color text-base"

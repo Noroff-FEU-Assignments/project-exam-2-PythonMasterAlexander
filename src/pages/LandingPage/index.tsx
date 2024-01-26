@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
 import { saveUserToLocalStorage } from "../../utils/storage";
 import { Helmet } from "react-helmet";
+import { post } from "../../api/constants";
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -29,7 +30,7 @@ export default function LandingPage() {
       setSuccessMessage(undefined);
 
       const response = await fetch(API_LOGIN, {
-        method: "POST",
+        method: post,
         headers: {
           "Content-Type": "application/json",
         },
