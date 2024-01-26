@@ -1,21 +1,13 @@
 import createPost from "../../api/posts/createPost";
 import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UserPostData } from "../../api/types";
 import { userPostSchema } from "../../utils/userSchema";
 import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
 import { post, userToken } from "../../api/constants";
+import ShowOtherUsersPostsOnPage from "../../components/ShowOtherUsersPostsOnPage";
 export default function UserProfilePage() {
-  interface UsersPosts {
-    title: string;
-    body: string;
-    media: string;
-    id: string;
-  }
-  const [userPosts, setUserPosts] = useState<UsersPosts[]>([]);
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
@@ -35,26 +27,6 @@ export default function UserProfilePage() {
       return null;
     }
   };
-  useEffect(() => {
-    async function getPosts() {
-      try {
-        const response = await fetch(URL, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userToken}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const json = await response.json();
-        setUserPosts(json);
-      } catch (error) {
-        return null;
-      }
-    }
-    getPosts();
-  }, [URL]);
   return (
     <>
       <Helmet>
@@ -108,17 +80,7 @@ export default function UserProfilePage() {
           </div>
         </section>
         <section className="main-border-styling">
-          <div>
-            <h2 className="heading-two-font-style">Users posts</h2>
-            {userPosts.map((post) => (
-              <div key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-                <img src={post.media} />
-                <Link to={`/other-users-post-page/${post.id}`}>check out</Link>
-              </div>
-            ))}
-          </div>
+          <ShowOtherUsersPostsOnPage />
         </section>
       </main>
     </>
