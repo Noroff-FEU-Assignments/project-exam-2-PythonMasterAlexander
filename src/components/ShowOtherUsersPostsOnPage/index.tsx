@@ -45,7 +45,10 @@ export default function ShowOtherUsersPostsOnPage() {
             <div className="border-b-2 p-8" key={post.id}>
               <h2>{post.title}</h2>
               <p>{post.body}</p>
-              <img src={post.media} alt={post.media ? post.title : ""} />
+              <img
+                src={post.media}
+                alt={post.media ? "User uploaded image" : ""}
+              />
               <Link to={`/other-users-post-page/${post.id}`}>check out</Link>
             </div>
           ))
