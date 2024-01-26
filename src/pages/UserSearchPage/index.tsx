@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ShowProfilesOnPage from "../../components/ShowProfilesOnPage";
 export default function UserSearchPage() {
@@ -13,13 +12,10 @@ export default function UserSearchPage() {
         />
         <title>Search Page</title>
       </Helmet>
-      <main>
+      <main className="main-border-styling">
         <section>
           <ShowProfilesOnPage />
         </section>
-        <div className="btn-container border-[#cbd5e1]">
-          <Link to={"/user-profile-page"}>To profile page</Link>
-        </div>
       </main>
     </>
   );

@@ -16,7 +16,10 @@ export default {
         "theme-color": "#344256",
       },
       fontSize: {
+        xs: ["14px"],
+        sm: ["16px"],
         base: ["21px"],
+        "2xl": "28px",
       },
     },
   },

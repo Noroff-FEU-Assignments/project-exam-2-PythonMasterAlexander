@@ -31,13 +31,17 @@ export default function ShowPostMedia() {
           <p>Avatar</p>
           <input className="primary-input-style" />
           <img />
-          <button>Change avatar</button>
+          <div>
+            <button>upgrade</button>
+          </div>
         </div>
         <div>
-          <p>Banner</p>
+          <p>Banner url</p>
           <input className="primary-input-style" />
           <img />
-          <button>Change Banner</button>
+          <div>
+            <button>upgrade</button>
+          </div>
         </div>
       </div>
     </>

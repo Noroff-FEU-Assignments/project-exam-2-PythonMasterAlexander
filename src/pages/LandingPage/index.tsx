@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { API_LOGIN } from "./../../api/constants";
 import { saveUserToLocalStorage } from "../../utils/storage";
 import { Helmet } from "react-helmet";
+import { post } from "../../api/constants";
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -29,7 +30,7 @@ export default function LandingPage() {
       setSuccessMessage(undefined);
 
       const response = await fetch(API_LOGIN, {
-        method: "POST",
+        method: post,
         headers: {
           "Content-Type": "application/json",
         },
@@ -71,41 +72,46 @@ export default function LandingPage() {
           <NetSocialLogo />
         </section>
         <section>
-          <h1 className="text-center my-8 text-base font-medium">Sign in</h1>
+          <h1 className="text-center my-8 heading-one-font-style">Sign in</h1>
           <form
             id="login-user"
             className="p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
             onSubmit={handleSubmit(onSubmit)}
           >
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {errorMessage && <p className="error-text-style">{errorMessage}</p>}
             {successMessage && (
-              <p className="text-green-500">{successMessage}</p>
+              <p className="success-text-style">{successMessage}</p>
             )}
             <div>
-              <label className="block">Email</label>
+              <label className="form-label-styling block">Email</label>
               <input {...register("email")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.email?.message}</p>
+              <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
-              <label className="block">Password</label>
+              <label className="block form-label-styling">Password</label>
               <input
                 type="password"
                 {...register("password")}
                 className="primary-input-style"
               />
-              <p className="text-red-500 mt-2">{errors.password?.message}</p>
+              <p className="error-text-style">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#FA8072]">
-              <button className="uppercase font-bold">login</button>
+              <button className="uppercase font-bold font-poppins text-theme-color">
+                login
+              </button>
             </div>
             <div className="btn-container border-[#cbd5e1]">
-              <Link to={"create-user-page"}>
+              <Link
+                to={"create-user-page"}
+                className="font-poppins text-theme-color"
+              >
                 <strong className="uppercase font-bold">Or</strong> create user
               </Link>
             </div>
           </form>
           <div className="mt-8 text-center">
-            <span className="pr-8">Dark mode</span>
+            <span className="pr-8 dark-mode-text-style">Dark mode</span>
             <MoonIcon />
           </div>
         </section>

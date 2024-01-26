@@ -70,6 +70,10 @@ export interface UserCommentOnPost {
 export interface UpdateUserPost {
   title: string;
   body: string;
-  tags: [string];
+}
+export interface UsersPosts {
+  title: string;
+  body: string;
   media: string;
+  id: string;
 }

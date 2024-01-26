@@ -10,12 +10,33 @@
 .link-text-style-header {
   @apply uppercase font-poppins font-bold text-theme-color text-base hover:bg-[#CBD5E1] px-4 py-2 focus:underline;
 }
+.heading-one-font-style {
+  @apply text-2xl xl:text-4xl font-medium font-poppins text-theme-color;
+}
+.heading-two-font-style {
+  @apply text-base xl:text-2xl capitalize font-poppins text-theme-color font-medium;
+}
 .link-active-style-header {
   @apply lowercase;
 }
 .primary-input-style {
-  @apply rounded h-10 mt-1 border-2 border-[#cbd5e1];
+  @apply rounded h-10 mt-1 border-2 border-[#cbd5e1] pl-2;
 }
 .main-container-style {
   @apply flex flex-col justify-center items-center h-screen text-sm;
+}
+.main-border-styling {
+  @apply mx-8 border-x-2 p-8 xl:mx-64 md:mx-32;
+}
+.form-label-styling {
+  @apply font-medium font-poppins text-theme-color text-sm block;
+}
+.dark-mode-text-style {
+  @apply font-poppins text-theme-color font-medium text-xs;
+}
+.error-text-style {
+  @apply text-red-500 text-xs pt-2 font-medium font-poppins font-regular;
+}
+.success-text-style {
+  @apply text-green-500 text-xs pt-2 font-medium font-poppins font-regular;
 }

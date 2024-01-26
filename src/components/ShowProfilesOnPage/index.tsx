@@ -29,9 +29,14 @@ export default function ShowProfilesOnPage() {
             <>
               {profiles.map((profileValue) => (
                 <div key={profileValue.email}>
-                  {profileValue.name}
-                  <Link to={`/other-users-profile-page/${profileValue.name}`}>
-                    To other user page
+                  <h2 className="heading-two-font-style">
+                    {profileValue.name}
+                  </h2>
+                  <Link
+                    className="uppercase font-bold font-poppins text-theme-color"
+                    to={`/other-users-profile-page/${profileValue.name}`}
+                  >
+                    check out
                   </Link>
                 </div>
               ))}

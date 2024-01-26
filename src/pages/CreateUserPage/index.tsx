@@ -5,7 +5,7 @@ import { RegisterApiFormData } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
-import { API_REGISTER } from "./../../api/constants";
+import { API_REGISTER, post } from "./../../api/constants";
 import { useState } from "react";
 export default function CreateUserPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -27,7 +27,7 @@ export default function CreateUserPage() {
       setSuccessMessage(undefined);
 
       const response = await fetch(API_REGISTER, {
-        method: "POST",
+        method: post,
         headers: {
           "Content-Type": "application/json",
         },
@@ -63,38 +63,46 @@ export default function CreateUserPage() {
         <title>Create User</title>
       </Helmet>
       <main className="main-container-style xl:flex-column">
-        <h1 className="m-8 text-4xl">Create user</h1>
+        <h1 className="m-8 heading-one-font-style">Create user</h1>
         <form
           id="register-user"
           onSubmit={handleSubmit(onSubmit)}
           className="mx-8 p-8 rounded-xl border-2 border-[#cbd5e1] shadow-lg"
         >
           <fieldset>
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {errorMessage && <p className="error-text-style">{errorMessage}</p>}
             {successMessage && (
-              <p className="text-green-500 mt-2">{successMessage}</p>
+              <p className="success-text-style">{successMessage}</p>
             )}
             <div>
-              <label className="block">Choose a username</label>
+              <label className="block form-label-styling">
+                Choose a username
+              </label>
               <input {...register("name")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.name?.message}</p>
+              <p className="error-text-style">{errors.name?.message}</p>
             </div>
             <div>
-              <label className="block mt-6">Write you email</label>
+              <label className="block mt-6 form-label-styling">
+                Write you email
+              </label>
               <input {...register("email")} className="primary-input-style" />
-              <p className="text-red-500 mt-2">{errors.email?.message}</p>
+              <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
-              <label className="block">Choose a password</label>
+              <label className="block form-label-styling">
+                Choose a password
+              </label>
               <input
                 type="password"
                 {...register("password")}
                 className="primary-input-style"
               />
-              <p className="text-red-500 mt-2">{errors.password?.message}</p>
+              <p className="error-text-style">{errors.password?.message}</p>
             </div>
             <div className="btn-container my-6 border-[#fa8072]">
-              <button className="uppercase font-bold">Create User</button>
+              <button className="uppercase font-bold font-poppins text-theme-color">
+                Create User
+              </button>
             </div>
             <div className="btn-container border-[#cbd5e1]">
               <Link to={"/"}>
@@ -104,11 +112,8 @@ export default function CreateUserPage() {
           </fieldset>
         </form>
         <div className="m-8 text-center">
-          <span className="pr-8">Dark mode</span>
+          <span className="pr-8 dark-mode-text-style">Dark mode</span>
           <MoonIcon />
-          <span>
-            {/*Use conditional statment if light mode/then a moon symbol else if dark mode/then a sun symbol*/}
-          </span>
         </div>
       </main>
     </>

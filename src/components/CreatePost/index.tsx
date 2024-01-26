@@ -1,0 +1,78 @@
+import createPost from "../../api/posts/createPost";
+import { API_SOCIAL_CREATE_POST_WITH_ } from "../../api/constants";
+import { UserPostData } from "../../api/types";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userPostSchema } from "../../utils/userSchema";
+import { post, userToken } from "../../api/constants";
+import { useState } from "react";
+export default function CreatePost() {
+  const [errorCreatingPost, setErrorCreatingPost] = useState<string | null>(
+    null,
+  );
+  const ACTION = "/posts";
+  const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<UserPostData>({
+    resolver: yupResolver(userPostSchema),
+  });
+  const userCreatePost = async function (data: UserPostData) {
+    try {
+      createPost(URL, userToken, data, post);
+      reset();
+    } catch (error) {
+      setErrorCreatingPost("Could not post");
+    }
+  };
+  return (
+    <>
+      <section className="border-b-2">
+        <h1 className="text-center heading-one-font-style py-8 border-b-2">
+          Create post
+        </h1>
+        <div className="flex justify-center p-8">
+          <form
+            id="create-user-post"
+            className="flex flex-col md:flex-row flex-wrap gap-8 md:justify-between"
+            onSubmit={handleSubmit(userCreatePost)}
+          >
+            <div className="md:w-2/5">
+              <label className="form-label-styling">Post title</label>
+              <input
+                {...register("title")}
+                className="primary-input-style w-full"
+              />
+              <p className="error-text-style">{errors.title?.message}</p>
+            </div>
+            <div className="md:w-2/5">
+              <label className="form-label-styling">Post media url</label>
+              <input
+                {...register("media")}
+                className="primary-input-style w-full"
+              />
+            </div>
+            <div className="md:w-full xl:w-2/5">
+              <label className="form-label-styling">Post text</label>
+              <input
+                {...register("body")}
+                className="primary-input-style w-full"
+              />
+            </div>
+            <div className="btn-container border-[#cbd5e1] md:w-1/2 xl:w-2/5 h-11 xl:self-end">
+              <button className="uppercase font-poppins font-bold text-theme-color text-base">
+                post
+              </button>
+            </div>
+          </form>
+        </div>
+        {errorCreatingPost && (
+          <div className="error-text-style">{errorCreatingPost}</div>
+        )}
+      </section>
+    </>
+  );
+}
