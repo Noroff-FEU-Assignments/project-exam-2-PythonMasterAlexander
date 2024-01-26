@@ -12,8 +12,11 @@ export default function UserSearchPage() {
         />
         <title>Search Page</title>
       </Helmet>
-      <main className="main-border-styling">
+      <main className="mx-8 border-x-2 xl:mx-64 md:mx-32">
         <section>
+          <h1 className="text-center heading-one-font-style py-8 border-b-2">
+            Search profiles
+          </h1>
           <ShowProfilesOnPage />
         </section>
       </main>

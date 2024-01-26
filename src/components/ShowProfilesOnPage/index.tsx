@@ -28,7 +28,7 @@ export default function ShowProfilesOnPage() {
           {profiles && (
             <>
               {profiles.map((profileValue) => (
-                <div key={profileValue.email}>
+                <div className="border-b-2 p-8 flex" key={profileValue.email}>
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
                   </h2>
