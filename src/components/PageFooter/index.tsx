@@ -25,7 +25,7 @@ export default function PageFooter() {
         </>
       ) : (
         <>
-          <footer className="border-t-2">
+          <footer className="border-t-2 mt-auto">
             <div className="m-8 flex gap-8 justify-between items-center flex-col xl:flex-row">
               <section>
                 <NetSocialLogo />
