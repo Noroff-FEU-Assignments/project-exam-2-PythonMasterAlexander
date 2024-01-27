@@ -4,11 +4,26 @@ import { UserProfile, MediaEntry } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 import { useState } from "react";
 
+//import { useForm } from "react-hook-form";
+//import { yupResolver } from "@hookform/resolvers/yup";
+//import { updateAvatarAndBannerSchema } from "../../utils/userSchema";
+
 export default function ShowPostMedia() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [avatarInput, setAvatarInput] = useState<string>("");
   const [bannerInput, setBannerInput] = useState<string>("");
+
+  /*
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<MediaEntry>({
+    resolver: yupResolver(updateAvatarAndBannerSchema ),
+  });
+  */
 
   const _ACTION: string = "/media";
   const { name }: UserProfile = loadUserFromLocalStorage(user);
