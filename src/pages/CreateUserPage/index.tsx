@@ -43,7 +43,7 @@ export default function CreateUserPage() {
       } else {
         setSuccessMessage("User registered successfully");
         reset();
-        navigate("/welcome-to-net-social-page");
+        navigate("/welcome-to-net-social");
       }
     } catch (error) {
       console.log("Error during API request: ", error);

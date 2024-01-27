@@ -50,7 +50,7 @@ export default function LandingPage() {
 
         setSuccessMessage("User login successfully");
         reset();
-        navigate("/user-home-page");
+        navigate("/user-home");
       }
     } catch (error) {
       setErrorMessage("There was an error registering the user");
@@ -103,7 +103,7 @@ export default function LandingPage() {
             </div>
             <div className="btn-container border-[#cbd5e1]">
               <Link
-                to={"create-user-page"}
+                to={"create-user"}
                 className="font-poppins text-theme-color"
               >
                 <strong className="uppercase font-bold">Or</strong> create user

@@ -14,7 +14,7 @@ export default function UserProfileNavigation() {
         alt="any avatar the user have uploaded to display as user profile"
       />
       <span className="capitalize self-center font-poppins font-regular text-theme-color">
-        <Link to="/user-profile-page">{name}</Link>
+        <Link to="/user-profile">{name}</Link>
       </span>
     </>
   );

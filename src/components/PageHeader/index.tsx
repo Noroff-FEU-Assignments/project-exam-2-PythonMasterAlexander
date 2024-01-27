@@ -30,19 +30,16 @@ export default function PageHeader() {
                 <LogoLink />
               </section>
               <section className="self-center">
-                <Link
-                  className="link-text-style-header mr-8"
-                  to="/user-home-page"
-                >
+                <Link className="link-text-style-header mr-8" to="/user-home">
                   home
                 </Link>
                 <Link
                   className="link-text-style-header mr-8"
-                  to="/user-profile-page"
+                  to="/user-profile"
                 >
                   profile
                 </Link>
-                <Link className="link-text-style-header" to="/user-search-page">
+                <Link className="link-text-style-header" to="/user-search">
                   users
                 </Link>
               </section>

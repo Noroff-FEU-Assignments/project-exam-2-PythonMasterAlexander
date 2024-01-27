@@ -50,7 +50,7 @@ export default function ShowOtherUsersPostsOnPage() {
                 src={post.media}
                 alt={post.media ? "User uploaded image" : ""}
               />
-              <Link to={`/other-users-post-page/${post.id}`}>check out</Link>
+              <Link to={`/other-users-post/${post.id}`}>check out</Link>
             </div>
           ))
         )}

@@ -35,7 +35,7 @@ export default function ShowProfilesOnPage() {
                   </h2>
                   <Link
                     className="uppercase font-bold font-poppins text-theme-color"
-                    to={`/other-users-profile-page/${profileValue.name}`}
+                    to={`/other-users-profile/${profileValue.name}`}
                   >
                     check out
                   </Link>
