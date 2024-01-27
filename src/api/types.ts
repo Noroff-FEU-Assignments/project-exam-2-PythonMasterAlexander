@@ -77,3 +77,6 @@ export interface UsersPosts {
   media: string;
   id: string;
 }
+export interface RemoveOneUserPostType {
+  id: number;
+}
