@@ -13,3 +13,7 @@ export const userPostSchema = yup.object({
   body: yup.string(),
   media: yup.string().url(),
 });
+export const updateAvatarAndBannerSchema = yup.object({
+  banner: yup.string().url("not a valid url").required(),
+  avatar: yup.string().url("not a valid url").required(),
+});
