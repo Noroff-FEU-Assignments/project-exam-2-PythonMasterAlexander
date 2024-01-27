@@ -1,6 +1,7 @@
 import ShowOtherUsersPostsOnPage from "../../components/ShowOtherUsersPostsOnPage";
 import { Helmet } from "react-helmet";
 import CreatePost from "../../components/CreatePost";
+
 export default function UserProfilePage() {
   return (
     <>
@@ -11,7 +12,7 @@ export default function UserProfilePage() {
           name="description"
           content="The user home page where they are taken to after doing the log in. This page shows what other users they are following are doing. From here the user can navigate to the profile page."
         />
-        <title>Home Page</title>
+        <title>Home</title>
       </Helmet>
       <main>
         <CreatePost />

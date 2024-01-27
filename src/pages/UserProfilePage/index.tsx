@@ -9,6 +9,7 @@ import {
 import { remove } from "../../api/constants";
 import ShowPostMedia from "../../components/ShowPostMedia";
 import removePost from "../../api/posts/removePost";
+
 export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const { name, banner, avatar } = userLoginInformation;
@@ -31,7 +32,7 @@ export default function UserHomePage() {
           name="description"
           content="The user profile page, this page show the information about the user."
         />
-        <title>Profile Page</title>
+        <title>Profile</title>
       </Helmet>
       <main>
         <section className="border-b-2">
@@ -45,22 +46,24 @@ export default function UserHomePage() {
               alt="any banner the user have uploaded to display as user profile"
             />
           </div>
-          <div className="flex px-8 ">
+          <div className="flex px-8 justify-center">
             <img
               className="inline rounded-full w-36"
               src={avatar}
               alt="any avatar the user have uploaded to display as user profile"
             />
-            <h3 className="pl-8 self-center">{name}</h3>
+            <h2 className="pl-8 heading-two-font-style self-center">{name}</h2>
           </div>
-          <p className="p-8">About the user</p>
+          <p className="p-8 font-poppins text-theme-color">About the user</p>
         </section>
-        <section className="border-b-2 flex flex-col items-center">
-          <h2>Edit profile</h2>
+        <section className="border-b-2 p-8 flex flex-col items-center">
+          <h2 className="heading-two-font-style">Edit profile</h2>
           <ShowPostMedia />
         </section>
-        <section className="main-border-styling">
-          <h3>User posts</h3>
+        <section>
+          <h3 className="heading-three-font-style text-center main-border-styling border-b-2 p-8">
+            User posts
+          </h3>
           <ShowUserPostsOnProfilePage />
           <div className="btn-container">
             <button

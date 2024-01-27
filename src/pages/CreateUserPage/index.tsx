@@ -1,4 +1,3 @@
-import MoonIcon from "../../components/MoonIcon";
 import { Helmet } from "react-helmet";
 import { userRegisterSchema } from "../../utils/userSchema";
 import { RegisterApiFormData } from "../../api/types";
@@ -7,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { API_REGISTER, post } from "./../../api/constants";
 import { useState } from "react";
+
 export default function CreateUserPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -43,7 +43,7 @@ export default function CreateUserPage() {
       } else {
         setSuccessMessage("User registered successfully");
         reset();
-        navigate("/welcome-to-net-social-page");
+        navigate("/welcome-to-net-social");
       }
     } catch (error) {
       console.log("Error during API request: ", error);
@@ -111,10 +111,6 @@ export default function CreateUserPage() {
             </div>
           </fieldset>
         </form>
-        <div className="m-8 text-center">
-          <span className="pr-8 dark-mode-text-style">Dark mode</span>
-          <MoonIcon />
-        </div>
       </main>
     </>
   );

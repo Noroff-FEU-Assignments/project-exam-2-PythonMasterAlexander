@@ -11,6 +11,7 @@ import {
 } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
 import { Helmet } from "react-helmet";
+
 export default function ShowOtherUsersProfileOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -66,7 +67,7 @@ export default function ShowOtherUsersProfileOnPage() {
                 />
                 <meta
                   name="description"
-                  content="This is the Net Social page that shows other users on Net Social. The user must first search and click the users first."
+                  content="This is the Net Social page that shows another user on Net Social."
                 />
                 <title>{name}</title>
               </Helmet>

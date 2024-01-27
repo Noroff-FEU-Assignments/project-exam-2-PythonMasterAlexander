@@ -7,6 +7,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <PageApplication />
+    <div className="min-h-screen flex flex-col">
+      <PageApplication />
+    </div>
   </BrowserRouter>,
 );

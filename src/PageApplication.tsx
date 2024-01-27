@@ -14,22 +14,19 @@ export default function PageApplication() {
     <Routes>
       <Route path="/" element={<PageLayout />}>
         <Route index element={<LandingPage />} />
-        <Route path="user-profile-page" element={<UserProfilePage />} />
-        <Route path="create-user-page" element={<CreateUserPage />} />
-        <Route path="user-home-page" element={<UserHomePage />} />
-        <Route path="user-search-page" element={<UserSearchPage />} />
+        <Route path="user-profile" element={<UserProfilePage />} />
+        <Route path="create-user" element={<CreateUserPage />} />
+        <Route path="user-home" element={<UserHomePage />} />
+        <Route path="user-search" element={<UserSearchPage />} />
         <Route
-          path="other-users-profile-page/:name"
+          path="other-users-profile/:name"
           element={<OtherUsersProfilePage />}
         />
         <Route
-          path="welcome-to-net-social-page"
+          path="welcome-to-net-social"
           element={<WelcomeToNetSocialPage />}
         />
-        <Route
-          path="other-users-post-page/:id"
-          element={<OtherUsersPostPage />}
-        />
+        <Route path="other-users-post/:id" element={<OtherUsersPostPage />} />
       </Route>
     </Routes>
   );

@@ -1,7 +1,7 @@
-import MoonIcon from "../../components/MoonIcon";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import LogoLink from "../../components/LogoLink";
+
 export default function WelcomeToNetSocialPage() {
   return (
     <>
@@ -25,10 +25,6 @@ export default function WelcomeToNetSocialPage() {
         <p className="mt-6 font-poppins text-theme-color font-medium font-base">
           to sign in
         </p>
-        <div className="mt-8 lg:mt-auto lg:mb-8 text-center">
-          <span className="pr-8 dark-mode-text-style">Dark mode</span>
-          <MoonIcon />
-        </div>
       </main>
     </>
   );

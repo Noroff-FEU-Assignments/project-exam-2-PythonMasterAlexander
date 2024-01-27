@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { removeUserFromLocalStorage } from "../../utils/storage";
+
 export default function LogOutUser() {
   return (
     <>

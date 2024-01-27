@@ -10,40 +10,53 @@ import {
   put,
 } from "../../api/constants";
 import { UserPost, UpdateUserPost } from "../../api/types";
+
 export default function ShowUserPostsOnProfilePage() {
-  const [userPostData, setUserPostData] = useState<[UserPost] | undefined>();
+  const [userPostData, setUserPostData] = useState<UserPost[]>([]);
   const { name, avatar } = userLoginInformation;
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
+
   useEffect(() => {
     const showEachUserPosts = async function () {
       try {
         const userPosts = await viewPost(SHOW_USER_POSTS, userToken);
-        setUserPostData(userPosts);
+        setUserPostData(userPosts || []);
       } catch (error) {
         console.log(error);
       }
     };
     showEachUserPosts();
   }, [SHOW_USER_POSTS]);
-  //Here use the id number from each post
-  //Change the test post to the value the user sends in
-  const TEST_POST: string = "9839";
-  const UPDATE_POST: string = `${API_SOCIAL_DELETE_POST_WITH_}/${TEST_POST}`;
-  const data: UpdateUserPost = {
-    title: "fuck off",
-    body: "test body",
+
+  const [updateUserPosts, setUpdateUserPosts] = useState<{
+    [key: number]: UpdateUserPost;
+  }>({});
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    id: number,
+  ) => {
+    const { name, value } = e.target;
+    setUpdateUserPosts((prevData) => ({
+      ...prevData,
+      [id]: {
+        ...prevData[id],
+        [name]: value,
+      },
+    }));
   };
 
-  const updateOnePost = async function () {
+  const updateOnePost = async function (id: number) {
+    const POST_ID: number = id;
+    const UPDATE_POST: string = `${API_SOCIAL_DELETE_POST_WITH_}/${POST_ID}`;
     try {
-      await updatePost(UPDATE_POST, userToken, data, put);
+      await updatePost(UPDATE_POST, userToken, updateUserPosts[id], put);
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <>
-      <div>
+      <div className="main-border-styling">
         {userPostData ? (
           <>
             {userPostData.map((postData: UserPost) => (
@@ -53,14 +66,29 @@ export default function ShowUserPostsOnProfilePage() {
                   src={avatar}
                   alt="any avatar the user have uploaded to display as user profile"
                 />
-                <h3>{postData.title}</h3>
+                <h4 className="">{postData.title}</h4>
+                <p>{postData.body}</p>
                 <div>
-                  <input />
-                  <input />
+                  <input
+                    className="primary-input-style"
+                    type="text"
+                    name="title"
+                    placeholder="Update title"
+                    value={updateUserPosts[postData.id]?.title || ""}
+                    onChange={(e) => handleInputChange(e, postData.id)}
+                  />
+                  <input
+                    className="primary-input-style"
+                    type="text"
+                    name="body"
+                    placeholder="Update body"
+                    value={updateUserPosts[postData.id]?.body || ""}
+                    onChange={(e) => handleInputChange(e, postData.id)}
+                  />
                   <div className="btn-container">
                     <button
                       className="text-sm capitalize font-medium font-poppins text-theme-color text-sm"
-                      onClick={updateOnePost}
+                      onClick={() => updateOnePost(postData.id)}
                     >
                       upgrade
                     </button>
@@ -70,7 +98,7 @@ export default function ShowUserPostsOnProfilePage() {
             ))}
           </>
         ) : (
-          <p>Loading</p>
+          <p className="error-text-style">Loading posts</p>
         )}
       </div>
     </>

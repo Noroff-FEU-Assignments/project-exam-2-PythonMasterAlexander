@@ -5,5 +5,8 @@ export default async function viewPost(url: string, token: string) {
       Authorization: `Bearer ${token}`,
     },
   });
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   return await response.json();
 }

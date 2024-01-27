@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { userPostSchema } from "../../utils/userSchema";
 import { post, userToken } from "../../api/constants";
 import { useState } from "react";
+
 export default function CreatePost() {
   const [errorCreatingPost, setErrorCreatingPost] = useState<string | null>(
     null,

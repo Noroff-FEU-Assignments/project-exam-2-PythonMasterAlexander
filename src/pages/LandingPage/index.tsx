@@ -1,4 +1,3 @@
-import MoonIcon from "../../components/MoonIcon";
 import NetSocialLogo from "../../components/NetSocialLogo";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
@@ -10,6 +9,7 @@ import { API_LOGIN } from "./../../api/constants";
 import { saveUserToLocalStorage } from "../../utils/storage";
 import { Helmet } from "react-helmet";
 import { post } from "../../api/constants";
+
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -50,7 +50,7 @@ export default function LandingPage() {
 
         setSuccessMessage("User login successfully");
         reset();
-        navigate("/user-home-page");
+        navigate("/user-home");
       }
     } catch (error) {
       setErrorMessage("There was an error registering the user");
@@ -103,17 +103,13 @@ export default function LandingPage() {
             </div>
             <div className="btn-container border-[#cbd5e1]">
               <Link
-                to={"create-user-page"}
+                to={"create-user"}
                 className="font-poppins text-theme-color"
               >
                 <strong className="uppercase font-bold">Or</strong> create user
               </Link>
             </div>
           </form>
-          <div className="mt-8 text-center">
-            <span className="pr-8 dark-mode-text-style">Dark mode</span>
-            <MoonIcon />
-          </div>
         </section>
         <section className="hidden xl:block">
           <div className="max-w-3xl mx-auto">
