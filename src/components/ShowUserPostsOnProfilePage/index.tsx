@@ -1,18 +1,15 @@
 import RemoveOneUserPost from "../RemoveOneUserPost";
 import viewPost from "../../api/posts/viewPost";
 import { useEffect, useState } from "react";
-import {
-  API_SOCIAL_PROFILES,
-  API_SOCIAL_POSTS,
-  userLoginInformation,
-  userToken,
-} from "../../api/constants";
+import { API_SOCIAL_PROFILES, API_SOCIAL_POSTS } from "../../api/constants";
 import { UserPost, UpdateUserPost } from "../../api/types";
 import updateOnePost from "../../utils/updateOnePost";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function ShowUserPostsOnProfilePage() {
   const [userPostData, setUserPostData] = useState<UserPost[]>([]);
-  const { name, avatar } = userLoginInformation;
+  const { name, avatar } = loadUserFromLocalStorage("user");
+  const userToken = loadUserFromLocalStorage("token");
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
   useEffect(() => {
     const showEachUserPosts = async function () {
@@ -24,7 +21,7 @@ export default function ShowUserPostsOnProfilePage() {
       }
     };
     showEachUserPosts();
-  }, [SHOW_USER_POSTS]);
+  }, [SHOW_USER_POSTS, userToken]);
   const [updateUserPosts, setUpdateUserPosts] = useState<{
     [key: number]: UpdateUserPost;
   }>({});

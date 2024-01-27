@@ -14,7 +14,6 @@ export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -23,7 +22,6 @@ export default function LandingPage() {
   } = useForm<LoginApiFormData>({
     resolver: yupResolver(userLoginSchema),
   });
-
   const onSubmit = async function (data: LoginApiFormData) {
     try {
       setErrorMessage(undefined);
