@@ -74,7 +74,7 @@ export default function ShowUserPostsOnProfilePage() {
                   />
                   <div className="btn-container">
                     <button
-                      className="text-sm capitalize font-medium font-poppins text-theme-color text-sm"
+                      className="text-sm capitalize font-regular font-poppins text-theme-color text-sm"
                       onClick={() =>
                         updateOnePost(updateUserPosts, postData.id)
                       }

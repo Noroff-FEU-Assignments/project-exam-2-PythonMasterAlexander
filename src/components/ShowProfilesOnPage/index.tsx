@@ -28,13 +28,13 @@ export default function ShowProfilesOnPage() {
         <>
           {profiles && (
             <>
-              {profiles.map((profileValue) => (
+              {profiles.slice(0, 10).map((profileValue) => (
                 <div className="border-b-2 p-8 flex" key={profileValue.email}>
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
                   </h2>
                   <Link
-                    className="uppercase font-bold font-poppins text-theme-color"
+                    className="btn-container uppercase font-bold font-poppins text-theme-color"
                     to={`/other-users-profile/${profileValue.name}`}
                   >
                     check out

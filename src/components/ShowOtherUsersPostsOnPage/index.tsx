@@ -37,7 +37,7 @@ export default function ShowOtherUsersPostsOnPage() {
         ) : postsError ? (
           <p className="error-text-style">{postsError}</p>
         ) : (
-          userPosts.map((post) => (
+          userPosts.slice(0, 10).map((post) => (
             <div className="border-b-2 p-8" key={post.id}>
               <h2>{post.title}</h2>
               <p>{post.body}</p>
@@ -45,7 +45,12 @@ export default function ShowOtherUsersPostsOnPage() {
                 src={post.media}
                 alt={post.media ? "User uploaded image" : ""}
               />
-              <Link to={`/other-users-post/${post.id}`}>check out</Link>
+              <Link
+                className="btn-container uppercase font-bold font-poppins text-theme-color"
+                to={`/other-users-post/${post.id}`}
+              >
+                check out
+              </Link>
             </div>
           ))
         )}
