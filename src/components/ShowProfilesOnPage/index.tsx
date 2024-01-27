@@ -43,6 +43,7 @@ export default function ShowProfilesOnPage() {
               ))}
             </>
           )}
+          <div className="min-h-8"></div>
         </>
       ) : (
         <div>{errorMessage}</div>
