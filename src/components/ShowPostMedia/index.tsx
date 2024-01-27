@@ -15,6 +15,7 @@ export default function ShowPostMedia() {
   const _USER_NAME: string = `/${name}`;
   const URL: string = API_SOCIAL_PROFILES + _USER_NAME + _ACTION;
 
+  // There is an error here, the user can send a empty request. This must be stopped using an message that the two input fields must be populated
   const changeMedia = async function () {
     try {
       const data: MediaEntry = {
