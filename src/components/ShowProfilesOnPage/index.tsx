@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES, userToken } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
+
 export default function ShowProfilesOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();

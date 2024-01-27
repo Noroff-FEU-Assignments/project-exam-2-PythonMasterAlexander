@@ -1,5 +1,4 @@
 import LogoLink from "../LogoLink";
-import MoonIcon from "../MoonIcon";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -8,6 +7,7 @@ import {
   createUserPage,
   welcomeNewUserPage,
 } from "../../utils/constants";
+
 export default function PageHeader() {
   const [pageNameLocation, setPageNameLocation] = useState<string>("");
   const pageUrlLocation = useLocation();
@@ -46,11 +46,7 @@ export default function PageHeader() {
                   users
                 </Link>
               </section>
-              <section className="self-center hidden xl:block">
-                <div>
-                  <MoonIcon />
-                </div>
-              </section>
+              <section className="self-center hidden xl:block"></section>
             </div>
           </header>
         </>

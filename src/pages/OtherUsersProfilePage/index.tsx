@@ -1,4 +1,5 @@
 import ShowOtherUsersProfileOnPage from "../../components/ShowOtherUsersProfileOnPage";
+
 export default function OtherUsersProfilePage() {
   return (
     <>

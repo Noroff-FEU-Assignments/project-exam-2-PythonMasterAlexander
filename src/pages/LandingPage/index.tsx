@@ -1,4 +1,3 @@
-import MoonIcon from "../../components/MoonIcon";
 import NetSocialLogo from "../../components/NetSocialLogo";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
@@ -10,6 +9,7 @@ import { API_LOGIN } from "./../../api/constants";
 import { saveUserToLocalStorage } from "../../utils/storage";
 import { Helmet } from "react-helmet";
 import { post } from "../../api/constants";
+
 export default function LandingPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
@@ -110,10 +110,6 @@ export default function LandingPage() {
               </Link>
             </div>
           </form>
-          <div className="mt-8 text-center">
-            <span className="pr-8 dark-mode-text-style">Dark mode</span>
-            <MoonIcon />
-          </div>
         </section>
         <section className="hidden xl:block">
           <div className="max-w-3xl mx-auto">

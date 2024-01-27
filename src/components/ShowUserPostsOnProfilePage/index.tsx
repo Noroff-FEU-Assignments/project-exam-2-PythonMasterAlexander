@@ -10,6 +10,7 @@ import {
   put,
 } from "../../api/constants";
 import { UserPost, UpdateUserPost } from "../../api/types";
+
 export default function ShowUserPostsOnProfilePage() {
   const [userPostData, setUserPostData] = useState<[UserPost] | undefined>();
   const { name, avatar } = userLoginInformation;

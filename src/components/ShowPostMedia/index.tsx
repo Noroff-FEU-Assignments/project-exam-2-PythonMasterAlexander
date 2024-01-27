@@ -3,6 +3,7 @@ import { API_SOCIAL_PROFILES, userToken, user, put } from "../../api/constants";
 import { UserProfile, MediaEntry } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 import { useState } from "react";
+
 export default function ShowPostMedia() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -26,7 +27,6 @@ export default function ShowPostMedia() {
       setIsError(true);
     }
   };
-  //Code works her, now need to use the values passed in the input fields
   return (
     <>
       <div>

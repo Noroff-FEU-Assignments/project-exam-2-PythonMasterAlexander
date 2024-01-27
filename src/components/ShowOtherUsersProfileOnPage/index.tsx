@@ -11,6 +11,7 @@ import {
 } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
 import { Helmet } from "react-helmet";
+
 export default function ShowOtherUsersProfileOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();

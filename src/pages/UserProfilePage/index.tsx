@@ -9,6 +9,7 @@ import {
 import { remove } from "../../api/constants";
 import ShowPostMedia from "../../components/ShowPostMedia";
 import removePost from "../../api/posts/removePost";
+
 export default function UserHomePage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const { name, banner, avatar } = userLoginInformation;
@@ -31,7 +32,7 @@ export default function UserHomePage() {
           name="description"
           content="The user profile page, this page show the information about the user."
         />
-        <title>Profile Page</title>
+        <title>Profile</title>
       </Helmet>
       <main>
         <section className="border-b-2">

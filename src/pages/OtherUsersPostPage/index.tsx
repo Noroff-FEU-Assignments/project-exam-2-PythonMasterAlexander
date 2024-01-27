@@ -1,16 +1,19 @@
 import viewPost from "../../api/posts/viewPost";
 import createComments from "../../api/posts/createComments";
 import reactOnPosts from "../../api/posts/reactOnPosts";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userToken, API_SOCIAL_POST_, post, put } from "../../api/constants";
 import { UserPost, CommentData, UserCommentOnPost } from "../../api/types";
+
 export default function OtherUsersPostPage() {
   const [userPost, setUserPost] = useState<UserPost>();
   const [userCommentOnPost, setUserCommentOnPost] = useState<
     UserCommentOnPost | undefined
   >();
   const [userInputComment, setUserInputComment] = useState("");
+  const [postTitle, setPostTitle] = useState<string>("Post");
   const { id } = useParams();
   console.log(userCommentOnPost);
   const URL: string = `${API_SOCIAL_POST_}/${id}`;
@@ -50,8 +53,22 @@ export default function OtherUsersPostPage() {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (userPost?.title) {
+      setPostTitle(userPost.title);
+    }
+  }, [userPost]);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="The other users post page where the user can view posts by other profiles."
+        />
+        <title>{postTitle}</title>
+      </Helmet>
       <main className="main-border-styling">
         <h1 className="heading-one-font-style">Post</h1>
         <div>

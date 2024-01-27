@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 export default function NetSocialLogo() {
   const [deviceSize, setDeviceSize] = useState<string>("");
   const checkDeviceSize = () => {

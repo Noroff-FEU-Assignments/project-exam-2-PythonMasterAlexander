@@ -4,6 +4,7 @@ import { UsersPosts } from "../../api/types";
 import { API_SOCIAL_POST_ } from "../../api/constants";
 import { Link } from "react-router-dom";
 import { loadUserFromLocalStorage } from "../../utils/storage";
+
 export default function ShowOtherUsersPostsOnPage() {
   const [userPosts, setUserPosts] = useState<UsersPosts[]>([]);
   const [postsError, setPostsError] = useState<string | null>(null);
