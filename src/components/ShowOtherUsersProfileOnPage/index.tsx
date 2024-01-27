@@ -33,7 +33,7 @@ export default function ShowOtherUsersProfileOnPage() {
     };
     getProfile();
   }, [URL, param]);
-  const { name, email, banner, avatar, _count }: UserProfiles = profile || {};
+  const { name, email, banner, avatar }: UserProfiles = profile || {};
   const FOLLOW_USER: string = `${URL}/${name}${FOLLOW}`;
   const UNFOLLOW_USER: string = `${URL}/${name}${UNFOLLOW}`;
   const followUser = async function () {
@@ -71,17 +71,20 @@ export default function ShowOtherUsersProfileOnPage() {
                 />
                 <title>{name}</title>
               </Helmet>
-              <div>
-                <h2 className="heading-two-font-style">{name}</h2>
-                <h3 className="capitalize text-base">Contact {email}</h3>
-                <img src={banner} />
-                <img src={avatar} />
-                <span>Followers: {_count.followers}</span>
-                <span>Following: {_count.following}</span>
-              </div>
-              <div>
-                <button onClick={followUser}>Follow</button>
-                <button onClick={unFollowUser}>Unfollow</button>
+              <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
+                <div className="border-b-2">
+                  <h2 className="heading-two-font-style">{name}</h2>
+                  <h3 className="capitalize text-base">Contact {email}</h3>
+                  <img src={banner} />
+                  <img src={avatar} />
+                  <div>
+                    <button onClick={followUser}>Follow</button>
+                  </div>
+                  <div>
+                    <button onClick={unFollowUser}>Unfollow</button>
+                  </div>
+                </div>
+                <div className="min-h-8"></div>
               </div>
             </>
           )}

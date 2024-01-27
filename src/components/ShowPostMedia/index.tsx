@@ -16,6 +16,7 @@ export default function ShowPostMedia() {
   const URL: string = API_SOCIAL_PROFILES + _USER_NAME + _ACTION;
 
   // There is an error here, the user can send a empty request. This must be stopped using an message that the two input fields must be populated
+  // If I send two valid strings in the input fields, the request comes through but its not showing on the page
   const changeMedia = async function () {
     try {
       const data: MediaEntry = {
@@ -30,7 +31,7 @@ export default function ShowPostMedia() {
   };
   return (
     <>
-      <div>
+      <div className="flex flex-col gap-8">
         <div>
           <p className="font-poppins text-theme-color">Banner</p>
           <input
@@ -53,10 +54,10 @@ export default function ShowPostMedia() {
           />
           <img />
         </div>
-        <div>
+        <div className="btn-container">
           <button
             onClick={changeMedia}
-            className="font-poppins text-theme-color"
+            className="font-poppins text-theme-color font-regular"
           >
             upgrade
           </button>
