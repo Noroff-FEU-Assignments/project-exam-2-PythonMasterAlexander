@@ -1,28 +1,10 @@
 import ShowUserPostsOnProfilePage from "../../components/ShowUserPostsOnProfilePage";
-import { useState } from "react";
 import { Helmet } from "react-helmet";
-import {
-  API_SOCIAL_DELETE_POST_WITH_,
-  userToken,
-  userLoginInformation,
-} from "../../api/constants";
-import { remove } from "../../api/constants";
+import { userLoginInformation } from "../../api/constants";
 import ShowPostMedia from "../../components/ShowPostMedia";
-import removePost from "../../api/posts/removePost";
 
 export default function UserHomePage() {
-  const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const { name, banner, avatar } = userLoginInformation;
-  const ACTION: string = "/9841";
-  const URL: string = API_SOCIAL_DELETE_POST_WITH_ + ACTION;
-  const clickToRemoveOnePost = async function () {
-    try {
-      const result = await removePost(URL, userToken, remove);
-      return result;
-    } catch (error) {
-      setErrorMessage("Something went wrong");
-    }
-  };
   return (
     <>
       <Helmet>
@@ -65,15 +47,6 @@ export default function UserHomePage() {
             User posts
           </h3>
           <ShowUserPostsOnProfilePage />
-          <div className="btn-container">
-            <button
-              className="uppercase font-poppins font-bold text-theme-color text-base"
-              onClick={clickToRemoveOnePost}
-            >
-              Delete post
-            </button>
-            <div>{errorMessage && <p>{errorMessage}</p>}</div>
-          </div>
         </section>
       </main>
     </>
