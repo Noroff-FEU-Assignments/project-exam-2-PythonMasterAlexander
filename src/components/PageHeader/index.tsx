@@ -25,8 +25,8 @@ export default function PageHeader() {
       ) : (
         <>
           <header className="border-b-2">
-            <div className="m-8 flex justify-between">
-              <section>
+            <div className="m-8 flex flex-col sm:flex-row gap-6 justify-between">
+              <section className="sm:self-center">
                 <LogoLink />
               </section>
               <section className="self-center">

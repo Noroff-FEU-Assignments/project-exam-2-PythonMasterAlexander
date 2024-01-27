@@ -19,21 +19,16 @@ export default function ShowOtherUsersPostsOnPage() {
       if (userToken) {
         try {
           const fetchPosts = await viewPosts(URL, userToken);
-          console.log("Fetched Posts:", fetchPosts);
           setUserPosts(fetchPosts);
         } catch (error) {
-          console.error("Error fetching posts:", error);
           setPostsError("Could not get users posts");
         } finally {
           setLoading(false);
         }
-      } else {
-        console.log("No user token");
       }
     };
     getPosts();
   }, [URL, userToken]);
-
   return (
     <>
       <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
