@@ -1,4 +1,5 @@
 import NetSocialLogo from "../../components/NetSocialLogo";
+import landingPageImage from "../../resources/landing-page-image.png";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -114,7 +115,7 @@ export default function LandingPage() {
           <div className="max-w-3xl mx-auto">
             <img
               className="w-full h-auto"
-              src="../../../resources/landing-page-image.png"
+              src={landingPageImage}
               alt="Group of people gather around a computer having fun and being social together"
             />
           </div>
