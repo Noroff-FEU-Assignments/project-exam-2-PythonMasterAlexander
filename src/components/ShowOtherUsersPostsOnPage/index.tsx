@@ -31,7 +31,7 @@ export default function ShowOtherUsersPostsOnPage() {
     <>
       <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
         {loading ? (
-          <p>Loading...</p>
+          <p className="paragraph-font-style">Loading...</p>
         ) : postsError ? (
           <p className="error-text-style">{postsError}</p>
         ) : (
@@ -40,8 +40,8 @@ export default function ShowOtherUsersPostsOnPage() {
               className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
               key={post.id}
             >
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
+              <h2 className="heading-two-font-style">{post.title}</h2>
+              <p className="paragraph-font-style">{post.body}</p>
               <img
                 className="inline rounded-full w-36"
                 src={post.media}

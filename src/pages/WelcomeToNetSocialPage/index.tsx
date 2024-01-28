@@ -15,16 +15,14 @@ export default function WelcomeToNetSocialPage() {
         <title>Welcome to Net Social</title>
       </Helmet>
       <main className="main-container-style">
-        <h1 className="text-center text-4xl lg:mt-80">
+        <h1 className="text-center text-4xl heading-one-font-style">
           Welcome <span className="block">to</span>
           <LogoLink />
         </h1>
         <div className="btn-container border-[#FA8072] w-48 mt-8 uppercase font-poppins font-bold text-theme-color text-base">
           <Link to={"/"}>Continue</Link>
         </div>
-        <p className="mt-6 font-poppins text-theme-color font-medium font-base">
-          to sign in
-        </p>
+        <p className="mt-6 paragraph-font-style">to sign in</p>
       </main>
     </>
   );

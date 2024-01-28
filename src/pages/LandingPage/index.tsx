@@ -84,12 +84,17 @@ export default function LandingPage() {
             )}
             <div>
               <label className="form-label-styling block">Email</label>
-              <input {...register("email")} className="primary-input-style" />
+              <input
+                placeholder="Insert"
+                {...register("email")}
+                className="primary-input-style"
+              />
               <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
               <label className="block form-label-styling">Password</label>
               <input
+                placeholder="Insert"
                 type="password"
                 {...register("password")}
                 className="primary-input-style"

@@ -59,7 +59,6 @@ export default function OtherUsersPostPage() {
     }
   }, [userPost]);
 
-  console.log(userPost);
   return (
     <>
       <Helmet>
@@ -79,36 +78,46 @@ export default function OtherUsersPostPage() {
           {userPost ? (
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
-              <p className="font-medium font-poppins text-theme-color">
-                {userPost.body}
-              </p>
-              <span>{userPost._count.comments}</span>
-              <div className="flex flex-col">
-                <input
-                  className="primary-input-style"
-                  value={userInputComment}
-                  onChange={(event) => setUserInputComment(event.target.value)}
-                />
-                <div className="btn-container">
+              <div className="flex flex-row gap-8">
+                <p className="paragraph-font-style">{userPost.body}</p>
+                <p className="paragraph-font-style">
+                  {userPost._count.comments}
+                </p>
+                <p className="paragraph-font-style">
+                  {userPost._count.reactions}
+                </p>
+              </div>
+              <div className="flex flex-col gap-8 md:flex-row flex-wrap gap-8 md:justify-between">
+                <div className="md:w-full xl:w-1/3">
+                  <input
+                    placeholder="Write a comment"
+                    className="primary-input-style w-full"
+                    value={userInputComment}
+                    onChange={(event) =>
+                      setUserInputComment(event.target.value)
+                    }
+                  />
+                </div>
+                <div className="btn-container md:w-full xl:w-1/3">
                   <button
-                    className="uppercase font-poppins font-bold text-theme-color text-base"
+                    className="secondary-button-style"
                     onClick={commentOnPost}
                   >
                     Comment
                   </button>
                 </div>
-                <div className="">
-                  <button className="" onClick={returnASymbolOnPost}>
+                <div className="md:w-full xl:w-1/3 btn-container">
+                  <button
+                    className="secondary-button-style"
+                    onClick={returnASymbolOnPost}
+                  >
                     Like
                   </button>
-                </div>
-                <div>
-                  <i className="fa-solid fa-thumbs-up"></i>
                 </div>
               </div>
             </>
           ) : (
-            <p>Loading</p>
+            <p className="paragraph-font-style">Loading</p>
           )}
         </div>
         <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>

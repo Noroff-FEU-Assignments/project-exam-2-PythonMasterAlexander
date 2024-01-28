@@ -36,7 +36,7 @@ export default function UserHomePage() {
               alt="any avatar the user have uploaded to display as user profile"
             />
             <h2 className="pl-8 heading-two-font-style self-center">{name}</h2>
-            <p className="p-8 font-poppins text-theme-color">About the user</p>
+            <p className="p-8 paragraph-font-style">About the user</p>
           </div>
         </section>
         <section className="border-b-2 border-t-2 p-8 flex flex-col items-center mx-8 xl:mx-64 md:mx-32 border-x-2">

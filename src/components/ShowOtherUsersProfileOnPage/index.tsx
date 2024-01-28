@@ -45,23 +45,26 @@ export default function ShowOtherUsersProfileOnPage() {
     banner: "",
     avatar: "",
   };
-
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followUserText, setFollowUserText] = useState("");
   const FOLLOW_USER: string = `${URL}/${name}${FOLLOW}`;
   const UNFOLLOW_USER: string = `${URL}/${name}${UNFOLLOW}`;
   const followUser = async function () {
     try {
       await followOrUnfollowProfiles(FOLLOW_USER, userToken, put);
-      console.log("You are now following this user");
+      setIsFollowing(true);
+      setFollowUserText("Following user");
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
+  const [notFollowingUserText, setnotFollowingUserText] = useState("");
   const unFollowUser = async function () {
     try {
       await followOrUnfollowProfiles(UNFOLLOW_USER, userToken, put);
-      console.log("You are not following this user");
+      setnotFollowingUserText("Not following user");
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
 
@@ -84,26 +87,50 @@ export default function ShowOtherUsersProfileOnPage() {
                 <title>{name}</title>
               </Helmet>
               <div className="border-b-2 mx-8 border-x-2 xl:mx-64 md:mx-32">
-                <img className="object-cover max-h-96 w-full" src={banner} />
+                <img
+                  className="object-cover max-h-96 w-full"
+                  src={banner}
+                  alt={
+                    avatar
+                      ? "any avatar the user have uploaded to display as user profile"
+                      : ""
+                  }
+                />
                 <div className="p-8">
                   <h2 className="heading-two-font-style">{name}</h2>
-                  <h3 className="capitalize text-base">Contact {email}</h3>
-                  <img className="inline rounded-full w-36" src={avatar} />
-                  <div className="btn-container">
-                    <button
-                      className="uppercase font-poppins font-bold text-theme-color text-base"
-                      onClick={followUser}
-                    >
-                      Follow
-                    </button>
+                  <h3 className="heading-three-font-style">Contact</h3>
+                  <p className="paragraph-font-style">{email}</p>
+                  <img
+                    className="inline rounded-full w-36"
+                    src={avatar}
+                    alt={
+                      avatar
+                        ? "any avatar the user have uploaded to display as user profile"
+                        : ""
+                    }
+                  />
+                  <div>
+                    <p className="paragraph-font-style">
+                      {isFollowing ? followUserText : notFollowingUserText}
+                    </p>
                   </div>
-                  <div className="btn-container">
-                    <button
-                      className="uppercase font-poppins font-bold text-theme-color text-base"
-                      onClick={unFollowUser}
-                    >
-                      Unfollow
-                    </button>
+                  <div className="flex gap-8">
+                    <div className="btn-container md:w-full xl:w-1/3">
+                      <button
+                        className="uppercase font-poppins font-bold text-theme-color text-base"
+                        onClick={followUser}
+                      >
+                        Follow
+                      </button>
+                    </div>
+                    <div className="btn-container md:w-full xl:w-1/3">
+                      <button
+                        className="uppercase font-poppins font-bold text-theme-color text-base"
+                        onClick={unFollowUser}
+                      >
+                        Unfollow
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

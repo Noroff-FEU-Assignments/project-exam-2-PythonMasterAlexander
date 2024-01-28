@@ -3,7 +3,7 @@ import ShowOtherUsersProfileOnPage from "../../components/ShowOtherUsersProfileO
 export default function OtherUsersProfilePage() {
   return (
     <>
-      <main className="">
+      <main>
         <section>
           <h1 className="text-center py-8 border-b-2 mx-8 xl:mx-64 md:mx-32 border-x-2 heading-one-font-style">
             User

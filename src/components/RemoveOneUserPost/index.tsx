@@ -22,12 +22,14 @@ const RemoveOneUserPost: React.FC<RemoveOneUserPostType> = ({ id }) => {
     <>
       <div className="btn-container">
         <button
-          className="uppercase font-poppins font-bold text-theme-color text-base"
+          className="secondary-button-style"
           onClick={clickToRemoveOnePost}
         >
           Delete post
         </button>
-        <div>{errorMessage && <p>{errorMessage}</p>}</div>
+        <div>
+          {errorMessage && <p className="error-text-style">{errorMessage}</p>}
+        </div>
       </div>
     </>
   );

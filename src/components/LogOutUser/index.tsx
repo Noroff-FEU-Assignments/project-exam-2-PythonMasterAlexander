@@ -8,7 +8,7 @@ export default function LogOutUser() {
         <Link
           onClick={removeUserFromLocalStorage}
           to={"/"}
-          className="uppercase font-poppins font-bold text-theme-color text-base"
+          className="primary-button-style"
         >
           log out
         </Link>

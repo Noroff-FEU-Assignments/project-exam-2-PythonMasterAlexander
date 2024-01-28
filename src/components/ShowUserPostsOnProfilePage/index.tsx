@@ -8,6 +8,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 export default function ShowUserPostsOnProfilePage() {
   const [userPostData, setUserPostData] = useState<UserPost[]>([]);
   const { name, avatar } = loadUserFromLocalStorage("user");
+  const [postsError, setPostsError] = useState<string>("");
   const userToken: string = loadUserFromLocalStorage("token");
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function ShowUserPostsOnProfilePage() {
         const userPosts = await viewPost(SHOW_USER_POSTS, userToken);
         setUserPostData(userPosts || []);
       } catch (error) {
-        console.log(error);
+        setPostsError("Something is wrong");
       }
     };
     showEachUserPosts();
@@ -63,8 +64,8 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                       : ""
                   }
                 />
-                <h4 className="">{postData.title}</h4>
-                <p>{postData.body}</p>
+                <h4 className="heading-four-font-style">{postData.title}</h4>
+                <p className="paragraph-font-style">{postData.body}</p>
 
                 <form key={postData.id}>
                   <div>
@@ -86,10 +87,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                   </div>
 
                   <div className="btn-container">
-                    <button
-                      className="text-sm capitalize font-regular font-poppins text-theme-color text-sm"
-                      type="submit"
-                    >
+                    <button className="secondary-button-style" type="submit">
                       upgrade
                     </button>
                   </div>
@@ -99,7 +97,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
             ))}
           </>
         ) : (
-          <p className="error-text-style ">Loading posts</p>
+          <p className="error-text-style ">{postsError}</p>
         )}
       </div>
     </>
