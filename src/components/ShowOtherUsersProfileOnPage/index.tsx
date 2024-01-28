@@ -6,16 +6,17 @@ import {
   API_SOCIAL_PROFILES,
   FOLLOW,
   UNFOLLOW,
-  userToken,
   put,
 } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
 import { Helmet } from "react-helmet";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function ShowOtherUsersProfileOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [profile, setProfile] = useState<UserProfiles | undefined>();
+  const userToken = loadUserFromLocalStorage("token");
   const param = useParams<{ name: string }>();
   const URL: string = API_SOCIAL_PROFILES;
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function ShowOtherUsersProfileOnPage() {
       }
     };
     getProfile();
-  }, [URL, param]);
+  }, [URL, param, userToken]);
   const { name, email, banner, avatar }: UserProfiles = profile || {};
   const FOLLOW_USER: string = `${URL}/${name}${FOLLOW}`;
   const UNFOLLOW_USER: string = `${URL}/${name}${UNFOLLOW}`;

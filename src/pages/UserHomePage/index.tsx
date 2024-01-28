@@ -1,6 +1,6 @@
 import ShowOtherUsersPostsOnPage from "../../components/ShowOtherUsersPostsOnPage";
-import { Helmet } from "react-helmet";
 import CreatePost from "../../components/CreatePost";
+import { Helmet } from "react-helmet";
 
 export default function UserProfilePage() {
   return (

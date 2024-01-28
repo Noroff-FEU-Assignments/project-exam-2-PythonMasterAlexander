@@ -1,14 +1,16 @@
 import viewProfiles from "../../api/profiles/viewProfiles";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { API_SOCIAL_PROFILES, userToken } from "../../api/constants";
+import { API_SOCIAL_PROFILES } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function ShowProfilesOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [profiles, setProfiles] = useState<UserProfiles[]>([]);
 
+  const userToken = loadUserFromLocalStorage("token");
   const URL: string = API_SOCIAL_PROFILES;
   useEffect(() => {
     const fetchProfiles = async function () {
@@ -21,7 +23,7 @@ export default function ShowProfilesOnPage() {
       }
     };
     fetchProfiles();
-  }, [URL]);
+  }, [URL, userToken]);
   return (
     <>
       {!isError ? (

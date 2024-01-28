@@ -9,9 +9,6 @@ export default function ShowOtherUsersPostsOnPage() {
   const [userPosts, setUserPosts] = useState<UsersPosts[]>([]);
   const [postsError, setPostsError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
-  //Changed the code here, now it uses the token directly from local storage instead of importing the userToken from the file ../../api/constants
-  //Also uses a if statement to see if the token exists
   const userToken = loadUserFromLocalStorage("token");
   const URL: string = API_SOCIAL_POST_;
   useEffect(() => {

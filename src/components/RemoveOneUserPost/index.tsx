@@ -1,15 +1,13 @@
 import removePost from "../../api/posts/removePost";
 import { useState } from "react";
-import {
-  userToken,
-  remove,
-  API_SOCIAL_DELETE_POST_WITH_,
-} from "../../api/constants";
+import { remove, API_SOCIAL_DELETE_POST_WITH_ } from "../../api/constants";
 import { RemoveOneUserPostType } from "../../api/types";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 const RemoveOneUserPost: React.FC<RemoveOneUserPostType> = ({ id }) => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const clickToRemoveOnePost = async function () {
+    const userToken = loadUserFromLocalStorage("token");
     const ACTION = `/${id}`;
     const URL: string = API_SOCIAL_DELETE_POST_WITH_ + ACTION;
     try {

@@ -1,10 +1,10 @@
+import ShowPostMedia from "../../components/ShowPostMedia";
 import ShowUserPostsOnProfilePage from "../../components/ShowUserPostsOnProfilePage";
 import { Helmet } from "react-helmet";
-import { userLoginInformation } from "../../api/constants";
-import ShowPostMedia from "../../components/ShowPostMedia";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function UserHomePage() {
-  const { name, banner, avatar } = userLoginInformation;
+  const { name, banner, avatar } = loadUserFromLocalStorage("user");
   return (
     <>
       <Helmet>
