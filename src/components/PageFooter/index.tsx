@@ -15,6 +15,7 @@ export default function PageFooter() {
   useEffect(() => {
     setPageNameLocation(pageUrlLocation.pathname);
   }, [pageUrlLocation.pathname]);
+
   return (
     <>
       {pageNameLocation === landingPage ||

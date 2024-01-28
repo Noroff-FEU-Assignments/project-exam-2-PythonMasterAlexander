@@ -43,11 +43,9 @@ export default function OtherUsersPostPage() {
       console.log(error);
     }
   };
-  // Code works
   const REACT: string = "react";
   const SYMBOL: string = "👍";
-  const REACT_ON_POST = `${URL}/${REACT}/${SYMBOL}`;
-  console.log(REACT_ON_POST);
+  const REACT_ON_POST: string = `${URL}/${REACT}/${SYMBOL}`;
   const returnASymbolOnPost = async function () {
     try {
       await reactOnPosts(REACT_ON_POST, userToken, put);
@@ -60,6 +58,7 @@ export default function OtherUsersPostPage() {
       setPostTitle(userPost.title);
     }
   }, [userPost]);
+
   return (
     <>
       <Helmet>
@@ -79,7 +78,6 @@ export default function OtherUsersPostPage() {
               <h1>{userPost.title}</h1>
               <p>{userPost.body}</p>
               <span>{userPost._count.comments}</span>
-              {/*Insert other parts of the post here*/}
               <div>
                 <input
                   className="primary-input-style"

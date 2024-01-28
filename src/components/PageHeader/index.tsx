@@ -14,6 +14,7 @@ export default function PageHeader() {
   useEffect(() => {
     setPageNameLocation(pageUrlLocation.pathname);
   }, [pageUrlLocation.pathname]);
+
   return (
     <>
       {pageNameLocation === landingPage ||

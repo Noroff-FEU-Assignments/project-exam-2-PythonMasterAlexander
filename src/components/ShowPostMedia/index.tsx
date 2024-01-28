@@ -20,7 +20,7 @@ export default function ShowPostMedia() {
   });
   const _ACTION: string = "/media";
   const { name } = loadUserFromLocalStorage("user");
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   const _USER_NAME: string = `/${name}`;
   const URL: string = API_SOCIAL_PROFILES + _USER_NAME + _ACTION;
   const onSubmit: SubmitHandler<MediaEntry> = async (formData) => {
@@ -32,6 +32,7 @@ export default function ShowPostMedia() {
       setIsError(true);
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>

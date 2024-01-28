@@ -16,7 +16,7 @@ export default function ShowOtherUsersProfileOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [profile, setProfile] = useState<UserProfiles | undefined>();
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   const param = useParams<{ name: string }>();
   const URL: string = API_SOCIAL_PROFILES;
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function ShowOtherUsersProfileOnPage() {
       console.log(error);
     }
   };
-  // Code works now, next is to build out the logic for telling the user if this works or not
+
   return (
     <>
       {!isError ? (

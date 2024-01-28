@@ -9,7 +9,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 export default function ShowUserPostsOnProfilePage() {
   const [userPostData, setUserPostData] = useState<UserPost[]>([]);
   const { name, avatar } = loadUserFromLocalStorage("user");
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
   useEffect(() => {
     const showEachUserPosts = async function () {
@@ -38,6 +38,7 @@ export default function ShowUserPostsOnProfilePage() {
       },
     }));
   };
+
   return (
     <>
       <div className="main-border-styling">
