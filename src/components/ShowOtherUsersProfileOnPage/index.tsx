@@ -15,7 +15,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 export default function ShowOtherUsersProfileOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [profile, setProfile] = useState<UserProfiles | undefined>();
+  const [profile, setProfile] = useState<UserProfiles>();
   const userToken: string = loadUserFromLocalStorage("token");
   const param = useParams<{ name: string }>();
   const URL: string = API_SOCIAL_PROFILES;
@@ -34,7 +34,18 @@ export default function ShowOtherUsersProfileOnPage() {
     };
     getProfile();
   }, [URL, param, userToken]);
-  const { name, email, banner, avatar }: UserProfiles = profile || {};
+  const { name, email, banner, avatar }: UserProfiles = profile || {
+    _count: {
+      posts: 0,
+      followers: 0,
+      following: 0,
+    },
+    name: "",
+    email: "",
+    banner: "",
+    avatar: "",
+  };
+
   const FOLLOW_USER: string = `${URL}/${name}${FOLLOW}`;
   const UNFOLLOW_USER: string = `${URL}/${name}${UNFOLLOW}`;
   const followUser = async function () {
