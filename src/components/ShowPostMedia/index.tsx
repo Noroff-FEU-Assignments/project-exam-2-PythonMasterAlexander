@@ -3,7 +3,7 @@ import { API_SOCIAL_PROFILES, put } from "../../api/constants";
 import { MediaEntry } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateAvatarAndBannerSchema } from "../../utils/userSchema";
 
