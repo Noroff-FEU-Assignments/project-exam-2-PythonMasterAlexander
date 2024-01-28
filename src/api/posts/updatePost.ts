@@ -2,7 +2,7 @@ import { UpdateUserPost } from "../types";
 export default async function updatePost(
   url: string,
   token: string,
-  postData: UpdateUserPost,
+  data: UpdateUserPost | null,
   putMethod: string,
 ) {
   const response = await fetch(url, {
@@ -11,7 +11,7 @@ export default async function updatePost(
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(postData),
+    body: JSON.stringify(data),
   });
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
