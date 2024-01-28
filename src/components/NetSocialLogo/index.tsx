@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function NetSocialLogo() {
   const [deviceSize, setDeviceSize] = useState<string>("");
   const checkDeviceSize = () => {
-    const deviceWidth = window.innerWidth;
+    const deviceWidth: number = window.innerWidth;
     if (deviceWidth < 599) {
       setDeviceSize("mobile");
     } else if (deviceWidth >= 599 && deviceWidth < 1040) {
@@ -19,6 +19,7 @@ export default function NetSocialLogo() {
       window.removeEventListener("resize", checkDeviceSize);
     };
   });
+
   return (
     <>
       {deviceSize === "mobile" && (

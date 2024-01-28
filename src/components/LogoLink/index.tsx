@@ -4,11 +4,12 @@ import { landingPage, homePage } from "../../utils/constants";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function LogoLink() {
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   let isLoggedIn: boolean = false;
   if (userToken) {
     isLoggedIn = true;
   }
+
   return (
     <Link to={isLoggedIn ? homePage : landingPage}>
       <NetSocialLogo />

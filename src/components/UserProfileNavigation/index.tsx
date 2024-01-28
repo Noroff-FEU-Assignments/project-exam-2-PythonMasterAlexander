@@ -6,6 +6,7 @@ export default function UserProfileNavigation() {
   if (!name || !avatar) {
     return null;
   }
+
   return (
     <>
       <img

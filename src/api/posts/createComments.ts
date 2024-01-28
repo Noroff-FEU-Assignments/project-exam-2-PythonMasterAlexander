@@ -13,5 +13,8 @@ export default async function viewPost(
     },
     body: JSON.stringify(postData),
   });
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   return await response.json();
 }

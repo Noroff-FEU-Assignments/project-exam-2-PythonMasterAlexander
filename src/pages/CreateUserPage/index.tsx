@@ -11,7 +11,6 @@ export default function CreateUserPage() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [successMessage, setSuccessMessage] = useState<string | undefined>();
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -20,7 +19,6 @@ export default function CreateUserPage() {
   } = useForm<RegisterApiFormData>({
     resolver: yupResolver(userRegisterSchema),
   });
-
   const onSubmit = async function (data: RegisterApiFormData) {
     try {
       setErrorMessage(undefined);
@@ -46,7 +44,6 @@ export default function CreateUserPage() {
         navigate("/welcome-to-net-social");
       }
     } catch (error) {
-      console.log("Error during API request: ", error);
       setErrorMessage("There was an error registering the user");
     }
   };

@@ -9,8 +9,7 @@ export default function ShowProfilesOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const [profiles, setProfiles] = useState<UserProfiles[]>([]);
-
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   const URL: string = API_SOCIAL_PROFILES;
   useEffect(() => {
     const fetchProfiles = async function () {
@@ -24,6 +23,7 @@ export default function ShowProfilesOnPage() {
     };
     fetchProfiles();
   }, [URL, userToken]);
+
   return (
     <>
       {!isError ? (

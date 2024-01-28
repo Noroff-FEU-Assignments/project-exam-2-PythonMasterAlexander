@@ -12,9 +12,9 @@ export default function CreatePost() {
   const [errorCreatingPost, setErrorCreatingPost] = useState<string | null>(
     null,
   );
-  const userToken = loadUserFromLocalStorage("token");
-  const ACTION = "/posts";
-  const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
+  const userToken: string = loadUserFromLocalStorage("token");
+  const ACTION: string = "/posts";
+  const URL: string = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {
     register,
     handleSubmit,
@@ -31,6 +31,7 @@ export default function CreatePost() {
       setErrorCreatingPost("Could not post");
     }
   };
+
   return (
     <>
       <section className="border-b-2">

@@ -1,6 +1,6 @@
+import LogoLink from "../../components/LogoLink";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import LogoLink from "../../components/LogoLink";
 
 export default function WelcomeToNetSocialPage() {
   return (

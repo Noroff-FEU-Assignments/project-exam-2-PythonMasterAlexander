@@ -17,3 +17,7 @@ export const updateAvatarAndBannerSchema = yup.object({
   banner: yup.string().url("not a valid url").required(),
   avatar: yup.string().url("not a valid url").required(),
 });
+export const updateUserPostSchema = yup.object().shape({
+  title: yup.string().min(3, "minimum 3 characters").required(),
+  body: yup.string().min(3, "minimum 3 characters").required(),
+});

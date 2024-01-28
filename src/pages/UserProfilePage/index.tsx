@@ -5,6 +5,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function UserHomePage() {
   const { name, banner, avatar } = loadUserFromLocalStorage("user");
+
   return (
     <>
       <Helmet>

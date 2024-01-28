@@ -9,7 +9,7 @@ export default function ShowOtherUsersPostsOnPage() {
   const [userPosts, setUserPosts] = useState<UsersPosts[]>([]);
   const [postsError, setPostsError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const userToken = loadUserFromLocalStorage("token");
+  const userToken: string = loadUserFromLocalStorage("token");
   const URL: string = API_SOCIAL_POST_;
   useEffect(() => {
     const getPosts = async function () {
@@ -26,6 +26,7 @@ export default function ShowOtherUsersPostsOnPage() {
     };
     getPosts();
   }, [URL, userToken]);
+
   return (
     <>
       <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">

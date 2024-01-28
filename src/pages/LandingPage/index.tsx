@@ -54,6 +54,7 @@ export default function LandingPage() {
       setErrorMessage("There was an error registering the user");
     }
   };
+
   return (
     <>
       <Helmet>
