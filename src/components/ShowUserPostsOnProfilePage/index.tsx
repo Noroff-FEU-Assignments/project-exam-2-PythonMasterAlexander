@@ -65,7 +65,6 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                       className="primary-input-style"
                       type="text"
                       placeholder="Update title"
-                      {...register("title")}
                     />
                     <p className="error-text-style">{}</p>
                   </div>
@@ -75,7 +74,6 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                       className="primary-input-style"
                       type="text"
                       placeholder="Update body"
-                      {...register("body")}
                     />
                     <p className="error-text-style">{}</p>
                   </div>
