@@ -57,7 +57,11 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                 <img
                   className="inline rounded-full w-36"
                   src={avatar}
-                  alt="any avatar the user have uploaded to display as user profile"
+                  alt={
+                    postData.media
+                      ? "any avatar the user have uploaded to display as user profile"
+                      : ""
+                  }
                 />
                 <h4 className="">{postData.title}</h4>
                 <p>{postData.body}</p>
