@@ -22,6 +22,8 @@ export default function ShowUserPostsOnProfilePage() {
     };
     showEachUserPosts();
   }, [SHOW_USER_POSTS, userToken]);
+
+  //Change this code
   const [updateUserPosts, setUpdateUserPosts] = useState<{
     [key: number]: UpdateUserPost;
   }>({});
@@ -53,23 +55,30 @@ export default function ShowUserPostsOnProfilePage() {
                 />
                 <h4 className="">{postData.title}</h4>
                 <p>{postData.body}</p>
-                <div>
-                  <input
-                    className="primary-input-style"
-                    type="text"
-                    name="title"
-                    placeholder="Update title"
-                    value={updateUserPosts[postData.id]?.title || ""}
-                    onChange={(e) => handleInputChange(e, postData.id)}
-                  />
-                  <input
-                    className="primary-input-style"
-                    type="text"
-                    name="body"
-                    placeholder="Update body"
-                    value={updateUserPosts[postData.id]?.body || ""}
-                    onChange={(e) => handleInputChange(e, postData.id)}
-                  />
+
+                <form>
+                  {/*This form needs to use reac-hook-form, yup resolver and userSchema when sending in the values*/}
+                  <div>
+                    <input
+                      className="primary-input-style"
+                      type="text"
+                      name="title"
+                      placeholder="Update title"
+                      value={updateUserPosts[postData.id]?.title || ""}
+                      onChange={(e) => handleInputChange(e, postData.id)}
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      className="primary-input-style"
+                      type="text"
+                      name="body"
+                      placeholder="Update body"
+                      value={updateUserPosts[postData.id]?.body || ""}
+                      onChange={(e) => handleInputChange(e, postData.id)}
+                    />
+                  </div>
                   <div className="btn-container">
                     <button
                       className="text-sm capitalize font-regular font-poppins text-theme-color text-sm"
@@ -80,8 +89,8 @@ export default function ShowUserPostsOnProfilePage() {
                       upgrade
                     </button>
                   </div>
-                  <RemoveOneUserPost id={postData.id} />
-                </div>
+                </form>
+                <RemoveOneUserPost id={postData.id} />
               </div>
             ))}
           </>
