@@ -46,15 +46,22 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
 
   return (
     <>
-      <div className="main-border-styling">
+      <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
         {userPostData ? (
           <>
             {userPostData.map((postData: UserPost) => (
-              <div key={postData.id}>
+              <div
+                className="flex p-8 flex-col border-b-2 gap-8 xl:flex-row xl:justify-center items-center"
+                key={postData.id}
+              >
                 <img
                   className="inline rounded-full w-36"
                   src={avatar}
-                  alt="any avatar the user have uploaded to display as user profile"
+                  alt={
+                    postData.media
+                      ? "any avatar the user have uploaded to display as user profile"
+                      : ""
+                  }
                 />
                 <h4 className="">{postData.title}</h4>
                 <p>{postData.body}</p>
@@ -92,7 +99,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
             ))}
           </>
         ) : (
-          <p className="error-text-style">Loading posts</p>
+          <p className="error-text-style ">Loading posts</p>
         )}
       </div>
     </>

@@ -36,10 +36,14 @@ export default function ShowOtherUsersPostsOnPage() {
           <p className="error-text-style">{postsError}</p>
         ) : (
           userPosts.slice(0, 10).map((post) => (
-            <div className="border-b-2 p-8" key={post.id}>
+            <div
+              className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
+              key={post.id}
+            >
               <h2>{post.title}</h2>
               <p>{post.body}</p>
               <img
+                className="inline rounded-full w-36"
                 src={post.media}
                 alt={post.media ? "User uploaded image" : ""}
               />

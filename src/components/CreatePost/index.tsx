@@ -34,11 +34,11 @@ export default function CreatePost() {
 
   return (
     <>
-      <section className="border-b-2">
-        <h1 className="text-center heading-one-font-style py-8 border-b-2">
+      <section>
+        <h1 className="mx-8 xl:mx-64 md:mx-32 border-x-2 text-center heading-one-font-style py-8 border-b-2">
           Create post
         </h1>
-        <div className="flex justify-center p-8">
+        <div className="flex justify-center p-8 mx-8 border-x-2 xl:mx-64 md:mx-32">
           <form
             id="create-user-post"
             className="flex flex-col md:flex-row flex-wrap gap-8 md:justify-between"
