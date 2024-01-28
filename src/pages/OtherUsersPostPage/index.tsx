@@ -70,12 +70,14 @@ export default function OtherUsersPostPage() {
         />
         <title>{postTitle}</title>
       </Helmet>
-      <main className="main-border-styling">
-        <h1 className="heading-one-font-style">Post</h1>
-        <div>
+      <main className="">
+        <h1 className="heading-one-font-style text-center heading-one-font-style mx-8 xl:mx-64 md:mx-32 border-x-2 py-8 border-b-2">
+          Post
+        </h1>
+        <div className="flex justify-center py-12 mx-8 border-x-2 xl:mx-64 md:mx-32">
           {userPost ? (
             <>
-              <h1>{userPost.title}</h1>
+              <h2 className="heading-two-font-style">{userPost.title}</h2>
               <p>{userPost.body}</p>
               <span>{userPost._count.comments}</span>
               <div>

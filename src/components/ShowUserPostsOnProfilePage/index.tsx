@@ -50,7 +50,10 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
         {userPostData ? (
           <>
             {userPostData.map((postData: UserPost) => (
-              <div key={postData.id}>
+              <div
+                className="flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
+                key={postData.id}
+              >
                 <img
                   className="inline rounded-full w-36"
                   src={avatar}

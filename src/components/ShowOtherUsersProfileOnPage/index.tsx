@@ -72,12 +72,12 @@ export default function ShowOtherUsersProfileOnPage() {
                 />
                 <title>{name}</title>
               </Helmet>
-              <div className="mx-8 border-x-2 xl:mx-64 md:mx-32">
-                <div className="border-b-2">
+              <div className="border-b-2 mx-8 border-x-2 xl:mx-64 md:mx-32">
+                <img className="object-cover max-h-96 w-full" src={banner} />
+                <div className="p-8">
                   <h2 className="heading-two-font-style">{name}</h2>
                   <h3 className="capitalize text-base">Contact {email}</h3>
-                  <img src={banner} />
-                  <img src={avatar} />
+                  <img className="inline rounded-full w-36" src={avatar} />
                   <div>
                     <button onClick={followUser}>Follow</button>
                   </div>
@@ -85,8 +85,8 @@ export default function ShowOtherUsersProfileOnPage() {
                     <button onClick={unFollowUser}>Unfollow</button>
                   </div>
                 </div>
-                <div className="min-h-8"></div>
               </div>
+              <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>
             </>
           )}
         </div>

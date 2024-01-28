@@ -17,7 +17,7 @@ export default function UserProfilePage() {
       <main>
         <CreatePost />
         <section className="">
-          <h2 className="heading-two-font-style text-center border-b-2 main-border-styling">
+          <h2 className="heading-two-font-style text-center border-t-2 border-b-2 main-border-styling">
             Users posts
           </h2>
           <ShowOtherUsersPostsOnPage />

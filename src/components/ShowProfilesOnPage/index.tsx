@@ -31,10 +31,19 @@ export default function ShowProfilesOnPage() {
           {profiles && (
             <>
               {profiles.slice(0, 10).map((profileValue) => (
-                <div className="border-b-2 p-8 flex" key={profileValue.email}>
+                <div
+                  className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
+                  key={profileValue.email}
+                >
+                  <img
+                    className="inline rounded-full w-36"
+                    src={profileValue.banner}
+                    alt={profileValue.banner ? profileValue.banner : ""}
+                  />
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
                   </h2>
+                  <p>{profileValue.email}</p>
                   <Link
                     className="btn-container uppercase font-bold font-poppins text-theme-color"
                     to={`/other-users-profile/${profileValue.name}`}
