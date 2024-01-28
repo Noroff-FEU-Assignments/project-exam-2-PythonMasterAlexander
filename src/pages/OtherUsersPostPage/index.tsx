@@ -59,6 +59,7 @@ export default function OtherUsersPostPage() {
     }
   }, [userPost]);
 
+  console.log(userPost);
   return (
     <>
       <Helmet>
@@ -70,30 +71,47 @@ export default function OtherUsersPostPage() {
         />
         <title>{postTitle}</title>
       </Helmet>
-      <main className="">
+      <main className="border-b-2">
         <h1 className="heading-one-font-style text-center heading-one-font-style mx-8 xl:mx-64 md:mx-32 border-x-2 py-8 border-b-2">
           Post
         </h1>
-        <div className="flex justify-center py-12 mx-8 border-x-2 xl:mx-64 md:mx-32">
+        <div className="flex flex-col justify-center gap-8 p-8 py-48 mx-8 border-b-2 border-x-2 xl:mx-64 md:mx-32">
           {userPost ? (
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
-              <p>{userPost.body}</p>
+              <p className="font-medium font-poppins text-theme-color">
+                {userPost.body}
+              </p>
               <span>{userPost._count.comments}</span>
-              <div>
+              <div className="flex flex-col">
                 <input
                   className="primary-input-style"
                   value={userInputComment}
                   onChange={(event) => setUserInputComment(event.target.value)}
                 />
-                <button onClick={commentOnPost}>Comment</button>
-                <button onClick={returnASymbolOnPost}>Like</button>
+                <div className="btn-container">
+                  <button
+                    className="uppercase font-poppins font-bold text-theme-color text-base"
+                    onClick={commentOnPost}
+                  >
+                    Comment
+                  </button>
+                </div>
+                <div className="">
+                  <button className="" onClick={returnASymbolOnPost}>
+                    Like
+                  </button>
+                </div>
+                <div>
+                  <i className="fa-solid fa-thumbs-up"></i>
+                </div>
               </div>
             </>
           ) : (
             <p>Loading</p>
           )}
         </div>
+        <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>
       </main>
     </>
   );

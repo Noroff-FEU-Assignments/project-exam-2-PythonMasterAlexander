@@ -78,11 +78,21 @@ export default function ShowOtherUsersProfileOnPage() {
                   <h2 className="heading-two-font-style">{name}</h2>
                   <h3 className="capitalize text-base">Contact {email}</h3>
                   <img className="inline rounded-full w-36" src={avatar} />
-                  <div>
-                    <button onClick={followUser}>Follow</button>
+                  <div className="btn-container">
+                    <button
+                      className="uppercase font-poppins font-bold text-theme-color text-base"
+                      onClick={followUser}
+                    >
+                      Follow
+                    </button>
                   </div>
-                  <div>
-                    <button onClick={unFollowUser}>Unfollow</button>
+                  <div className="btn-container">
+                    <button
+                      className="uppercase font-poppins font-bold text-theme-color text-base"
+                      onClick={unFollowUser}
+                    >
+                      Unfollow
+                    </button>
                   </div>
                 </div>
               </div>

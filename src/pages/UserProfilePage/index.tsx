@@ -49,6 +49,7 @@ export default function UserHomePage() {
           </h3>
           <ShowUserPostsOnProfilePage />
         </section>
+        <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>
       </main>
     </>
   );
