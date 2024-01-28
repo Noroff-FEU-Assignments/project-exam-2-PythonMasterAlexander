@@ -4,10 +4,12 @@ import reactOnPosts from "../../api/posts/reactOnPosts";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { userToken, API_SOCIAL_POST_, post, put } from "../../api/constants";
+import { API_SOCIAL_POST_, post, put } from "../../api/constants";
 import { UserPost, CommentData, UserCommentOnPost } from "../../api/types";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function OtherUsersPostPage() {
+  const userToken = loadUserFromLocalStorage("token");
   const [userPost, setUserPost] = useState<UserPost>();
   const [userCommentOnPost, setUserCommentOnPost] = useState<
     UserCommentOnPost | undefined
@@ -26,7 +28,7 @@ export default function OtherUsersPostPage() {
       }
     };
     viewSinglePost();
-  }, [URL]);
+  }, [URL, userToken]);
   const URL_COMMENT_ON_POST: string = `${URL}/comment`;
   const data: CommentData = {
     body: userInputComment,

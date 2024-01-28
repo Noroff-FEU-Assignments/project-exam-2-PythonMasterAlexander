@@ -4,13 +4,15 @@ import { UserPostData } from "../../api/types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userPostSchema } from "../../utils/userSchema";
-import { post, userToken } from "../../api/constants";
+import { post } from "../../api/constants";
 import { useState } from "react";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function CreatePost() {
   const [errorCreatingPost, setErrorCreatingPost] = useState<string | null>(
     null,
   );
+  const userToken = loadUserFromLocalStorage("token");
   const ACTION = "/posts";
   const URL = API_SOCIAL_CREATE_POST_WITH_ + ACTION;
   const {

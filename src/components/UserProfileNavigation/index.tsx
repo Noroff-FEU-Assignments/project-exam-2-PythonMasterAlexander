@@ -1,8 +1,8 @@
-import { userLoginInformation } from "../../api/constants";
 import { Link } from "react-router-dom";
+import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function UserProfileNavigation() {
-  const { name, avatar } = userLoginInformation || {};
+  const { name, avatar } = loadUserFromLocalStorage("user") || {};
   if (!name || !avatar) {
     return null;
   }

@@ -3,7 +3,6 @@ import { API_SOCIAL_PROFILES, put } from "../../api/constants";
 import { MediaEntry } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 import { useState } from "react";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateAvatarAndBannerSchema } from "../../utils/userSchema";
@@ -19,13 +18,11 @@ export default function ShowPostMedia() {
   } = useForm<MediaEntry>({
     resolver: yupResolver(updateAvatarAndBannerSchema),
   });
-
   const _ACTION: string = "/media";
   const { name } = loadUserFromLocalStorage("user");
   const { token } = loadUserFromLocalStorage("token");
   const _USER_NAME: string = `/${name}`;
   const URL: string = API_SOCIAL_PROFILES + _USER_NAME + _ACTION;
-
   const onSubmit: SubmitHandler<MediaEntry> = async (formData) => {
     try {
       await updateMediaOnUserProfile(URL, token, put, formData);
