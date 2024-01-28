@@ -20,12 +20,12 @@ export default function ShowPostMedia() {
   });
   const _ACTION: string = "/media";
   const { name } = loadUserFromLocalStorage("user");
-  const { token } = loadUserFromLocalStorage("token");
+  const userToken = loadUserFromLocalStorage("token");
   const _USER_NAME: string = `/${name}`;
   const URL: string = API_SOCIAL_PROFILES + _USER_NAME + _ACTION;
   const onSubmit: SubmitHandler<MediaEntry> = async (formData) => {
     try {
-      await updateMediaOnUserProfile(URL, token, put, formData);
+      await updateMediaOnUserProfile(URL, userToken, put, formData);
       reset();
     } catch (error) {
       setErrorMessage("Something went wrong");

@@ -1,9 +1,9 @@
 import RemoveOneUserPost from "../RemoveOneUserPost";
+import updateOnePost from "../../utils/updateOnePost";
 import viewPost from "../../api/posts/viewPost";
 import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES, API_SOCIAL_POSTS } from "../../api/constants";
 import { UserPost, UpdateUserPost } from "../../api/types";
-import updateOnePost from "../../utils/updateOnePost";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function ShowUserPostsOnProfilePage() {

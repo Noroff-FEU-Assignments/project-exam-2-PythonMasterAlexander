@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet";
 import ShowProfilesOnPage from "../../components/ShowProfilesOnPage";
+import { Helmet } from "react-helmet";
 
 export default function UserSearchPage() {
   return (

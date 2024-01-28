@@ -13,6 +13,8 @@ export default async function updatePost(
     },
     body: JSON.stringify(postData),
   });
-  console.log(response);
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   return await response.json();
 }

@@ -9,5 +9,8 @@ export default async function reactOnPosts(
       Authorization: `Bearer ${token}`,
     },
   });
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   return await response.json();
 }
