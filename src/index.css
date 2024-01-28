@@ -20,13 +20,22 @@
   @apply text-base xl:text-3xl font-medium font-poppins text-theme-color;
 }
 .heading-four-font-style {
-  @apply text-base;
+  @apply text-base capitalize font-medium font-poppins text-theme-color;
+}
+.paragraph-font-style {
+  @apply text-sm capitalize font-regular font-poppins text-theme-color;
 }
 .link-active-style-header {
   @apply lowercase;
 }
 .primary-input-style {
   @apply rounded h-10 mt-1 border-2 border-[#cbd5e1] pl-2;
+}
+.primary-button-style {
+  @apply uppercase font-poppins font-bold text-theme-color text-base;
+}
+.secondary-button-style {
+  @apply text-sm capitalize font-regular font-poppins text-theme-color text-sm;
 }
 .main-container-style {
   @apply flex flex-col justify-center items-center h-screen text-sm;
@@ -41,8 +50,8 @@
   @apply font-poppins text-theme-color font-medium text-xs;
 }
 .error-text-style {
-  @apply text-red-500 text-xs pt-2 font-medium font-poppins font-regular;
+  @apply text-red-500 text-xs pt-2 font-regular font-poppins font-regular;
 }
 .success-text-style {
-  @apply text-green-500 text-xs pt-2 font-medium font-poppins font-regular;
+  @apply text-green-500 text-xs pt-2 font-regular font-poppins font-regular;
 }

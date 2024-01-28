@@ -43,7 +43,7 @@ export default function ShowProfilesOnPage() {
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
                   </h2>
-                  <p>{profileValue.email}</p>
+                  <p className="paragraph-font-style">{profileValue.email}</p>
                   <Link
                     className="btn-container uppercase font-bold font-poppins text-theme-color"
                     to={`/other-users-profile/${profileValue.name}`}

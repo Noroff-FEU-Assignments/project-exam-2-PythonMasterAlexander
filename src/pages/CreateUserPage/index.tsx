@@ -75,14 +75,22 @@ export default function CreateUserPage() {
               <label className="block form-label-styling">
                 Choose a username
               </label>
-              <input {...register("name")} className="primary-input-style" />
+              <input
+                placeholder="Choose"
+                {...register("name")}
+                className="primary-input-style"
+              />
               <p className="error-text-style">{errors.name?.message}</p>
             </div>
             <div>
               <label className="block mt-6 form-label-styling">
                 Write you email
               </label>
-              <input {...register("email")} className="primary-input-style" />
+              <input
+                placeholder="Choose"
+                {...register("email")}
+                className="primary-input-style"
+              />
               <p className="error-text-style">{errors.email?.message}</p>
             </div>
             <div className="mt-6">
@@ -93,6 +101,7 @@ export default function CreateUserPage() {
                 type="password"
                 {...register("password")}
                 className="primary-input-style"
+                placeholder="Choose"
               />
               <p className="error-text-style">{errors.password?.message}</p>
             </div>

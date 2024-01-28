@@ -39,18 +39,26 @@ export default function ShowPostMedia() {
         <div className="flex flex-col gap-8">
           <div>
             <p className="font-poppins text-theme-color">Banner</p>
-            <input {...register("banner")} className="primary-input-style" />
+            <input
+              placeholder="Update banner"
+              {...register("banner")}
+              className="primary-input-style"
+            />
             <p className="error-text-style">{errors.banner?.message}</p>
           </div>
           <div>
             <p className="font-poppins text-theme-color">Avatar url</p>
-            <input {...register("avatar")} className="primary-input-style" />
+            <input
+              placeholder="Update avatar"
+              {...register("avatar")}
+              className="primary-input-style"
+            />
             <p className="error-text-style">{errors.avatar?.message}</p>
           </div>
           <div className="btn-container">
             <button
               type="submit"
-              className="font-poppins text-theme-color font-regular"
+              className="capitalize font-poppins text-theme-color font-regular"
             >
               upgrade
             </button>
