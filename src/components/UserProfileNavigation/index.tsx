@@ -8,11 +8,11 @@ export default function UserProfileNavigation() {
   return (
     <>
       <img
-        src={avatar || ShowEmptyAvatar}
+        src={avatar || ShowEmptyAvatar()}
         className="inline rounded-full w-11"
         alt={
           avatar
-            ? "User's avatar"
+            ? "Users avatar"
             : "Default avatar for users without uploaded avatars"
         }
       />

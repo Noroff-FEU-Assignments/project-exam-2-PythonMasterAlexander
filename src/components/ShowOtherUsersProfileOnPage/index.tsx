@@ -93,7 +93,7 @@ export default function ShowOtherUsersProfileOnPage() {
                   alt={
                     avatar
                       ? "any avatar the user have uploaded to display as user profile"
-                      : ""
+                      : undefined
                   }
                 />
                 <div className="p-8">
@@ -106,7 +106,7 @@ export default function ShowOtherUsersProfileOnPage() {
                     alt={
                       avatar
                         ? "any avatar the user have uploaded to display as user profile"
-                        : ""
+                        : undefined
                     }
                   />
                   <div>

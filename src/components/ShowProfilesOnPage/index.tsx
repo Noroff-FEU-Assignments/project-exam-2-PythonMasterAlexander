@@ -38,7 +38,7 @@ export default function ShowProfilesOnPage() {
                   <img
                     className="inline rounded-full w-36"
                     src={profileValue.banner}
-                    alt={profileValue.banner ? profileValue.banner : ""}
+                    alt={profileValue.banner ? "Users avatar" : undefined}
                   />
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
@@ -57,7 +57,7 @@ export default function ShowProfilesOnPage() {
           <div className="min-h-8"></div>
         </>
       ) : (
-        <div>{errorMessage}</div>
+        <p className="error-text-style">{errorMessage}</p>
       )}
     </>
   );
