@@ -1,3 +1,4 @@
+import ShowEmptyAvatar from "../ShowEmptyAvatar";
 import RemoveOneUserPost from "../RemoveOneUserPost";
 import viewPost from "../../api/posts/viewPost";
 import { useEffect, useState } from "react";
@@ -12,7 +13,7 @@ export default function ShowUserPostsOnProfilePage() {
   const userToken: string = loadUserFromLocalStorage("token");
   const SHOW_USER_POSTS: string = `${API_SOCIAL_PROFILES}/${name}${API_SOCIAL_POSTS}`;
   useEffect(() => {
-    const showEachUserPosts = async function () {
+    const fetchAndShowEachUserPosts = async function () {
       try {
         const userPosts = await viewPost(SHOW_USER_POSTS, userToken);
         setUserPostData(userPosts || []);
@@ -20,9 +21,8 @@ export default function ShowUserPostsOnProfilePage() {
         setPostsError("Something is wrong");
       }
     };
-    showEachUserPosts();
+    fetchAndShowEachUserPosts();
   }, [SHOW_USER_POSTS, userToken]);
-
   /* To upgrad the user post, could not get this working
 	const {
     register,
@@ -57,12 +57,8 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
               >
                 <img
                   className="inline rounded-full w-36"
-                  src={avatar}
-                  alt={
-                    postData.media
-                      ? "any avatar the user have uploaded to display as user profile"
-                      : ""
-                  }
+                  src={avatar || ShowEmptyAvatar()}
+                  alt={postData.media ? "Users avatar" : undefined}
                 />
                 <h4 className="heading-four-font-style">{postData.title}</h4>
                 <p className="paragraph-font-style">{postData.body}</p>
@@ -72,18 +68,16 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                     <input
                       className="primary-input-style"
                       type="text"
-                      placeholder="Update title"
+                      placeholder="Enter updated title"
                     />
-                    <p className="error-text-style">{}</p>
                   </div>
 
                   <div>
                     <input
                       className="primary-input-style"
                       type="text"
-                      placeholder="Update body"
+                      placeholder="Enter updated body"
                     />
-                    <p className="error-text-style">{}</p>
                   </div>
 
                   <div className="btn-container">

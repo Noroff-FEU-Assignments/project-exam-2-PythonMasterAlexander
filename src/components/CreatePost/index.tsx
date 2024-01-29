@@ -25,7 +25,7 @@ export default function CreatePost() {
   });
   const userCreatePost = async function (data: UserPostData) {
     try {
-      createPost(URL, userToken, data, post);
+      await createPost(URL, userToken, data, post);
       reset();
     } catch (error) {
       setErrorCreatingPost("Could not post");
@@ -45,23 +45,32 @@ export default function CreatePost() {
             onSubmit={handleSubmit(userCreatePost)}
           >
             <div className="md:w-2/5">
-              <label className="form-label-styling">Post title</label>
+              <label htmlFor="title" className="form-label-styling">
+                Post title
+              </label>
               <input
+                placeholder="Add title"
                 {...register("title")}
                 className="primary-input-style w-full"
               />
               <p className="error-text-style">{errors.title?.message}</p>
             </div>
             <div className="md:w-2/5">
-              <label className="form-label-styling">Post media url</label>
+              <label htmlFor="media" className="form-label-styling">
+                Post media url
+              </label>
               <input
                 {...register("media")}
+                placeholder="Add url"
                 className="primary-input-style w-full"
               />
             </div>
             <div className="md:w-full xl:w-2/5">
-              <label className="form-label-styling">Post text</label>
+              <label htmlFor="body" className="form-label-styling">
+                Post text
+              </label>
               <input
+                placeholder="Add text"
                 {...register("body")}
                 className="primary-input-style w-full"
               />

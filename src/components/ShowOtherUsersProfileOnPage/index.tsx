@@ -90,11 +90,7 @@ export default function ShowOtherUsersProfileOnPage() {
                 <img
                   className="object-cover max-h-96 w-full"
                   src={banner}
-                  alt={
-                    avatar
-                      ? "any avatar the user have uploaded to display as user profile"
-                      : ""
-                  }
+                  alt={avatar ? "Users banner" : undefined}
                 />
                 <div className="p-8">
                   <h2 className="heading-two-font-style">{name}</h2>
@@ -103,11 +99,7 @@ export default function ShowOtherUsersProfileOnPage() {
                   <img
                     className="inline rounded-full w-36"
                     src={avatar}
-                    alt={
-                      avatar
-                        ? "any avatar the user have uploaded to display as user profile"
-                        : ""
-                    }
+                    alt={avatar ? "Users avatar" : undefined}
                   />
                   <div>
                     <p className="paragraph-font-style">

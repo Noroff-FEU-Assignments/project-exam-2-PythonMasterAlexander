@@ -6,7 +6,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 
 const RemoveOneUserPost: React.FC<RemoveOneUserPostType> = ({ id }) => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const clickToRemoveOnePost = async function () {
+  const handleClickToRemovePost = async function () {
     const userToken: string = loadUserFromLocalStorage("token");
     const ACTION: string = `/${id}`;
     const URL: string = API_SOCIAL_DELETE_POST_WITH_ + ACTION;
@@ -23,7 +23,7 @@ const RemoveOneUserPost: React.FC<RemoveOneUserPostType> = ({ id }) => {
       <div className="btn-container">
         <button
           className="secondary-button-style"
-          onClick={clickToRemoveOnePost}
+          onClick={handleClickToRemovePost}
         >
           Delete post
         </button>
