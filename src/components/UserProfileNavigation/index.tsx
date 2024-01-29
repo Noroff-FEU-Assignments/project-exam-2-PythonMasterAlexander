@@ -10,11 +10,7 @@ export default function UserProfileNavigation() {
       <img
         src={avatar || ShowEmptyAvatar()}
         className="inline rounded-full w-11"
-        alt={
-          avatar
-            ? "Users avatar"
-            : "Default avatar for users without uploaded avatars"
-        }
+        alt={avatar ? "Users avatar" : undefined}
       />
       <span className="capitalize self-center font-poppins font-regular text-theme-color">
         <Link to="/user-profile">{name ? name : "User"}</Link>

@@ -30,7 +30,7 @@ export default function PageHeader() {
               <section className="self-center">
                 <LogoLink />
               </section>
-              <section className="self-center">
+              <nav className="self-center">
                 <Link className="link-text-style-header mr-8" to="/user-home">
                   home
                 </Link>
@@ -43,8 +43,7 @@ export default function PageHeader() {
                 <Link className="link-text-style-header" to="/user-search">
                   users
                 </Link>
-              </section>
-              <section className="self-center hidden xl:block"></section>
+              </nav>
             </div>
           </header>
         </>

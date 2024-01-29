@@ -16,7 +16,7 @@ export default function UserProfilePage() {
       </Helmet>
       <main>
         <CreatePost />
-        <section className="">
+        <section>
           <h2 className="heading-two-font-style text-center border-t-2 border-b-2 main-border-styling">
             Users posts
           </h2>

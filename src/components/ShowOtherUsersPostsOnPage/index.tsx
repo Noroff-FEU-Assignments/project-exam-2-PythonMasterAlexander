@@ -45,7 +45,7 @@ export default function ShowOtherUsersPostsOnPage() {
               <img
                 className="inline rounded-full w-36"
                 src={post.media}
-                alt={post.media ? "User uploaded image" : ""}
+                alt={post.media ? "User uploaded image" : undefined}
               />
               <Link
                 className="btn-container uppercase font-bold font-poppins text-theme-color"

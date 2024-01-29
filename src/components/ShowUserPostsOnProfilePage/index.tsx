@@ -58,11 +58,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                 <img
                   className="inline rounded-full w-36"
                   src={avatar || ShowEmptyAvatar()}
-                  alt={
-                    postData.media
-                      ? "Users avatar"
-                      : "Default avatar for users without uploaded avatars"
-                  }
+                  alt={postData.media ? "Users avatar" : undefined}
                 />
                 <h4 className="heading-four-font-style">{postData.title}</h4>
                 <p className="paragraph-font-style">{postData.body}</p>
