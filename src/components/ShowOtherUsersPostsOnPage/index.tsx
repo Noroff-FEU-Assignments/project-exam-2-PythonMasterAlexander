@@ -44,8 +44,8 @@ export default function ShowOtherUsersPostsOnPage() {
               <h2 className="heading-two-font-style">{post.title}</h2>
               <p className="paragraph-font-style">{post.body}</p>
               <img
-                className={`avatar-style ${
-                  !post.media && "default-avatar-style"
+                className={`inline rounded-full w-12 ${
+                  !post.media && "inline rounded-none w-7"
                 }`}
                 src={post.media ? post.media : defaultAvatar}
                 alt={post.media ? "User uploaded image" : undefined}

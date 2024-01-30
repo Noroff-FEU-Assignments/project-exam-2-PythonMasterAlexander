@@ -55,9 +55,3 @@
 .success-text-style {
   @apply text-green-500 text-xs pt-2 font-regular font-poppins font-regular;
 }
-.default-avatar-style {
-  @apply inline rounded-none w-7;
-}
-.avatar-style {
-  @apply inline rounded-full w-36;
-}
