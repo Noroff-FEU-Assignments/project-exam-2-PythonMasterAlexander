@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
+import defaultBanner from "../../resources/banner.svg";
 
 export default function ShowProfilesOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
@@ -37,8 +38,10 @@ export default function ShowProfilesOnPage() {
                 >
                   <img
                     className="inline rounded-full w-36"
-                    src={profileValue.banner}
-                    alt={profileValue.banner ? "Users avatar" : undefined}
+                    src={
+                      profileValue.banner ? profileValue.banner : defaultBanner
+                    }
+                    alt={profileValue.banner ? "User banner" : undefined}
                   />
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
