@@ -1,6 +1,7 @@
 import viewPost from "../../api/posts/viewPost";
 import createComments from "../../api/posts/createComments";
 import reactOnPosts from "../../api/posts/reactOnPosts";
+import defaultAvatar from "../../resources/avatar.svg";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -11,13 +12,10 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 export default function OtherUsersPostPage() {
   const userToken = loadUserFromLocalStorage("token");
   const [userPost, setUserPost] = useState<UserPost>();
-  const [userCommentOnPost, setUserCommentOnPost] = useState<
-    UserCommentOnPost | undefined
-  >();
+  const [, setUserCommentOnPost] = useState<UserCommentOnPost | undefined>();
   const [userInputComment, setUserInputComment] = useState("");
   const [postTitle, setPostTitle] = useState<string>("Post");
   const { id } = useParams();
-  console.log(userCommentOnPost);
   const URL: string = `${API_SOCIAL_POST_}/${id}`;
   useEffect(() => {
     const viewSinglePost = async function () {
@@ -79,6 +77,11 @@ export default function OtherUsersPostPage() {
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
               <div className="flex flex-row gap-8">
+                <img
+                  className="inline rounded-full w-36"
+                  src={userPost.media ? userPost.media : defaultAvatar}
+                  alt={userPost.media ? "User avatar" : undefined}
+                />
                 <p className="paragraph-font-style">{userPost.body}</p>
                 <p className="paragraph-font-style">
                   {userPost._count.comments}

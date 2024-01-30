@@ -1,4 +1,5 @@
 import viewPosts from "../../api/posts/viewPosts";
+import defaultAvatar from "../../resources/avatar.svg";
 import { useEffect, useState } from "react";
 import { UsersPosts } from "../../api/types";
 import { API_SOCIAL_POST_ } from "../../api/constants";
@@ -44,7 +45,7 @@ export default function ShowOtherUsersPostsOnPage() {
               <p className="paragraph-font-style">{post.body}</p>
               <img
                 className="inline rounded-full w-36"
-                src={post.media}
+                src={post.media ? post.media : defaultAvatar}
                 alt={post.media ? "User uploaded image" : undefined}
               />
               <Link

@@ -1,5 +1,7 @@
 import viewProfile from "../../api/profiles/viewProfile";
 import followOrUnfollowProfiles from "../../api/profiles/followOrUnfollowProfiles";
+import defaultBanner from "../../resources/banner.svg";
+import defaultAvatar from "../../resources/avatar.svg";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
@@ -89,8 +91,8 @@ export default function ShowOtherUsersProfileOnPage() {
               <div className="border-b-2 mx-8 border-x-2 xl:mx-64 md:mx-32">
                 <img
                   className="object-cover max-h-96 w-full"
-                  src={banner}
-                  alt={avatar ? "Users banner" : undefined}
+                  src={banner ? banner : defaultBanner}
+                  alt={avatar ? "User banner" : undefined}
                 />
                 <div className="p-8">
                   <h2 className="heading-two-font-style">{name}</h2>
@@ -98,8 +100,8 @@ export default function ShowOtherUsersProfileOnPage() {
                   <p className="paragraph-font-style">{email}</p>
                   <img
                     className="inline rounded-full w-36"
-                    src={avatar}
-                    alt={avatar ? "Users avatar" : undefined}
+                    src={avatar ? avatar : defaultAvatar}
+                    alt={avatar ? "User avatar" : undefined}
                   />
                   <div>
                     <p className="paragraph-font-style">

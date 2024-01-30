@@ -1,10 +1,10 @@
 import viewProfiles from "../../api/profiles/viewProfiles";
+import defaultBanner from "../../resources/banner.svg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES } from "../../api/constants";
 import { UserProfiles } from "../../api/types";
 import { loadUserFromLocalStorage } from "../../utils/storage";
-import defaultBanner from "../../resources/banner.svg";
 
 export default function ShowProfilesOnPage() {
   const [isError, setIsError] = useState<boolean>(false);
