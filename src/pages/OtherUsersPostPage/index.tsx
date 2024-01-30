@@ -78,7 +78,9 @@ export default function OtherUsersPostPage() {
               <h2 className="heading-two-font-style">{userPost.title}</h2>
               <div className="flex flex-row gap-8">
                 <img
-                  className="inline rounded-full w-36"
+                  className={`avatar-style ${
+                    !post.media && "default-avatar-style"
+                  }`}
                   src={userPost.media ? userPost.media : defaultAvatar}
                   alt={userPost.media ? "User avatar" : undefined}
                 />
