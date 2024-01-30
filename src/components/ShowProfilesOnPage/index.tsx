@@ -1,4 +1,5 @@
 import viewProfiles from "../../api/profiles/viewProfiles";
+import defaultBanner from "../../resources/banner.svg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { API_SOCIAL_PROFILES } from "../../api/constants";
@@ -37,8 +38,10 @@ export default function ShowProfilesOnPage() {
                 >
                   <img
                     className="inline rounded-full w-36"
-                    src={profileValue.banner}
-                    alt={profileValue.banner ? "Users avatar" : undefined}
+                    src={
+                      profileValue.banner ? profileValue.banner : defaultBanner
+                    }
+                    alt={profileValue.banner ? "User banner" : undefined}
                   />
                   <h2 className="heading-two-font-style">
                     {profileValue.name}
