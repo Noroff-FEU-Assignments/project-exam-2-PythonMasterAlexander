@@ -11,7 +11,7 @@ import { loadUserFromLocalStorage } from "../../utils/storage";
 
 export default function OtherUsersPostPage() {
   const userToken = loadUserFromLocalStorage("token");
-  const [userPost, setUserPost] = useState<UserPost>();
+  const [userPost, setUserPost] = useState<UserPost | undefined>();
   const [, setUserCommentOnPost] = useState<UserCommentOnPost | undefined>();
   const [userInputComment, setUserInputComment] = useState("");
   const [postTitle, setPostTitle] = useState<string>("Post");
@@ -78,8 +78,8 @@ export default function OtherUsersPostPage() {
               <h2 className="heading-two-font-style">{userPost.title}</h2>
               <div className="flex flex-row gap-8">
                 <img
-                  className={`avatar-style ${
-                    !post.media && "default-avatar-style"
+                  className={`inline rounded-full w-12 ${
+                    !userPost.media && "inline rounded-none w-7"
                   }`}
                   src={userPost.media ? userPost.media : defaultAvatar}
                   alt={userPost.media ? "User avatar" : undefined}
