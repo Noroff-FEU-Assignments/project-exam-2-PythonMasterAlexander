@@ -72,25 +72,45 @@ export default function OtherUsersPostPage() {
         <h1 className="heading-one-font-style text-center heading-one-font-style mx-8 xl:mx-64 md:mx-32 border-x-2 py-8 border-b-2">
           Post
         </h1>
-        <div className="flex flex-col justify-center gap-8 p-8 py-48 mx-8 border-b-2 border-x-2 xl:mx-64 md:mx-32">
+        <div className="flex flex-col justify-center gap-8 p-8 xl:py-48 mx-8 border-b-2 border-x-2 xl:mx-64 md:mx-32">
           {userPost ? (
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
-              <div className="flex flex-row gap-8">
-                <img
-                  className={`inline rounded-full w-12 ${
-                    !userPost.media && "inline rounded-none w-7"
-                  }`}
-                  src={userPost.media ? userPost.media : defaultAvatar}
-                  alt={userPost.media ? "User avatar" : undefined}
-                />
-                <p className="paragraph-font-style">{userPost.body}</p>
-                <p className="paragraph-font-style">
-                  {userPost._count.comments}
-                </p>
-                <p className="paragraph-font-style">
-                  {userPost._count.reactions}
-                </p>
+              <div className="flex flex-col md:flex-row gap-8 justify-between">
+                <div>
+                  <h3 className="paragraph-font-style mb-2">Post uploads</h3>
+                  <img
+                    className={`inline rounded-full w-12 ${
+                      !userPost.media && "inline rounded-none w-7"
+                    }`}
+                    src={userPost.media ? userPost.media : defaultAvatar}
+                    alt={userPost.media ? "User avatar" : undefined}
+                  />
+                </div>
+                <div>
+                  <h3 className="paragraph-font-style">Post content</h3>
+                  <span className="paragraph-font-style">{userPost.body}</span>
+                </div>
+                <div>
+                  <h3 className="paragraph-font-style mb-2">Comments</h3>
+                  <span className="paragraph-font-style">
+                    {userPost._count.comments}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="paragraph-font-style mb-2">Likes</h3>
+                  <span className="paragraph-font-style">
+                    {userPost._count.reactions}
+                  </span>
+                  <div className="btn-container mt-2">
+                    <button
+                      className="secondary-button-style"
+                      onClick={returnASymbolOnPost}
+                    >
+                      Like
+                    </button>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col gap-8 md:flex-row flex-wrap gap-8 md:justify-between">
                 <div className="md:w-full xl:w-1/3">
@@ -109,14 +129,6 @@ export default function OtherUsersPostPage() {
                     onClick={commentOnPost}
                   >
                     Comment
-                  </button>
-                </div>
-                <div className="md:w-full xl:w-1/3 btn-container">
-                  <button
-                    className="secondary-button-style"
-                    onClick={returnASymbolOnPost}
-                  >
-                    Like
                   </button>
                 </div>
               </div>

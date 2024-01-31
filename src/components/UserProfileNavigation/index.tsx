@@ -9,7 +9,9 @@ export default function UserProfileNavigation() {
     <>
       <img
         src={avatar ? avatar : defaultAvatar}
-        className="inline rounded-full w-11"
+        className={`inline rounded-full w-12 ${
+          !avatar && "inline rounded-none w-7"
+        }`}
         alt={avatar ? "User avatar" : undefined}
       />
       <span className="capitalize self-center font-poppins font-regular text-theme-color">

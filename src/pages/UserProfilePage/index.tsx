@@ -33,7 +33,9 @@ export default function UserHomePage() {
           </div>
           <div className="flex px-8 justify-center p-8 border-x-2 mx-8 xl:mx-64 md:mx-32">
             <img
-              className="inline rounded-full w-36"
+              className={`inline rounded-full w-12 ${
+                !avatar && "inline rounded-none w-7"
+              }`}
               src={avatar ? avatar : defaultAvatar}
               alt={avatar ? "User avatar" : undefined}
             />

@@ -94,22 +94,24 @@ export default function ShowOtherUsersProfileOnPage() {
                   src={banner ? banner : defaultBanner}
                   alt={avatar ? "User banner" : undefined}
                 />
-                <div className="p-8">
-                  <h2 className="heading-two-font-style">{name}</h2>
-                  <h3 className="heading-three-font-style">Contact</h3>
-                  <p className="paragraph-font-style">{email}</p>
-                  <img
-                    className="inline rounded-full w-36"
-                    src={avatar ? avatar : defaultAvatar}
-                    alt={avatar ? "User avatar" : undefined}
-                  />
-                  <div>
-                    <p className="paragraph-font-style">
-                      {isFollowing ? followUserText : notFollowingUserText}
-                    </p>
+                <div className="p-8 flex flex-col flex-wrap justify-between gap-8 xl:flex-row">
+                  <h2 className="w-full heading-two-font-style">{name}</h2>
+                  <div className="flex flex-col md:flex-row justify-between md:gap-8">
+                    <h2 className="heading-four-font-style">Contact</h2>
+                    <p className="mb-2 paragraph-font-style">{email}</p>
+                    <img
+                      className="inline rounded-full w-12 md:w-16"
+                      src={avatar ? avatar : defaultAvatar}
+                      alt={avatar ? "User avatar" : undefined}
+                    />
                   </div>
-                  <div className="flex gap-8">
-                    <div className="btn-container md:w-full xl:w-1/3">
+                  <div className="flex gap-8 flex-col w-full">
+                    <div>
+                      <p className="paragraph-font-style">
+                        {isFollowing ? followUserText : notFollowingUserText}
+                      </p>
+                    </div>
+                    <div className="btn-container">
                       <button
                         className="uppercase font-poppins font-bold text-theme-color text-base"
                         onClick={followUser}
@@ -117,7 +119,7 @@ export default function ShowOtherUsersProfileOnPage() {
                         Follow
                       </button>
                     </div>
-                    <div className="btn-container md:w-full xl:w-1/3">
+                    <div className="btn-container">
                       <button
                         className="uppercase font-poppins font-bold text-theme-color text-base"
                         onClick={unFollowUser}
