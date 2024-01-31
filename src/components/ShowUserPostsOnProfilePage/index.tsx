@@ -52,18 +52,25 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
           <>
             {userPostData.map((postData: UserPost) => (
               <div
-                className="flex p-8 flex-col border-b-2 gap-8 xl:flex-row xl:justify-center items-center"
+                className="flex p-8 flex-col border-b-2 gap-8 xl:justify-center items-center"
                 key={postData.id}
               >
-                <img
-                  className="inline rounded-full w-36"
-                  src={avatar ? avatar : defaultAvatar}
-                  alt={postData.media ? "User avatar" : undefined}
-                />
-                <h4 className="heading-four-font-style">{postData.title}</h4>
-                <p className="paragraph-font-style">{postData.body}</p>
-
-                <form key={postData.id}>
+                <h4 className="heading-four-font-style xl:w-full">
+                  {postData.title}
+                </h4>
+                <div className="flex flex-col xl:flex-row xl:w-full xl:justify-between">
+                  <h5 className="heading-four-font-style">Post information</h5>
+                  <p className="paragraph-font-style">{postData.body}</p>
+                  <img
+                    className="inline w-12 md:w-15 xl:w-20"
+                    src={avatar ? avatar : defaultAvatar}
+                    alt={postData.media ? "User avatar" : undefined}
+                  />
+                </div>
+                <form
+                  key={postData.id}
+                  className="flex xl:justify-between xl:w-full xl:flex-row flex-col gap-8"
+                >
                   <div>
                     <input
                       className="primary-input-style"

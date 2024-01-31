@@ -20,7 +20,7 @@ const RemoveOneUserPost: React.FC<RemoveOneUserPostType> = ({ id }) => {
 
   return (
     <>
-      <div className="btn-container">
+      <div className="btn-container self-center xl:self-baseline">
         <button
           className="secondary-button-style"
           onClick={handleClickToRemovePost}

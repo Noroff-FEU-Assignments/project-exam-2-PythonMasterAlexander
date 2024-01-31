@@ -37,7 +37,7 @@ export default function ShowProfilesOnPage() {
                   key={profileValue.email}
                 >
                   <img
-                    className="inline rounded-full w-36"
+                    className="inline w-12"
                     src={
                       profileValue.banner ? profileValue.banner : defaultBanner
                     }
