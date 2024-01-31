@@ -1,4 +1,4 @@
-import ShowEmptyAvatar from "../ShowEmptyAvatar";
+import defaultAvatar from "../../resources/avatar.svg";
 import RemoveOneUserPost from "../RemoveOneUserPost";
 import viewPost from "../../api/posts/viewPost";
 import { useEffect, useState } from "react";
@@ -57,8 +57,8 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
               >
                 <img
                   className="inline rounded-full w-36"
-                  src={avatar || ShowEmptyAvatar()}
-                  alt={postData.media ? "Users avatar" : undefined}
+                  src={avatar ? avatar : defaultAvatar}
+                  alt={postData.media ? "User avatar" : undefined}
                 />
                 <h4 className="heading-four-font-style">{postData.title}</h4>
                 <p className="paragraph-font-style">{postData.body}</p>

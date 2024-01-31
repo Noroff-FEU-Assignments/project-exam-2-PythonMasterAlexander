@@ -1,6 +1,6 @@
+import defaultAvatar from "../../resources/avatar.svg";
 import { Link } from "react-router-dom";
 import { loadUserFromLocalStorage } from "../../utils/storage";
-import ShowEmptyAvatar from "../ShowEmptyAvatar";
 
 export default function UserProfileNavigation() {
   const { name, avatar } = loadUserFromLocalStorage("user") || {};
@@ -8,9 +8,9 @@ export default function UserProfileNavigation() {
   return (
     <>
       <img
-        src={avatar || ShowEmptyAvatar()}
+        src={avatar ? avatar : defaultAvatar}
         className="inline rounded-full w-11"
-        alt={avatar ? "Users avatar" : undefined}
+        alt={avatar ? "User avatar" : undefined}
       />
       <span className="capitalize self-center font-poppins font-regular text-theme-color">
         <Link to="/user-profile">{name ? name : "User"}</Link>
