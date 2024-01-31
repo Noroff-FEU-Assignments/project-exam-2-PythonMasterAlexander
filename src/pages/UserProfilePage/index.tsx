@@ -1,7 +1,7 @@
 import ShowPostMedia from "../../components/ShowPostMedia";
 import ShowUserPostsOnProfilePage from "../../components/ShowUserPostsOnProfilePage";
-import ShowEmptyAvatar from "../../components/ShowEmptyAvatar";
-import ShowEmptyBanner from "../../components/ShowEmptyBanner";
+import defaultAvatar from "../../resources/avatar.svg";
+import defaultBanner from "../../resources/banner.svg";
 import { Helmet } from "react-helmet";
 import { loadUserFromLocalStorage } from "../../utils/storage";
 
@@ -27,15 +27,15 @@ export default function UserHomePage() {
           <div className="flex justify-center py-12 mx-8 border-x-2 xl:mx-64 md:mx-32">
             <img
               className="object-cover max-h-96 w-full"
-              src={banner || ShowEmptyBanner()}
-              alt={avatar ? "Users banner" : undefined}
+              src={banner ? banner : defaultBanner}
+              alt={banner ? "User banner" : undefined}
             />
           </div>
           <div className="flex px-8 justify-center p-8 border-x-2 mx-8 xl:mx-64 md:mx-32">
             <img
               className="inline rounded-full w-36"
-              src={avatar || ShowEmptyAvatar()}
-              alt={avatar ? "Users avatar" : undefined}
+              src={avatar ? avatar : defaultAvatar}
+              alt={avatar ? "User avatar" : undefined}
             />
             <h2 className="pl-8 heading-two-font-style self-center">{name}</h2>
             <p className="p-8 paragraph-font-style">About the user</p>
