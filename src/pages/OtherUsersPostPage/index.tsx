@@ -15,6 +15,7 @@ export default function OtherUsersPostPage() {
   const [, setUserCommentOnPost] = useState<UserCommentOnPost | undefined>();
   const [userInputComment, setUserInputComment] = useState("");
   const [postTitle, setPostTitle] = useState<string>("Post");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const { id } = useParams();
   const URL: string = `${API_SOCIAL_POST_}/${id}`;
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function OtherUsersPostPage() {
       try {
         setUserPost(await viewPost(URL, userToken));
       } catch (error) {
-        console.log(error);
+        setErrorMessage("Something went wrong");
       }
     };
     viewSinglePost();
@@ -38,7 +39,7 @@ export default function OtherUsersPostPage() {
       );
       setUserInputComment("");
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
   const REACT: string = "react";
@@ -48,7 +49,7 @@ export default function OtherUsersPostPage() {
     try {
       await reactOnPosts(REACT_ON_POST, userToken, put);
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
   useEffect(() => {
@@ -134,7 +135,7 @@ export default function OtherUsersPostPage() {
               </div>
             </>
           ) : (
-            <p className="paragraph-font-style">Loading</p>
+            <p className="paragraph-font-style">{errorMessage}</p>
           )}
         </div>
         <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>
