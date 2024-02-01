@@ -76,9 +76,7 @@ export default function CreatePost() {
               />
             </div>
             <div className="btn-container border-[#cbd5e1] md:w-1/2 xl:w-2/5 h-11 xl:self-end">
-              <button className="uppercase font-poppins font-bold text-theme-color text-base">
-                post
-              </button>
+              <button className="primary-button-style">post</button>
             </div>
           </form>
         </div>

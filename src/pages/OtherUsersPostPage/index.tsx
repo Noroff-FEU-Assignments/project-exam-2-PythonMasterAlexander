@@ -77,7 +77,7 @@ export default function OtherUsersPostPage() {
           {userPost ? (
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
-              <div className="flex flex-col md:flex-row gap-8 justify-between">
+              <article className="flex flex-col md:flex-row gap-8 justify-between">
                 <div>
                   <h3 className="paragraph-font-style mb-2">Post uploads</h3>
                   <img
@@ -112,7 +112,7 @@ export default function OtherUsersPostPage() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </article>
               <div className="flex flex-col gap-8 md:flex-row flex-wrap gap-8 md:justify-between">
                 <div className="md:w-full xl:w-1/3">
                   <input

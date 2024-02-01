@@ -33,7 +33,7 @@ export default function ShowProfilesOnPage() {
             <>
               {profiles.slice(0, 10).map((profileValue) => (
                 <div
-                  className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
+                  className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row justify-between"
                   key={profileValue.email}
                 >
                   <img

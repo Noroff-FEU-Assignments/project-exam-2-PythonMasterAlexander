@@ -38,7 +38,7 @@ export default function ShowPostMedia() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-8">
           <div>
-            <p className="font-poppins text-theme-color">Banner</p>
+            <p className="paragraph-font-style">Banner</p>
             <input
               placeholder="Update banner"
               {...register("banner")}
@@ -47,7 +47,7 @@ export default function ShowPostMedia() {
             <p className="error-text-style">{errors.banner?.message}</p>
           </div>
           <div>
-            <p className="font-poppins text-theme-color">Avatar url</p>
+            <p className="paragraph-font-style">Avatar url</p>
             <input
               placeholder="Update avatar"
               {...register("avatar")}
@@ -56,10 +56,7 @@ export default function ShowPostMedia() {
             <p className="error-text-style">{errors.avatar?.message}</p>
           </div>
           <div className="btn-container">
-            <button
-              type="submit"
-              className="capitalize font-poppins text-theme-color font-regular"
-            >
+            <button type="submit" className="secondary-button-style">
               upgrade
             </button>
           </div>

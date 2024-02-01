@@ -19,7 +19,7 @@ export default function WelcomeToNetSocialPage() {
           Welcome <span className="block">to</span>
           <LogoLink />
         </h1>
-        <div className="btn-container border-[#FA8072] w-48 mt-8 uppercase font-poppins font-bold text-theme-color text-base">
+        <div className="btn-container border-[#FA8072] w-48 mt-8 primary-button-style">
           <Link to={"/"}>Continue</Link>
         </div>
         <p className="mt-6 paragraph-font-style">to sign in</p>
