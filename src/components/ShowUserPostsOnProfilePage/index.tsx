@@ -23,27 +23,6 @@ export default function ShowUserPostsOnProfilePage() {
     };
     fetchAndShowEachUserPosts();
   }, [SHOW_USER_POSTS, userToken]);
-  /* To upgrad the user post, could not get this working
-	const {
-    register,
-    handleSubmit,
-	reset,
-    formState: { errors },
-  } = useForm<UpdateUserPost>({
-    resolver: yupResolver(updateUserPostSchema)
-  });
-const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
-	const id = formData;
-	const URL = `${API_SOCIAL_UPDATE_POST_WITH_}/${id}`;
-    try {
-      await updatePost(URL, userToken, put, formData);
-      reset();
-    } catch (error) {
-      setErrorMessage("Something went wrong");
-      setIsError(true);
-    }
-  };
-  */
 
   return (
     <>
@@ -58,7 +37,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                 <h4 className="heading-four-font-style xl:w-full">
                   {postData.title}
                 </h4>
-                <div className="flex flex-col xl:flex-row xl:w-full xl:justify-between">
+                <article className="gap-8 flex flex-col xl:flex-row xl:w-full xl:justify-between">
                   <h5 className="heading-four-font-style">Post information</h5>
                   <p className="paragraph-font-style">{postData.body}</p>
                   <img
@@ -66,7 +45,7 @@ const onSubmit: SubmitHandler<UpdateUserPost> = async (formData, e) => {
                     src={avatar ? avatar : defaultAvatar}
                     alt={postData.media ? "User avatar" : undefined}
                   />
-                </div>
+                </article>
                 <form
                   key={postData.id}
                   className="flex xl:justify-between xl:w-full xl:flex-row flex-col gap-8"

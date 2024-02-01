@@ -15,6 +15,7 @@ export default function OtherUsersPostPage() {
   const [, setUserCommentOnPost] = useState<UserCommentOnPost | undefined>();
   const [userInputComment, setUserInputComment] = useState("");
   const [postTitle, setPostTitle] = useState<string>("Post");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const { id } = useParams();
   const URL: string = `${API_SOCIAL_POST_}/${id}`;
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function OtherUsersPostPage() {
       try {
         setUserPost(await viewPost(URL, userToken));
       } catch (error) {
-        console.log(error);
+        setErrorMessage("Something went wrong");
       }
     };
     viewSinglePost();
@@ -38,7 +39,7 @@ export default function OtherUsersPostPage() {
       );
       setUserInputComment("");
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
   const REACT: string = "react";
@@ -48,7 +49,7 @@ export default function OtherUsersPostPage() {
     try {
       await reactOnPosts(REACT_ON_POST, userToken, put);
     } catch (error) {
-      console.log(error);
+      setErrorMessage("Something went wrong");
     }
   };
   useEffect(() => {
@@ -76,7 +77,7 @@ export default function OtherUsersPostPage() {
           {userPost ? (
             <>
               <h2 className="heading-two-font-style">{userPost.title}</h2>
-              <div className="flex flex-col md:flex-row gap-8 justify-between">
+              <article className="flex flex-col md:flex-row gap-8 justify-between">
                 <div>
                   <h3 className="paragraph-font-style mb-2">Post uploads</h3>
                   <img
@@ -111,7 +112,7 @@ export default function OtherUsersPostPage() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </article>
               <div className="flex flex-col gap-8 md:flex-row flex-wrap gap-8 md:justify-between">
                 <div className="md:w-full xl:w-1/3">
                   <input
@@ -134,7 +135,7 @@ export default function OtherUsersPostPage() {
               </div>
             </>
           ) : (
-            <p className="paragraph-font-style">Loading</p>
+            <p className="paragraph-font-style">{errorMessage}</p>
           )}
         </div>
         <div className="min-h-8 mx-8 border-x-2 xl:mx-64 md:mx-32"></div>

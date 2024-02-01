@@ -38,24 +38,28 @@ export default function ShowOtherUsersPostsOnPage() {
         ) : (
           userPosts.slice(0, 10).map((post) => (
             <div
-              className="border-b-2 p-8 flex flex-col gap-8 xl:flex-row xl:justify-center items-center"
+              className="border-b-2 p-8 flex flex-col justify-between flex-wrap gap-8 xl:flex-row"
               key={post.id}
             >
               <h2 className="heading-two-font-style">{post.title}</h2>
-              <p className="paragraph-font-style">{post.body}</p>
-              <img
-                className={`inline rounded-full w-12 ${
-                  !post.media && "inline rounded-none w-7"
-                }`}
-                src={post.media ? post.media : defaultAvatar}
-                alt={post.media ? "User uploaded image" : undefined}
-              />
-              <Link
-                className="btn-container uppercase font-bold font-poppins text-theme-color"
-                to={`/other-users-post/${post.id}`}
-              >
-                check out
-              </Link>
+              <div>
+                <p className="pb-2 paragraph-font-style">{post.body}</p>
+                <img
+                  className={`inline rounded-full w-12 ${
+                    !post.media && "inline rounded-none w-7"
+                  }`}
+                  src={post.media ? post.media : defaultAvatar}
+                  alt={post.media ? "User uploaded image" : undefined}
+                />
+              </div>
+              <div>
+                <Link
+                  className="btn-container uppercase font-bold font-poppins text-theme-color"
+                  to={`/other-users-post/${post.id}`}
+                >
+                  check out
+                </Link>
+              </div>
             </div>
           ))
         )}

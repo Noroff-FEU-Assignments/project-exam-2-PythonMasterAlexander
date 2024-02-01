@@ -60,11 +60,11 @@ export default function ShowOtherUsersProfileOnPage() {
       setErrorMessage("Something went wrong");
     }
   };
-  const [notFollowingUserText, setnotFollowingUserText] = useState("");
+  const [notFollowingUserText, setNotFollowingUserText] = useState("");
   const unFollowUser = async function () {
     try {
       await followOrUnfollowProfiles(UNFOLLOW_USER, userToken, put);
-      setnotFollowingUserText("Not following user");
+      setNotFollowingUserText("Not following user");
     } catch (error) {
       setErrorMessage("Something went wrong");
     }
@@ -100,7 +100,7 @@ export default function ShowOtherUsersProfileOnPage() {
                     <h2 className="heading-four-font-style">Contact</h2>
                     <p className="mb-2 paragraph-font-style">{email}</p>
                     <img
-                      className="inline rounded-full w-12 md:w-16"
+                      className="inline w-12 md:w-16"
                       src={avatar ? avatar : defaultAvatar}
                       alt={avatar ? "User avatar" : undefined}
                     />
@@ -108,12 +108,14 @@ export default function ShowOtherUsersProfileOnPage() {
                   <div className="flex gap-8 flex-col w-full">
                     <div>
                       <p className="paragraph-font-style">
-                        {isFollowing ? followUserText : notFollowingUserText}
+                        {isFollowing
+                          ? followUserText
+                          : notFollowingUserText || "Not following user"}
                       </p>
                     </div>
                     <div className="btn-container">
                       <button
-                        className="uppercase font-poppins font-bold text-theme-color text-base"
+                        className="primary-button-style"
                         onClick={followUser}
                       >
                         Follow
@@ -121,7 +123,7 @@ export default function ShowOtherUsersProfileOnPage() {
                     </div>
                     <div className="btn-container">
                       <button
-                        className="uppercase font-poppins font-bold text-theme-color text-base"
+                        className="primary-button-style"
                         onClick={unFollowUser}
                       >
                         Unfollow
@@ -135,7 +137,7 @@ export default function ShowOtherUsersProfileOnPage() {
           )}
         </div>
       ) : (
-        <div>{errorMessage}</div>
+        <div className="error-text-style">{errorMessage}</div>
       )}
     </>
   );
