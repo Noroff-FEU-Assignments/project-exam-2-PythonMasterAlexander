@@ -1,5 +1,5 @@
 import NetSocialLogo from "../../components/NetSocialLogo";
-import landingPageImage from "../../resources/landing-page-image.png";
+import landingPageImage from "../../resources/landing-page-image.jpg";
 import { userLoginSchema } from "../../utils/userSchema";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
